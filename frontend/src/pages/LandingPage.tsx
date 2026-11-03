@@ -129,6 +129,9 @@ export const LandingPage: React.FC = () => {
             >
               <Plus size={18} /> Dựng phòng tuyến
             </button>
+            <a href="/player-guide.html" className="landing-guide-button">
+              <BookOpen size={17} /> Mở slide hướng dẫn
+            </a>
             <button onClick={() => setShowRulesModal(true)} className="landing-rules-button">
               <BookOpen size={17} /> Xem luật chơi
             </button>

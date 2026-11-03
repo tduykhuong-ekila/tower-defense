@@ -423,10 +423,7 @@ class ContinuousEngine:
                                if ev["type"] == "BASE_DAMAGED" and ev["target_team_id"] == tid and ev["hp_damage"] > 0), None)
                 if killer:
                     current.combat_stats[killer]["bases_destroyed"] += 1
-                for e in entities:
-                    if e["team_id"] == tid and e["status"] != "DESTROYED":
-                        e["status"], e["current_hp"] = "DESTROYED", 0
-                        events.append({"type": "ENTITY_DESTROYED", "entity_id": e["id"], "team_id": tid})
+                # Base destruction leaves surviving troops and towers in combat.
         alive = [tid for tid, t in current.teams.items() if t["status"] == "ACTIVE"]
         for event in events:
             event["round_number"] = current.round_number

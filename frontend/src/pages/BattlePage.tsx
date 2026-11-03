@@ -103,6 +103,7 @@ export function BattlePage() {
   const quantity = Number(quantityInput);
   const navigation = useRef<ArenaNavigationRef>(null);
   const [deploymentTargetId, setDeploymentTargetId] = useState("");
+  const [deploymentOrder, setDeploymentOrder] = useState<"ATTACK" | "DEFEND_BASE">("ATTACK");
   const [commandTargetId, setCommandTargetId] = useState("");
   const [armyMenu, setArmyMenu] = useState<{x: number; y: number; targetsOnly?: boolean} | null>(null);
   const [targetPicker, setTargetPicker] = useState<"DEPLOY" | "COMMAND" | null>(null);
@@ -669,7 +670,7 @@ export function BattlePage() {
           notify("Chọn điểm tập kết có mũi tên của đội để xuất quân.", "error");
           return;
         }
-        if (!deploymentTargetId) {
+        if (deploymentOrder === "ATTACK" && !deploymentTargetId) {
           notify("Chọn căn cứ đối thủ làm mục tiêu.", "error");
           return;
         }
@@ -677,12 +678,13 @@ export function BattlePage() {
           () =>
             api.deployUnit(matchId, {
               unit_type_code_or_id: selected.code,
-              target_team_id: deploymentTargetId,
+              target_team_id: deploymentOrder === "ATTACK" ? deploymentTargetId : undefined,
+              order: deploymentOrder,
               quantity,
               spawn_node_id: spawn,
               idempotency_key: crypto.randomUUID(),
             }),
-          `Đã triển khai ${quantity} ${NAMES[selected.code] || selected.name}.`,
+          `Đã triển khai ${quantity} ${NAMES[selected.code] || selected.name}${deploymentOrder === "DEFEND_BASE" ? " bảo vệ căn cứ" : ""}.`,
         );
       }
     },
@@ -698,6 +700,7 @@ export function BattlePage() {
       teamState,
       store.entities,
       deploymentTargetId,
+      deploymentOrder,
       teamId,
       action,
       notify,
@@ -1834,13 +1837,21 @@ export function BattlePage() {
                 coins={coins} disabled={pending} onChange={setQuantityInput}
                 reason={!deploymentAvailability.allowed ? deploymentAvailability.reason : undefined} />
               <div className="deployment-modal-target">
+                <label htmlFor="deployment-order">Nhiệm vụ của lính/xe mới</label>
+                <select id="deployment-order" className="target-picker" value={deploymentOrder}
+                  disabled={pending} onChange={event => setDeploymentOrder(event.target.value as "ATTACK" | "DEFEND_BASE")}>
+                  <option value="ATTACK">Tấn công đối thủ</option>
+                  <option value="DEFEND_BASE">Bảo vệ căn cứ</option>
+                </select>
+                {deploymentOrder === "DEFEND_BASE" ? <span>Quân mới sẽ bảo vệ căn cứ và đánh chặn quân địch ở gần.</span> : <>
                 <span>Mục tiêu tấn công của lính mới</span>
                 <button className="target-picker" onClick={() => { setDrawer(null); setTargetPicker("DEPLOY"); }} aria-label="Chọn mục tiêu cho lính mới">
                   ◎ {teams.find(team => team.id === deploymentTargetId)?.name || "Chọn đối thủ"} ▾
                 </button>
-                <button className="gold-button" disabled={blocked || !canDeploy || !deploymentTargetId || !deploymentAvailability.allowed}
+                </>}
+                <button className="gold-button" disabled={blocked || !canDeploy || (deploymentOrder === "ATTACK" && !deploymentTargetId) || !deploymentAvailability.allowed}
                   onClick={() => place(`node_spawn_t${myIndex + 1}`)}>
-                  Xuất {Number.isSafeInteger(quantity) && quantity > 0 ? quantity : "—"} {NAMES[selected.code] || selected.name} → {teams.find(team => team.id === deploymentTargetId)?.name || "Chọn đối thủ"}
+                  Xuất {Number.isSafeInteger(quantity) && quantity > 0 ? quantity : "—"} {NAMES[selected.code] || selected.name} → {deploymentOrder === "DEFEND_BASE" ? "Bảo vệ căn cứ" : teams.find(team => team.id === deploymentTargetId)?.name || "Chọn đối thủ"}
                   <ChevronRight size={14} />
                 </button>
               </div>

@@ -92,10 +92,22 @@ add('Vòng đấu', 'Cao trào và chuyển vòng', 'Giữ mắt ở đồng h�
 ('Cao trào cuối vòng', '15 giây cuối vòng 1, 20 giây cuối vòng 2, và 30 giây cuối vòng cuối. Bộ binh/xe tăng bắn nhanh hơn 10%; tháp chỉ nhận 2/3 sát thương.'),
 ('Tiếp tế giữa hai vòng', 'Quân sống sót giữ vị trí và tiếp tục đánh. Theo dõi HP căn cứ, mua bổ sung, nâng cấp và trả lời câu hỏi trong lúc chờ vòng mới.'),
 ('Theo trạng thái trên HUD', 'Đồng hồ và chuyển vòng do máy chủ quyết định. Khi Host tạm dừng, chờ trận tiếp tục; nút mua/nộp/nhận thưởng sẽ bị chặn.')], 'Phòng cũ có thể dùng luật Legacy: Chuẩn bị → Xây dựng & Do thám → Chiến tranh → Tổng công kích → Kết quả; thao tác được phép phụ thuộc giai đoạn. Luôn theo nhãn và lý do khóa nút của phòng.', ['round'])
+add('Kết quả', 'Quy tắc thắng và xếp hạng', 'Sống sót cuối cùng được ưu tiên hơn Tổng điểm', 'results', [
+('Thắng ngay khi chỉ còn một đội', 'Đội duy nhất còn căn cứ có HP > 0 thắng ngay, kể cả khi Tổng điểm thấp hơn đội đã bị loại.'),
+('Khi không có đội thắng do triệt hạ', 'Khi hết các vòng, Host kết thúc sớm hoặc mọi đội cùng bị loại, xếp hạng theo Tổng điểm từ cao xuống thấp.'),
+('Phân định khi bằng điểm', 'Ưu tiên số căn cứ địch đã phá → HP căn cứ còn lại → xu còn lại. Nếu tất cả đều bằng nhau, các đội đồng hạng. Khi có đội thắng do triệt hạ, các đội còn lại vẫn xếp theo điểm và thứ tự này.')], 'Ví dụ: đội A có 500 điểm nhưng căn cứ đã bị phá; đội B có 300 điểm và là đội duy nhất còn căn cứ → đội B thắng, xếp hạng 1.')
+add('Kết quả', 'Các nguồn cộng Tổng điểm', 'Mức mặc định; trọng số có thể thay đổi theo cấu hình phòng', 'results', [
+('Tấn công căn cứ địch', 'Phá một căn cứ: +100 điểm. Sát thương gây lên căn cứ địch: +10 điểm cho mỗi 100 HP; sát thương lên lính hoặc tháp không thuộc mục này.'),
+('Kiến thức và phòng thủ', 'Mỗi câu trả lời đúng: +3 điểm. Mỗi 100 HP căn cứ còn lại: +5 điểm. Mỗi tháp còn hoạt động: +5 điểm.'),
+('Xu còn lại', 'Mỗi 10 xu còn lại: +1 điểm. Các mục tính theo nhóm 100 HP hoặc 10 xu đều làm tròn xuống, ví dụ 250 HP còn lại được 10 điểm.')], 'Tổng điểm được cập nhật theo trạng thái hiện tại: dùng xu, mất HP hoặc mất tháp có thể làm điểm giảm. Danh hiệu mặc định không cộng điểm; chỉ có thưởng điểm danh hiệu nếu phòng bật tùy chọn này.')
+add('Chiến đấu & phần thưởng', 'Tiêu diệt lính và tháp nhận gì?', 'Đội tung đòn kết liễu mục tiêu địch được thưởng xu ngay', 'battle', [
+('Tiêu diệt lính địch', 'Bộ binh: +4 xu mỗi lính. Xe tăng: +7 xu mỗi xe. Pháo binh: +9 xu mỗi khẩu.'),
+('Phá tháp địch', 'Tháp súng máy: +8 xu mỗi tháp. Tháp pháo: +12 xu mỗi tháp. Xu được cộng vào nguồn lực chung của đội tung đòn kết liễu.'),
+('Xu thưởng và Tổng điểm', 'Tiêu diệt lính/tháp không cộng điểm trực tiếp. Xu thưởng chỉ góp vào mục điểm xu còn lại: mỗi 10 xu còn giữ được tính 1 điểm theo mức mặc định.')], 'Ví dụ: tiêu diệt 5 bộ binh nhận 20 xu. Nếu giữ lại toàn bộ, số xu này đóng góp 2 điểm; nếu dùng để mua quân hoặc xây tháp, điểm sẽ tính lại theo nguồn lực còn lại.')
 add('Kết quả', '13 · Kết thúc và xem thứ hạng', 'Bảo vệ căn cứ của đội cho đến cuối trận', 'results', [
 ('Khi căn cứ bị phá', 'Khi HP căn cứ về 0, đội bị loại khỏi giao tranh và không còn xuất quân hoặc xây tháp. Bạn vẫn có thể tiếp tục Thử thách trí tuệ và trả lời các câu hỏi còn lại cho đến khi trận kết thúc.'),
 ('Khi trận kết thúc', 'Trận kết thúc khi hoàn thành các vòng, có đội thắng do loại các đối thủ, hoặc Host kết thúc sớm. Bấm Xem kết quả và bảng xếp hạng →.'),
-('Đọc bảng kết quả', 'Xem hạng, điểm, căn cứ đã phá, HP còn lại và xu. Giao diện nêu thứ tự phân định: điểm → căn cứ phá → HP căn cứ → xu còn lại.')], 'Điểm tính theo cấu hình phòng: kiến thức, sát thương, căn cứ phá, công sự sống sót và nguồn lực còn lại. Đừng chỉ theo dõi số quân đã mua.')
+('Đọc bảng kết quả', 'Xem hạng, điểm, căn cứ đã phá, HP còn lại và xu. Đội sống sót cuối cùng luôn hạng 1; các hạng còn lại xét điểm → căn cứ phá → HP căn cứ → xu còn lại.')], 'Điểm tính theo cấu hình phòng: kiến thức, sát thương, căn cứ phá, công sự sống sót và nguồn lực còn lại. Tổng điểm cao nhất không bảo đảm chiến thắng nếu căn cứ đã bị phá.')
 add('Gỡ vướng', 'Nút bị mờ: kiểm tra điều gì?', 'Đọc thông báo trên màn hình; đưa chuột lên nút để xem lý do khi có', 'battle', [
 ('Không vào được phòng hoặc đội', 'Kiểm tra mã đủ 6 ký tự, phòng chưa khóa/đóng, đội còn chỗ và chưa có Mentor nếu bạn chọn Mentor. Tên đội mới không được trùng.'),
 ('Không mua, xây hoặc nâng được', 'Kiểm tra xu, công nghệ đã mở, giới hạn xe/pháo, đất xây hợp lệ và cấp sao tối đa. Hoàn tất/đóng cửa sổ khác trước khi thao tác bản đồ.'),

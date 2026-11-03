@@ -52,7 +52,7 @@ class MatchUnitListView(APIView):
 class MatchDeployUnitActionView(APIView):
     """
     POST /api/v1/matches/{match_id}/actions/deploy/
-    Deploy a batch of combat units towards a specified enemy base (§9.4, §8.5, §20).
+    Deploy a batch of combat units to attack an enemy or defend their own base.
     """
 
     def post(self, request, match_id):
@@ -76,7 +76,8 @@ class MatchDeployUnitActionView(APIView):
                 match=match,
                 team=team,
                 unit_type_code_or_id=data["unit_type_code_or_id"],
-                target_team_id=data["target_team_id"],
+                target_team_id=data.get("target_team_id"),
+                order=data["order"],
                 actor=member,
                 idempotency_key=data.get("idempotency_key"),
                 quantity=data["quantity"],

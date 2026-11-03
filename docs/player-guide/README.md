@@ -19,4 +19,4 @@ Nội dung đối chiếu với mã nguồn hiện tại của JoinMatchPage, Lo
 python3 docs/player-guide/build.py
 ```
 
-`build.py` chứa nội dung 25 slide, bố cục, điều hướng, chế độ in và cách nhúng ảnh. `assets/regions.json` chứa vùng đánh dấu theo ảnh 1600 × 1000.
+`build.py` chứa nội dung 28 slide, bố cục, điều hướng, chế độ in và cách nhúng ảnh, gồm quy tắc thắng, cách tính Tổng điểm và xu thưởng khi tiêu diệt lính/tháp. `assets/regions.json` chứa vùng đánh dấu theo ảnh 1600 × 1000.

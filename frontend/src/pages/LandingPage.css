@@ -113,6 +113,32 @@
 }
 .landing-page .btn-secondary:hover { background: #384a37; border-color: #d7c486; }
 .landing-create-button { padding: 0 23px; font-size: .98rem; }
+.landing-guide-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 0 16px;
+  border: 1px solid #d4bd76a8;
+  border-radius: 5px;
+  color: #eadcaf;
+  background: #24332cdd;
+  box-shadow: inset 0 1px #fff1c822, 0 4px 12px #151d1644;
+  font: 700 .9rem Arial,sans-serif;
+  text-decoration: none;
+  transition: background .18s ease, border-color .18s ease, transform .18s ease;
+}
+.landing-guide-button:hover {
+  border-color: #f0d783;
+  color: #fff0c1;
+  background: #394b37;
+  transform: translateY(-1px);
+}
+.landing-guide-button:focus-visible {
+  outline: 2px solid #f0d783;
+  outline-offset: 3px;
+}
 .landing-rules-button {
   display: inline-flex;
   align-items: center;

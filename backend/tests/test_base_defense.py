@@ -3,12 +3,14 @@ import copy
 
 import pytest
 from django.core.exceptions import ValidationError
+from rest_framework.test import APIClient
 
 from apps.combat.continuous import ContinuousEngine
 from apps.combat.formation import physical_position, redirect_route
 from apps.combat.map import get_game_map
 from apps.matches.services import MatchService
 from apps.units.commands import ArmyCommandService
+from apps.units.models import TeamUnlock, UnitType
 from apps.units.serializers import ArmyCommandRequestSerializer
 from apps.units.services import UnitService
 from tests.test_continuous_combat import pure_state, room
@@ -103,3 +105,47 @@ def test_command_subset_retry_redeployment_and_ownership():
         ArmyCommandService.issue(match, teams[0], "DEFEND_BASE", "empty")
     with pytest.raises(ValidationError):
         ArmyCommandService.issue(match, teams[1], "DEFEND_BASE", "foreign", [first.pk])
+
+
+@pytest.mark.django_db
+@pytest.mark.parametrize("code", ["infantry", "tank", "artillery"])
+def test_deploy_defenders_without_enemy_target_and_retry(code):
+    match, teams, tokens, _ = room(prep=600, battle=600)
+    TeamUnlock.objects.get_or_create(team=teams[0], unit_type=UnitType.objects.get(code=code))
+    client = APIClient()
+    client.credentials(HTTP_X_PARTICIPANT_TOKEN=tokens[0])
+    url = f"/api/v1/matches/{match.pk}/actions/deploy/"
+    request = {"unit_type_code_or_id": code, "order": "DEFEND_BASE",
+               "quantity": 2, "idempotency_key": "deploy-guards"}
+    teams[0].refresh_from_db()
+    coins_before = teams[0].coins
+    response = client.post(url, request, format="json")
+    assert response.status_code == 200, response.data
+    entities = response.data["entities"]
+    assert len(entities) == 2
+    for entity in entities:
+        assert entity["target_team_id"] is None
+        assert entity["target_node_id"] == "node_base_t1"
+        assert entity["simulation_state"]["order"] == "DEFEND_BASE"
+        assert entity["simulation_state"]["route_nodes"][-1] == "node_lane_t1_1"
+    assert response.data["team_coins"] == coins_before - 2 * UnitType.objects.get(code=code).cost
+    retry = client.post(url, request, format="json")
+    assert retry.status_code == 200, retry.data
+    assert [entity["id"] for entity in retry.data["entities"]] == [entity["id"] for entity in entities]
+    assert retry.data["team_coins"] == response.data["team_coins"]
+    conflict = client.post(url, {**request, "order": "ATTACK", "target_team_id": str(teams[1].pk)}, format="json")
+    assert conflict.status_code == 400
+
+
+@pytest.mark.django_db
+def test_deployment_order_target_validation():
+    match, teams, tokens, _ = room(prep=600, battle=600)
+    client = APIClient()
+    client.credentials(HTTP_X_PARTICIPANT_TOKEN=tokens[0])
+    url = f"/api/v1/matches/{match.pk}/actions/deploy/"
+    request = {"unit_type_code_or_id": "infantry", "idempotency_key": "invalid-guards"}
+    for extra in ({}, {"order": "DEFEND_BASE", "target_team_id": str(teams[1].pk)},
+                  {"order": "UNKNOWN"}):
+        response = client.post(url, {**request, **extra}, format="json")
+        assert response.status_code == 400, response.data
+    assert not match.entities.exists()

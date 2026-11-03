@@ -23,7 +23,7 @@ from apps.combat.formation import FORMATION_MINIMUM_GAP, SPRITE_BODIES, position
 from apps.combat.mobile import crowd_offset
 from apps.combat.navigation import project, staging_slots, unproject
 
-SHIELD_PLACEMENT = {"width": 440, "height": 340, "offsetY": -17}
+SHIELD_PLACEMENT = {"width": 660, "height": 510, "offsetY": -17}
 
 
 def shield_position_allowed(graph, team_index, position):

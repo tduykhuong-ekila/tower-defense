@@ -10,6 +10,7 @@ export interface PlacementGrid {
   roadClearance?: {movementEnvelope: number[]; placementEnvelope?: number[]; bodies?:Record<string,number[]>; paintedHalfWidth: number; paintedWidths?: number[]; safetyMargin: number; stagingSafetyMargin?: number; curveTolerance: number; movementFollowsPaintedCurves?: boolean};
   footprints: Record<string, Footprint>; buildableRuns: [number, number, number, number][];
 }
+export const DEFAULT_SHIELD_PLACEMENT = {width:660,height:510,offsetY:-17};
 export interface GridCell { row: number; col: number; }
 type Occupant = {entity_kind:string; status:string; current_node_id:string; unit_code?:string; unit_type_code?:string; simulation_state?:UnitSimulationState};
 const masks = new WeakMap<PlacementGrid, Uint8Array>();
@@ -127,7 +128,7 @@ export function placementReason(map:ServerMap,cell:GridCell,code:string,teamId:s
   if (cell.row<0 || cell.col<0 || cell.row+footprint.heightCells>grid.rows || cell.col+footprint.widthCells>grid.cols) return 'Ngoài bản đồ';
   if(code==='shield_generator') {
     const base=projectMap(map).get(`node_base_t${owner}`),anchor=gridAnchor(grid,cell,footprint);
-    const zone=grid.shieldPlacement || {width:440,height:340,offsetY:-17};
+    const zone=grid.shieldPlacement || DEFAULT_SHIELD_PLACEMENT;
     if(!base || ((anchor.x-base.worldX)/(zone.width/2))**2+((anchor.y-base.worldY-zone.offsetY)/(zone.height/2))**2>1+1e-9)
       return 'Máy tạo khiên phải nằm trong vòng khiên quanh căn cứ';
   }

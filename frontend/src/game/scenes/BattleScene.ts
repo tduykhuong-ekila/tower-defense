@@ -1,5 +1,5 @@
 import { showBattleStars, starPoints, upgradeLevel } from "../upgradeLevel";
-import { placementCell, gridRect, gridAnchor, placementReason, GridCell } from "../placement";
+import { DEFAULT_SHIELD_PLACEMENT, placementCell, gridRect, gridAnchor, placementReason, GridCell } from "../placement";
 import Phaser from "phaser";
 import { controllableTroops, shouldStartArmyBox } from "../armySelection";
 import { graphRange } from "../range";
@@ -589,7 +589,7 @@ export class BattleScene extends Phaser.Scene {
       if (!node) continue;
       let root = this.bases.get(team.id);
       if (!root) {
-        const shieldZone = this.state.mapData?.placement_grid?.shieldPlacement || {width:440,height:340,offsetY:-17};
+        const shieldZone = this.state.mapData?.placement_grid?.shieldPlacement || DEFAULT_SHIELD_PLACEMENT;
         root = this.add
           .container(node.worldX, node.worldY)
           .setDepth(node.worldY);

@@ -344,7 +344,8 @@ export const api = {
     matchId: string,
     data: {
       unit_type_code_or_id: string;
-      target_team_id: string;
+      target_team_id?: string;
+      order?: "ATTACK" | "DEFEND_BASE";
       quantity?: number;
       spawn_node_id?: string;
       idempotency_key?: string;

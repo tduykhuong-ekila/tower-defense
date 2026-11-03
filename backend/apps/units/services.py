@@ -40,9 +40,14 @@ class UnitService:
 
     @classmethod
     @transaction.atomic
-    def deploy_units(cls, match, team, unit_type_code_or_id, target_team_id,
-                     actor=None, idempotency_key=None, quantity=1, spawn_node_id=None):
+    def deploy_units(cls, match, team, unit_type_code_or_id, target_team_id=None,
+                     actor=None, idempotency_key=None, quantity=1, spawn_node_id=None,
+                     order="ATTACK"):
         """One locked, all-or-nothing purchase; all entities share one durable action."""
+        if order not in ("ATTACK", "DEFEND_BASE"):
+            raise ValidationError("Nhiệm vụ triển khai không hợp lệ.", code="INVALID_COMMAND")
+        if order == "DEFEND_BASE" and target_team_id is not None:
+            raise ValidationError("Bảo vệ căn cứ không nhận mục tiêu đối thủ.", code="INVALID_TARGET")
         if type(quantity) is not int or quantity < 1:
             raise ValidationError("Số lượng phải là số nguyên lớn hơn hoặc bằng 1.", code="INVALID_QUANTITY")
         key = str(idempotency_key if idempotency_key is not None else uuid.uuid4()).strip()
@@ -68,7 +73,8 @@ class UnitService:
                 original_spawn = MapDefinition.get_team_spawn_node(team_locked)
             if (existing.action_type != ActionType.DEPLOY_UNIT
                     or quantity != payload.get("quantity", 1)
-                    or str(target_team_id) != payload.get("target_team_id")
+                    or order != payload.get("order", "ATTACK")
+                    or (str(target_team_id) if target_team_id is not None else None) != payload.get("target_team_id")
                     or str(unit_type_code_or_id).strip() not in (
                         payload.get("unit_type_code"), unit_id)
                     or (spawn_node_id is not None and spawn_node_id != original_spawn)):
@@ -87,20 +93,22 @@ class UnitService:
         unit = UnitType.objects.filter(unit_query).first()
         if not unit or not unit.is_active or unit.category != EntityCategory.UNIT:
             raise ValidationError("Đơn vị chiến đấu không tồn tại hoặc không kích hoạt.", code="INVALID_UNIT")
-        if str(target_team_id) == str(team_locked.pk):
-            raise ValidationError("Không thể chỉ định căn cứ của chính đội mình làm mục tiêu.", code="INVALID_TARGET")
-        if not target_team_id:
-            raise ValidationError("Vui lòng chọn căn cứ đối thủ hợp lệ.", code="INVALID_TARGET")
-        target_team = match_locked.teams.filter(pk=target_team_id).first()
-        if target_team and (target_team.status != TeamStatus.ACTIVE or target_team.base_hp <= 0):
-            raise ValidationError(f"Căn cứ {target_team.name} đã bị phá hủy hoặc loại khỏi trận đấu.", code="INVALID_TARGET")
-        if not target_team or not MapDefinition.is_target_reachable(team_locked, target_team):
-            raise ValidationError("Không có tuyến đường tới căn cứ đối thủ đang hoạt động.", code="INVALID_TARGET")
+        target_team = None
+        if order == "ATTACK":
+            if str(target_team_id) == str(team_locked.pk):
+                raise ValidationError("Không thể chỉ định căn cứ của chính đội mình làm mục tiêu.", code="INVALID_TARGET")
+            if not target_team_id:
+                raise ValidationError("Vui lòng chọn căn cứ đối thủ hợp lệ.", code="INVALID_TARGET")
+            target_team = match_locked.teams.filter(pk=target_team_id).first()
+            if target_team and (target_team.status != TeamStatus.ACTIVE or target_team.base_hp <= 0):
+                raise ValidationError(f"Căn cứ {target_team.name} đã bị phá hủy hoặc loại khỏi trận đấu.", code="INVALID_TARGET")
+            if not target_team or not MapDefinition.is_target_reachable(team_locked, target_team):
+                raise ValidationError("Không có tuyến đường tới căn cứ đối thủ đang hoạt động.", code="INVALID_TARGET")
         ActionPolicy.require_purchase(match_locked, team_locked, "DEPLOY_UNIT", unit, quantity=quantity)
         spawn_node = MapDefinition.get_team_spawn_node(team_locked)
         if spawn_node_id is not None and spawn_node_id != spawn_node:
             raise ValidationError("Điểm tập kết không thuộc đội của bạn.", code="INVALID_POSITION")
-        target_base = MapDefinition.get_team_base_node(target_team)
+        target_base = MapDefinition.get_team_base_node(target_team or team_locked)
         from apps.combat.continuous_service import public_entity
         from apps.combat.formation import initialize_spawn
         from apps.combat.map import get_game_map
@@ -110,7 +118,7 @@ class UnitService:
         game_map = get_game_map(max(2, match_locked.teams.count()), match_locked.configuration.get("arena_layout_version", 3))
         if not game_map.path(spawn_node, game_map.attack_position(target_base)):
             raise ValidationError("Không có tuyến đường tấn công hợp lệ.", code="INVALID_TARGET")
-        order = match_locked.configuration.get("next_formation_order", 1)
+        formation_order = match_locked.configuration.get("next_formation_order", 1)
         others = []
         if unit.code != "infantry":
             others = [{"id": str(e.pk), "status": e.status, "unit_type_code": e.unit_type.code,
@@ -124,12 +132,12 @@ class UnitService:
                 match=match_locked, team=team_locked, unit_type=unit, entity_kind=EntityCategory.UNIT,
                 current_hp=hp, max_hp=hp, level=level, status=EntityStatus.ACTIVE if unit.code == "infantry" else EntityStatus.QUEUED,
                 current_node_id=spawn_node, target_team=target_team, target_node_id=target_base,
-                simulation_state={"attack_range": unit.base_stats.get("range", 1)},
+                simulation_state={"attack_range": unit.base_stats.get("range", 1), "order": order},
             )
             sim = {**unit.base_stats, "id": str(entity.pk), "team_id": str(team_locked.pk),
                    "unit_type_code": unit.code, "current_node_id": spawn_node, "status": entity.status,
                    "simulation_state": entity.simulation_state}
-            initialize_spawn(sim, others, target_base, game_map, order + index, match_locked.configuration)
+            initialize_spawn(sim, others, target_base, game_map, formation_order + index, match_locked.configuration)
             entity.status = sim["status"]
             entity.simulation_state = sim["simulation_state"]
             if unit.code != "infantry":
@@ -139,15 +147,17 @@ class UnitService:
         if cost:
             EconomyService.debit(team=team_locked, amount=cost, transaction_type=TransactionType.DEPLOY_UNIT,
                 reference_type="DEPLOY_UNIT", reference_id=key,
-                description=f"Triển khai {quantity} × {unit.name} tấn công {target_team.name}")
+                description=f"Triển khai {quantity} × {unit.name} " + (
+                    f"tấn công {target_team.name}" if target_team else "bảo vệ căn cứ"))
         team_locked.refresh_from_db(fields=["coins"])
         GameEntity.objects.bulk_create(entities)
-        match_locked.configuration["next_formation_order"] = order + quantity
+        match_locked.configuration["next_formation_order"] = formation_order + quantity
         match_locked.save(update_fields=["configuration"])
         action = GameAction.objects.create(
             match=match_locked, team=team_locked, actor=actor, action_type=ActionType.DEPLOY_UNIT,
             payload={"unit_type_code": unit.code, "unit_type_id": str(unit.pk), "unit_name": unit.name,
-                     "target_team_id": str(target_team.pk), "target_team_name": target_team.name,
+                     "target_team_id": str(target_team.pk) if target_team else None,
+                     "target_team_name": target_team.name if target_team else None, "order": order,
                      "spawn_node_id": spawn_node, "quantity": quantity,
                      "entity_id": str(entities[0].pk), "entity_ids": [str(e.pk) for e in entities],
                      "unit_cost": unit.cost, "cost": cost},

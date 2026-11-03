@@ -72,9 +72,9 @@ test('shield placement follows the displayed base ellipse',()=>{
   const x=(anchor.x-world.centerX-dx)/1.5,y=(anchor.y-world.centerY-60+17)/.86;
   base.x=x*Math.cos(a)+y*Math.sin(a);base.y=-x*Math.sin(a)+y*Math.cos(a);
  };
- setBase(219);
+ setBase(329);
  assert.equal(placementReason(map,cell,'shield_generator','team-1',[]),'');
- setBase(221);
+ setBase(331);
  assert.match(placementReason(map,cell,'shield_generator','team-1',[]),/vòng khiên/);
  assert.equal(placementReason(map,cell,'cannon_tower','team-1',[]),'');
 });

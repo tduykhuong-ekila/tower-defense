@@ -208,7 +208,8 @@ class DeploymentQuantityField(serializers.IntegerField):
 
 class DeployUnitRequestSerializer(serializers.Serializer):
     unit_type_code_or_id = serializers.CharField(required=True)
-    target_team_id = serializers.UUIDField(required=True)
+    target_team_id = serializers.UUIDField(required=False)
+    order = serializers.ChoiceField(choices=["ATTACK", "DEFEND_BASE"], default="ATTACK")
     quantity = DeploymentQuantityField(min_value=1, default=1)
     spawn_node_id = serializers.CharField(required=False, max_length=50)
     idempotency_key = serializers.CharField(required=False, max_length=128, default=None)

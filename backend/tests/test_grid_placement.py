@@ -19,7 +19,7 @@ from apps.combat.continuous import ContinuousEngine, candidates, distance, entit
 from apps.combat.continuous_service import public_entity
 from apps.combat.engine import CombatState
 from apps.combat.map import get_game_map
-from apps.combat.navigation import unproject
+from apps.combat.navigation import project, unproject
 from apps.combat.targeting import find_unit_target
 from apps.economy.models import CoinTransaction
 from apps.matches.models import Match, MatchEvent
@@ -467,6 +467,20 @@ def shield_range_cells(grid, owner):
         if len(cells) == 2:
             break
     return cells.get(True), cells.get(False)
+
+
+@pytest.mark.parametrize("dx,dy,allowed", [
+    (329, 0, True), (331, 0, False),
+    (0, 254, True), (0, 256, False),
+    (330, 0, True), (0, 255, True),
+    (329, 254, False),
+])
+def test_expanded_shield_placement_boundary(dx, dy, allowed):
+    graph = get_game_map(2, 6)
+    base = graph.nodes[graph.get_base_node(1)]
+    bx, by = project((base.x, base.y))
+    position = unproject((bx + dx, by - 17 + dy))
+    assert shield_position_allowed(graph, 1, position) is allowed
 
 
 @pytest.mark.parametrize("count", [2, 4, 8, 20])
