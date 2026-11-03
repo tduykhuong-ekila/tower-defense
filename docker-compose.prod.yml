@@ -1,0 +1,93 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: tower_defense_prod_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-tower_defense_db}
+      POSTGRES_USER: ${POSTGRES_USER:-tower}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-defense_password}
+    volumes:
+      - postgres_prod_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-tower} -d ${POSTGRES_DB:-tower_defense_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - tower_net
+
+  redis:
+    image: redis:7-alpine
+    container_name: tower_defense_prod_redis
+    restart: unless-stopped
+    volumes:
+      - redis_prod_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - tower_net
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: tower_defense_prod_backend
+    restart: unless-stopped
+    command: daphne -b 0.0.0.0 -p 8000 config.asgi:application
+    environment:
+      - DEBUG=False
+      - DJANGO_SETTINGS_MODULE=config.settings.prod
+      - SECRET_KEY=${SECRET_KEY}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS:-localhost,127.0.0.1,backend,frontend}
+      - DATABASE_URL=postgres://${POSTGRES_USER:-tower}:${POSTGRES_PASSWORD:-defense_password}@postgres:5432/${POSTGRES_DB:-tower_defense_db}
+      - REDIS_URL=redis://redis:6379/0
+      - CORS_ALLOWED_ORIGINS=${CORS_ALLOWED_ORIGINS:-http://localhost,http://localhost:80}
+      - CSRF_TRUSTED_ORIGINS=${CSRF_TRUSTED_ORIGINS:-http://localhost,http://localhost:80}
+      - COLLECT_STATIC=1
+    volumes:
+      - static_prod_data:/app/staticfiles
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health/"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    networks:
+      - tower_net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: tower_defense_prod_frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - static_prod_data:/usr/share/nginx/html/static:ro
+    depends_on:
+      - backend
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:80"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    networks:
+      - tower_net
+
+volumes:
+  postgres_prod_data:
+  redis_prod_data:
+  static_prod_data:
+
+networks:
+  tower_net:
+    driver: bridge

@@ -1,0 +1,186 @@
+{
+  "environment": "In-app Chromium; actual battle page in 1280x720 iframe; development build; samples from rendered DOM telemetry, not a sustained FPS certification",
+  "samples": [
+    {
+      "teams": 4,
+      "view": "overview",
+      "raw": [
+        "{\"fps\":96,\"serverEntities\":132,\"entities\":132,\"visibleEntities\":132,\"objects\":524,\"effects\":0,\"slowFrames\":0,\"textureMB\":11.1}"
+      ],
+      "metrics": {
+        "fps": 96,
+        "serverEntities": 132,
+        "entities": 132,
+        "visibleEntities": 132,
+        "objects": 524,
+        "effects": 0,
+        "slowFrames": 0,
+        "textureMB": 11.1
+      }
+    },
+    {
+      "teams": 8,
+      "view": "overview",
+      "raw": [
+        "{\"fps\":100,\"serverEntities\":264,\"entities\":264,\"visibleEntities\":264,\"objects\":861,\"effects\":0,\"slowFrames\":0,\"textureMB\":14.9}"
+      ],
+      "metrics": {
+        "fps": 100,
+        "serverEntities": 264,
+        "entities": 264,
+        "visibleEntities": 264,
+        "objects": 861,
+        "effects": 0,
+        "slowFrames": 0,
+        "textureMB": 14.9
+      }
+    },
+    {
+      "teams": 12,
+      "view": "overview",
+      "raw": [
+        "{\"fps\":100,\"serverEntities\":396,\"entities\":396,\"visibleEntities\":36,\"objects\":1200,\"effects\":0,\"slowFrames\":0,\"textureMB\":14.5}"
+      ],
+      "metrics": {
+        "fps": 100,
+        "serverEntities": 396,
+        "entities": 396,
+        "visibleEntities": 36,
+        "objects": 1200,
+        "effects": 0,
+        "slowFrames": 0,
+        "textureMB": 14.5
+      }
+    },
+    {
+      "teams": 16,
+      "view": "overview",
+      "raw": [
+        "{\"fps\":37,\"serverEntities\":528,\"entities\":528,\"visibleEntities\":48,\"objects\":1474,\"effects\":0,\"slowFrames\":144,\"textureMB\":14.3}"
+      ],
+      "metrics": {
+        "fps": 37,
+        "serverEntities": 528,
+        "entities": 528,
+        "visibleEntities": 48,
+        "objects": 1474,
+        "effects": 0,
+        "slowFrames": 144,
+        "textureMB": 14.3
+      }
+    },
+    {
+      "teams": 20,
+      "view": "overview after round 4, second scene previously active",
+      "raw": [
+        "{\"fps\":100,\"serverEntities\":420,\"entities\":420,\"visibleEntities\":60,\"objects\":1624,\"effects\":0,\"slowFrames\":0,\"textureMB\":14.2}"
+      ],
+      "metrics": {
+        "fps": 100,
+        "serverEntities": 420,
+        "entities": 420,
+        "visibleEntities": 60,
+        "objects": 1624,
+        "effects": 0,
+        "slowFrames": 0,
+        "textureMB": 14.2
+      }
+    },
+    {
+      "teams": 20,
+      "entities": 660,
+      "view": "overview, single active scene, final telemetry",
+      "raw": [
+        "{\"fps\":100,\"serverEntities\":660,\"entities\":660,\"visibleEntities\":60,\"objects\":1864,\"effects\":0,\"slowFrames\":4,\"frameMsMax\":13.2,\"frameMsP95\":10.9,\"textureMB\":14.2}"
+      ],
+      "metrics": {
+        "fps": 100,
+        "serverEntities": 660,
+        "entities": 660,
+        "visibleEntities": 60,
+        "objects": 1864,
+        "effects": 0,
+        "slowFrames": 4,
+        "frameMsMax": 13.2,
+        "frameMsP95": 10.9,
+        "textureMB": 14.2
+      }
+    },
+    {
+      "teams": 16,
+      "view": "overview, single active scene, final telemetry",
+      "raw": [
+        "{\"fps\":100,\"serverEntities\":528,\"entities\":528,\"visibleEntities\":48,\"objects\":1474,\"effects\":0,\"slowFrames\":1,\"frameMsMax\":13.2,\"frameMsP95\":11.4,\"textureMB\":14.3}"
+      ],
+      "metrics": {
+        "fps": 100,
+        "serverEntities": 528,
+        "entities": 528,
+        "visibleEntities": 48,
+        "objects": 1474,
+        "effects": 0,
+        "slowFrames": 1,
+        "frameMsMax": 13.2,
+        "frameMsP95": 11.4,
+        "textureMB": 14.3
+      }
+    },
+    {
+      "teams": 12,
+      "view": "overview, single active scene, final telemetry",
+      "raw": [
+        "{\"fps\":100,\"serverEntities\":396,\"entities\":396,\"visibleEntities\":36,\"objects\":1200,\"effects\":0,\"slowFrames\":5,\"frameMsMax\":11.3,\"frameMsP95\":11,\"textureMB\":14.5}"
+      ],
+      "metrics": {
+        "fps": 100,
+        "serverEntities": 396,
+        "entities": 396,
+        "visibleEntities": 36,
+        "objects": 1200,
+        "effects": 0,
+        "slowFrames": 5,
+        "frameMsMax": 11.3,
+        "frameMsP95": 11,
+        "textureMB": 14.5
+      }
+    },
+    {
+      "teams": 8,
+      "view": "overview, single active scene, final telemetry",
+      "raw": [
+        "{\"fps\":100,\"serverEntities\":264,\"entities\":264,\"visibleEntities\":264,\"objects\":861,\"effects\":0,\"slowFrames\":1,\"frameMsMax\":11.1,\"frameMsP95\":11,\"textureMB\":14.9}"
+      ],
+      "metrics": {
+        "fps": 100,
+        "serverEntities": 264,
+        "entities": 264,
+        "visibleEntities": 264,
+        "objects": 861,
+        "effects": 0,
+        "slowFrames": 1,
+        "frameMsMax": 11.1,
+        "frameMsP95": 11,
+        "textureMB": 14.9
+      }
+    },
+    {
+      "teams": 4,
+      "view": "overview, single active scene, final telemetry",
+      "raw": [
+        "{\"fps\":99,\"serverEntities\":132,\"entities\":132,\"visibleEntities\":132,\"objects\":524,\"effects\":0,\"slowFrames\":1,\"frameMsMax\":15.9,\"frameMsP95\":11.4,\"textureMB\":11.1}"
+      ],
+      "metrics": {
+        "fps": 99,
+        "serverEntities": 132,
+        "entities": 132,
+        "visibleEntities": 132,
+        "objects": 524,
+        "effects": 0,
+        "slowFrames": 1,
+        "frameMsMax": 15.9,
+        "frameMsP95": 11.4,
+        "textureMB": 11.1
+      }
+    }
+  ]
+}

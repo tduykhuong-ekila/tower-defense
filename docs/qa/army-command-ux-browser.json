@@ -1,0 +1,164 @@
+{
+  "status": "PASS",
+  "checks": [
+    "While deploying, map/minimap/sidebar/directory clicks update the new-troop target without changing the ready title, stats or existing troop orders; own-base clicks and inspection with no unit selected preserve the target.",
+    "Actual mouse clicks select one unit; Shift-click adds/removes; clicking an enemy base prepares selected-only retarget without issuing an order.",
+    "Desktop left drag selects a rectangle, Escape cancels an in-progress box, and Space-drag pans without changing the selection.",
+    "Retreat uses the home rally automatically; selecting an enemy base switches back to attack and lets the same tank rejoin combat.",
+    "Actual touch taps add/remove units, ordinary drag preserves selection, pinch zoom never selects, and touch rectangle selection automatically exits.",
+    "Canceling confirmation preserves map selection; all-army retreat freezes six IDs and excludes a troop deployed after opening confirmation.",
+    "Compact command row stays fixed between attack and retreat on desktop/mobile; resupply still enforces retreat-only commands.",
+    "Eliminated target is cleared and blocks deployment; target dialogs trap keyboard focus."
+  ],
+  "layouts": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "empty": {
+        "x": 30,
+        "y": 909,
+        "width": 1380,
+        "height": 60
+      },
+      "selected": {
+        "x": 30,
+        "y": 853,
+        "width": 1380,
+        "height": 116
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "empty": {
+        "x": 10,
+        "y": 767,
+        "width": 370,
+        "height": 54
+      },
+      "selected": {
+        "x": 10,
+        "y": 681,
+        "width": 370,
+        "height": 140
+      }
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "empty": {
+        "x": 19,
+        "y": 315,
+        "width": 806,
+        "height": 50
+      },
+      "selected": {
+        "x": 19,
+        "y": 259,
+        "width": 806,
+        "height": 106
+      }
+    }
+  ],
+  "deployment_layouts": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "dock": {
+        "x": 30,
+        "y": 767,
+        "width": 1380,
+        "height": 202
+      },
+      "cards": {
+        "x": 171,
+        "y": 795,
+        "width": 326,
+        "height": 146
+      },
+      "category": {
+        "x": 45,
+        "y": 780,
+        "width": 110,
+        "height": 176
+      },
+      "selectionChanges": "unchanged within 1px"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "dock": {
+        "x": 10,
+        "y": 471,
+        "width": 370,
+        "height": 350
+      },
+      "cards": {
+        "x": 20,
+        "y": 521,
+        "width": 350,
+        "height": 100
+      },
+      "category": {
+        "x": 20,
+        "y": 481,
+        "width": 350,
+        "height": 34
+      },
+      "selectionChanges": "unchanged within 1px"
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "dock": {
+        "x": 19,
+        "y": 191,
+        "width": 806,
+        "height": 174
+      },
+      "cards": {
+        "x": 106,
+        "y": 226,
+        "width": 230,
+        "height": 104
+      },
+      "category": {
+        "x": 28,
+        "y": 200,
+        "width": 70,
+        "height": 156
+      },
+      "selectionChanges": "unchanged within 1px"
+    }
+  ],
+  "errors": [],
+  "pinch": [
+    {
+      "zoom": 1.35,
+      "distance": 100,
+      "multi": true,
+      "mode": "INSPECT",
+      "touchPointers": 2
+    },
+    {
+      "zoom": 1.35,
+      "distance": 100,
+      "multi": true,
+      "mode": "INSPECT",
+      "touchPointers": 2
+    },
+    {
+      "zoom": 1.5,
+      "distance": 140,
+      "multi": true,
+      "mode": "INSPECT",
+      "touchPointers": 2
+    }
+  ],
+  "resupply": {
+    "phase": "PREPARATION",
+    "round": 2,
+    "order": "RETREAT_ALL",
+    "attackDisabled": true
+  }
+}

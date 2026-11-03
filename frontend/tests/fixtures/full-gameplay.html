@@ -1,0 +1,15 @@
+<!doctype html><html><meta charset="utf-8"><title>Full gameplay integration fixture</title><div id="root"></div>
+<script type="module">
+// Test instrumentation captures the actual scene; no gameplay implementation is replaced.
+import {BattleScene} from '/src/game/scenes/BattleScene.ts';
+const create=BattleScene.prototype.create;
+BattleScene.prototype.create=function(...args){window.flowScene=this;return create.apply(this,args);};
+const room=JSON.parse(localStorage.getItem('full-gameplay-test-room'));
+const role=new URLSearchParams(location.search).get('view')||'a';
+const join=room[role];
+sessionStorage.clear();sessionStorage.setItem('tower_active_match_id',room.match.id);
+sessionStorage.setItem('tower_participant_token',join.participant_token);
+sessionStorage.setItem('tower_active_member',JSON.stringify(join.member));
+history.replaceState(null,'',`/battle/${room.match.id}`);
+await import('/src/main.tsx');
+</script></html>

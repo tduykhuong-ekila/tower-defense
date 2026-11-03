@@ -1,0 +1,27 @@
+# Mobile artillery upgrade concepts v2
+
+Generated with the built-in image_gen tool using the user-provided artillery reference. No game code or live artwork references were changed.
+
+## Design edit prompt
+
+Use case: precise-object-edit.
+Edit target: the attached three artillery vehicle upgrade sheet.
+User correction: the three levels currently look too similar. Make them IMMEDIATELY distinguishable at thumbnail size through bold silhouette, equipment, armor coverage and controlled color blocking, while preserving ONE six-wheel vehicle family.
+
+Preserve the same chassis dimensions, wheelbase, six wheels (THREE robust wheels along EACH side, with three near-side wheels clearly readable), overall olive military design DNA, elevated SINGLE artillery barrel, mount position, gun direction, same isometric camera, consistent studio lighting, physical scale, bottom-center alignment and ground-contact line. No unrelated new vehicles, no tracks. Same logical gameplay footprint. Exactly three separate fully visible vehicles in equal-width cells, left to right ascending upgrades.
+
+LEFT BASIC: visibly LIGHT AND OPEN. Light warm yellow-olive green. Thin open gun cradle with exposed circular elevation wheel, ONE small recoil cylinder, narrow simple olive barrel with plain dark iron muzzle. Plenty of exposed brown wooden side rails and wooden ammo crates. Sparse small plates, black rubber wheels fully exposed. Slim simple stabilizer legs. No blue optics, no brass ornamentation, no shell rack, no armored gun enclosure. Low equipment silhouette, obvious entry-level economical vehicle.
+
+CENTER REINFORCED: visibly ARMORED INTERMEDIATE. Medium cool olive/sage green hull with LARGE DARK STEEL-GRAY armor blocks on the front and along the sides. Add TWO broad angular steel protective cheek shields around the lower gun cradle, so its center silhouette is clearly wider and more angular than level one. Reinforced barrel with wide STEEL-SILVER support bands and larger gray muzzle. Paired silver hydraulic recoil cylinders, medium reinforced square stabilizer feet. One protected rack of three brass artillery shells, rectangular steel ammo crates, a small amber targeting sight. Keep a little wood visible to connect it to level one. Armor coverage and large steel areas must be evident from far away.
+
+RIGHT ELITE: visibly HEAVY PREMIUM. DEEP FOREST/OLIVE GREEN armored shell with broad CHARCOAL STEEL secondary plates and strong restrained WARM BRASS/GOLD panel-edge strips, joints and muzzle collar. Build a bulky, stepped, angular armored housing around the breech and lower gun mount that clearly evolves the center's two cheek shields into layered heavy armor. One thick elevated olive siege barrel with a substantial dark vented muzzle brake and conspicuous brass collar. Large paired hydraulic rams with armored sleeves, compact automated shell-feed housing, closed heavy ammo compartments, a small raised double BLUE targeting optic. Heavy braced stabilizers with brass-edged footplates. Distinct imposing armored upper silhouette but SAME chassis size and wheelbase as others. No wood rails exposed. The dark green/gold/blue color hierarchy should read immediately as maximum upgrade.
+
+High-quality colorful stylized 3D cartoon game asset render, polished beveled forms, crisp readable materials, no fragile microdetails, no blur. Keep palettes cohesive within olive, iron, wood, silver steel and brass, but make the three dominant treatments unmistakably light olive/wood -> medium olive/steel gray -> dark olive/charcoal/brass/blue.
+Wide horizontal 3:1 sheet, generous fully transparent padding on all sides and large fully transparent vertical gutters. Entire cannon muzzle, stabilizers and wheels visible, no edge contact, no cropping, no inter-vehicle overlap. True alpha TRANSPARENT background. No checkerboard pattern, scenery, ground plane, smoke, effects, people, text, labels, numbers, stars or UI.
+
+## Final framing edit prompt
+
+Precise composition edit of the attached artillery comparison. Preserve EXACTLY the three distinct vehicle designs and colors, every weapon and upgrade accessory: left light olive with abundant wood and open cradle, middle silver/gray protective gun shields and armor, right dark olive/charcoal heavy shield and bright brass accents plus blue optics. Do NOT simplify or change them.
+Reframe into a clean 3-column game sprite comparison with SIGNIFICANT EMPTY TRANSPARENT PADDING. The current outside stabilizer feet and right barrel are too close to the image edges. Make all three complete vehicles SMALLER within the canvas and give every vehicle a separate cell. Use a landscape canvas around 2.4:1. Vehicle centers at 20%, 50%, 80% of total canvas width. Each COMPLETE vehicle including barrel and feet must occupy NO MORE THAN 24% of canvas width. Thus leave generous transparent outer margins and gutters. Ground feet aligned at 82% canvas height, plenty of empty transparent space above muzzles and below feet. All vehicles same chassis size. No detail should touch any edge. Do not crop or overlap anything. Each entire stabilizer foot must be intact.
+All the current level-specific silhouettes, palette differences, identical camera and polished stylized cartoon rendering must remain. Truly transparent alpha background and gutters. No checkerboard pattern, white fill, ground plane, environment, labels, stars, text, numbers or borders. Exactly three artillery vehicles side by side.
+

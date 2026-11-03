@@ -1,0 +1,39 @@
+{
+  "verified_on": "2026-10-22",
+  "status": "PASS",
+  "backend": {
+    "passed": 257,
+    "skipped": 6,
+    "skipped_reason": "Six PostgreSQL row-lock tests run separately below",
+    "command": "cd backend && .venv/bin/pytest -q"
+  },
+  "postgresql": {
+    "passed": 34,
+    "failed": 0,
+    "command": "DATABASE_URL=<test PostgreSQL URL> .venv/bin/pytest --ds=config.settings.test_postgres tests/test_round_concurrency.py tests/test_spawn_tower_realtime.py -q",
+    "database": "Disposable test_tower_defense_combat; no existing game records modified"
+  },
+  "redis": {
+    "passed": 4,
+    "failed": 0,
+    "transport": "channels_redis RedisChannelLayer against local Redis 6380",
+    "scenarios": "Both deployment orders, builds and reconnect with 4/8/20 teams; idle sockets past the 5s blocking receive",
+    "configuration": "Production host kwargs: socket_timeout=10, socket_connect_timeout=5; redis-py 8.1.0"
+  },
+  "frontend": {
+    "passed": 69,
+    "failed": 0,
+    "command": "cd frontend && npm test"
+  },
+  "checks": {
+    "ruff": "PASS",
+    "django_system_check": "PASS",
+    "migration_drift": "No changes detected",
+    "typescript_and_production_build": "PASS; existing Phaser chunk-size advisory remains"
+  },
+  "browser_report": "spawn-tower-realtime-browser.json",
+  "standard_capacity_report": "spawn-tower-realtime-standard-benchmark.json",
+  "near_capacity_report": "spawn-tower-realtime-benchmark.json",
+  "baseline_reproduction": "spawn-tower-realtime-before.json",
+  "docker_report": "spawn-tower-realtime-docker.json"
+}

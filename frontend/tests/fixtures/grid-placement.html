@@ -1,0 +1,28 @@
+<!doctype html><html><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><div id="root"></div><script type="module">
+import React from 'react';
+import {createRoot} from 'react-dom/client';
+import '/src/index.css';import '/src/game/game.css';
+const room=JSON.parse(localStorage.getItem('grid-room'));
+if(new URLSearchParams(location.search).has('panel')) {
+ const {TeamUpgradeModal}=await import('/src/components/game/TeamUpgradeModal.tsx');
+ const headers={'X-Participant-Token':room.join.participant_token};
+ const units=await fetch(`/api/v1/matches/${room.match.id}/units/`,{headers}).then(r=>r.json());
+ const root=createRoot(document.getElementById('root'));
+ let selectedType, metadataEmpty=false;
+ window.renderSelection=(code,empty=false)=>{selectedType=code;metadataEmpty=empty;window.renderLevel(window.currentLevel)};
+ const select=code=>{selectedType=code;window.renderLevel(window.currentLevel)};
+ window.renderLevel=(level)=>(window.currentLevel=level,root.render(React.createElement(TeamUpgradeModal,{units:metadataEmpty?[]:units.map(u=>({...u,level,upgrade:{...u.upgrade,next_stats:level===3?null:u.upgrade.next_stats}})),coins:5000,teamIndex:0,disabled:false,selectedType,onSelectType:select,onClose:()=>{},onPurchase:async()=>{}})));
+ window.renderLevel(1);
+} else {
+ const {BattleScene}=await import('/src/game/scenes/BattleScene.ts');
+ const {useMatchStore}=await import('/src/stores/matchStore.ts');
+ const create=BattleScene.prototype.create;
+ BattleScene.prototype.create=function(...args){window.gridScene=this;return create.apply(this,args)};
+ window.gridStore=useMatchStore;
+ sessionStorage.clear();sessionStorage.setItem('tower_active_match_id',room.match.id);
+ sessionStorage.setItem('tower_participant_token',room.join.participant_token);
+ sessionStorage.setItem('tower_active_member',JSON.stringify(room.join.member));
+ history.replaceState(null,'',`/battle/${room.match.id}`);
+ const {App}=await import('/src/App.tsx');createRoot(document.getElementById('root')).render(React.createElement(App));
+}
+</script></html>

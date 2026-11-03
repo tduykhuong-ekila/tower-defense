@@ -1,0 +1,50 @@
+TAP version 13
+# Subtest: map-first commands show one stable action row without quick-group chips
+ok 1 - map-first commands show one stable action row without quick-group chips
+  ---
+  duration_ms: 3.679917
+  ...
+# Subtest: empty map selection has a one-line hint and no executable command form
+ok 2 - empty map selection has a one-line hint and no executable command form
+  ---
+  duration_ms: 0.389584
+  ...
+# Subtest: selection includes mixed friendly mobile troops and rejects opponents, towers and dead units
+ok 3 - selection includes mixed friendly mobile troops and rejects opponents, towers and dead units
+  ---
+  duration_ms: 0.368167
+  ...
+# Subtest: command deltas preserve unselected units and duplicates cannot undo newer retreat
+ok 4 - command deltas preserve unselected units and duplicates cannot undo newer retreat
+  ---
+  duration_ms: 0.929791
+  ...
+# Subtest: question/reward events do not open a hidden quiz and open results remain visible
+ok 5 - question/reward events do not open a hidden quiz and open results remain visible
+  ---
+  duration_ms: 0.084292
+  ...
+# Subtest: multi-select toggles an entire type while preserving unrelated groups
+ok 6 - multi-select toggles an entire type while preserving unrelated groups
+  ---
+  duration_ms: 0.129166
+  ...
+# Subtest: empty or expired selected-only commands never become implicit all-army retreat
+ok 7 - empty or expired selected-only commands never become implicit all-army retreat
+  ---
+  duration_ms: 0.078375
+  ...
+# Subtest: trackpad drag pans unless Shift or the explicit box tool opts into selection
+ok 8 - trackpad drag pans unless Shift or the explicit box tool opts into selection
+  ---
+  duration_ms: 0.099084
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 220.631166

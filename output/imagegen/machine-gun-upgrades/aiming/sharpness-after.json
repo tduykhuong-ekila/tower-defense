@@ -1,0 +1,26 @@
+[
+  {
+    "level": 1,
+    "frameWidth": 512,
+    "frameHeight": 384,
+    "zoom": 1.5,
+    "headWidth": 94,
+    "headHeight": 70.5
+  },
+  {
+    "level": 2,
+    "frameWidth": 512,
+    "frameHeight": 384,
+    "zoom": 1.5,
+    "headWidth": 94,
+    "headHeight": 70.5
+  },
+  {
+    "level": 3,
+    "frameWidth": 512,
+    "frameHeight": 384,
+    "zoom": 1.5,
+    "headWidth": 94,
+    "headHeight": 70.5
+  }
+]

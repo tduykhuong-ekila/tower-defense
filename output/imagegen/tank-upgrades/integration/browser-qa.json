@@ -1,0 +1,332 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "Three approved hulls retain 68px gameplay bounds and sharp directional gun frames",
+      "detail": [
+        {
+          "level": 1,
+          "part": "turret",
+          "width": 512,
+          "clearEdges": true
+        },
+        {
+          "level": 1,
+          "part": "hull",
+          "width": 512,
+          "clearEdges": true
+        },
+        {
+          "level": 2,
+          "part": "turret",
+          "width": 512,
+          "clearEdges": true
+        },
+        {
+          "level": 2,
+          "part": "hull",
+          "width": 512,
+          "clearEdges": true
+        },
+        {
+          "level": 3,
+          "part": "turret",
+          "width": 512,
+          "clearEdges": true
+        },
+        {
+          "level": 3,
+          "part": "hull",
+          "width": 512,
+          "clearEdges": true
+        }
+      ]
+    },
+    {
+      "name": "All levels aim in every quadrant independently of the chassis",
+      "directions": [
+        {
+          "direction": 0,
+          "frames": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "direction": 4,
+          "frames": [
+            9,
+            9,
+            9
+          ]
+        },
+        {
+          "direction": 8,
+          "frames": [
+            16,
+            16,
+            16
+          ]
+        },
+        {
+          "direction": 12,
+          "frames": [
+            23,
+            23,
+            23
+          ]
+        },
+        {
+          "direction": 15,
+          "frames": [
+            29,
+            29,
+            29
+          ]
+        },
+        {
+          "direction": 1,
+          "frames": [
+            3,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Live shots turn before firing, originate at the scaled muzzle and recoil independently",
+      "shots": [
+        {
+          "id": "mg0",
+          "muzzle": {
+            "x": 591.8290408543226,
+            "y": 615.0672398925228
+          },
+          "ground": {
+            "x": 570,
+            "y": 640
+          },
+          "flip": false,
+          "yaw": 0.5221845377509993
+        },
+        {
+          "id": "mg1",
+          "muzzle": {
+            "x": 824.3370303282111,
+            "y": 615.1376303210278
+          },
+          "ground": {
+            "x": 800,
+            "y": 640
+          },
+          "flip": false,
+          "yaw": 0.5221845377509993
+        },
+        {
+          "id": "mg2",
+          "muzzle": {
+            "x": 1056.2180224336275,
+            "y": 614.2861678232575
+          },
+          "ground": {
+            "x": 1030,
+            "y": 640
+          },
+          "flip": false,
+          "yaw": 0.5221845377509988
+        }
+      ]
+    },
+    {
+      "name": "Legacy vehicle attacks aim and fire without tilting the hull"
+    },
+    {
+      "name": "Reversing travel rotates the chassis through 180 degrees while the gun still fires right",
+      "reversed": [
+        {
+          "id": "mg0",
+          "x": 534,
+          "y": 640,
+          "angle": 0,
+          "yaw": 0,
+          "error": 0,
+          "flipped": false,
+          "headFlipped": false,
+          "frame": 0,
+          "bodyYaw": 3.141592653589793,
+          "desiredBodyYaw": 3.141592653589793,
+          "bodyFrame": 16,
+          "hull": "tank-hull-1",
+          "width": 68,
+          "height": 51,
+          "hitWidth": 68,
+          "hitHeight": 68,
+          "headWidth": 68,
+          "origin": 0.8533333333333334
+        },
+        {
+          "id": "mg1",
+          "x": 764,
+          "y": 640,
+          "angle": 0,
+          "yaw": 0,
+          "error": 0,
+          "flipped": false,
+          "headFlipped": false,
+          "frame": 0,
+          "bodyYaw": 3.141592653589793,
+          "desiredBodyYaw": 3.141592653589793,
+          "bodyFrame": 16,
+          "hull": "tank-hull-2",
+          "width": 68,
+          "height": 51,
+          "hitWidth": 68,
+          "hitHeight": 68,
+          "headWidth": 68,
+          "origin": 0.8533333333333334
+        },
+        {
+          "id": "mg2",
+          "x": 994,
+          "y": 640,
+          "angle": 0,
+          "yaw": 0,
+          "error": 0,
+          "flipped": false,
+          "headFlipped": false,
+          "frame": 0,
+          "bodyYaw": 3.141592653589793,
+          "desiredBodyYaw": 3.141592653589793,
+          "bodyFrame": 16,
+          "hull": "tank-hull-3",
+          "width": 68,
+          "height": 51,
+          "hitWidth": 68,
+          "hitHeight": 68,
+          "headWidth": 68,
+          "origin": 0.8533333333333334
+        }
+      ]
+    },
+    {
+      "name": "Chassis follows all eight projected movement directions and retains its heading when stopped",
+      "chassisDirections": [
+        {
+          "offset": {
+            "x": -36,
+            "y": -48
+          },
+          "expected": -1.5707963267948966,
+          "bodyFrames": [
+            24,
+            24,
+            24
+          ]
+        },
+        {
+          "offset": {
+            "x": 12,
+            "y": -96
+          },
+          "expected": -1.0679531158670357,
+          "bodyFrames": [
+            27,
+            27,
+            27
+          ]
+        },
+        {
+          "offset": {
+            "x": 60,
+            "y": -96
+          },
+          "expected": 0,
+          "bodyFrames": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "offset": {
+            "x": 108,
+            "y": -48
+          },
+          "expected": 1.0679531158670357,
+          "bodyFrames": [
+            5,
+            5,
+            5
+          ]
+        },
+        {
+          "offset": {
+            "x": 108,
+            "y": 0
+          },
+          "expected": 1.5707963267948966,
+          "bodyFrames": [
+            8,
+            8,
+            8
+          ]
+        },
+        {
+          "offset": {
+            "x": 60,
+            "y": 48
+          },
+          "expected": 2.073639537722758,
+          "bodyFrames": [
+            11,
+            11,
+            11
+          ]
+        },
+        {
+          "offset": {
+            "x": 12,
+            "y": 48
+          },
+          "expected": 3.141592653589793,
+          "bodyFrames": [
+            16,
+            16,
+            16
+          ]
+        },
+        {
+          "offset": {
+            "x": -36,
+            "y": 0
+          },
+          "expected": -2.073639537722758,
+          "bodyFrames": [
+            21,
+            21,
+            21
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Upgrading retains object identity, heading, chassis direction and collision bounds"
+    },
+    {
+      "name": "Vehicles acquire enemy bases and fire from their barrel without rocking the chassis"
+    },
+    {
+      "name": "Legacy UNIT_MOVED replay rotates the chassis toward the movement vector"
+    },
+    {
+      "name": "Disabled vehicles stop aiming, dead targets cancel pending shots and destruction releases the turret"
+    },
+    {
+      "name": "Army cards and upgrade dialogs show the three approved vehicle images on desktop and mobile"
+    }
+  ],
+  "errors": [],
+  "failures": []
+}

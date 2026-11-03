@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-21",
+  "status": "PASS",
+  "movement_speed": {
+    "setting": 2,
+    "unit": "dimensionless multiplier of catalog hops/round conversion",
+    "previous_setting": 1.5,
+    "reference_physical_units_per_second": 5.333333333333333
+  },
+  "backend": {
+    "passed": 229,
+    "skipped": 6,
+    "seconds": 62.63,
+    "skip_reason": "six PostgreSQL row-lock tests; executed separately below"
+  },
+  "postgresql": {
+    "passed": 6,
+    "seconds": 2.9,
+    "version": 17,
+    "disposable_cluster": true
+  },
+  "frontend": {
+    "passed": 67,
+    "failed": 0,
+    "typescript_and_production_build": "PASS",
+    "existing_warning": "large Phaser bundle"
+  },
+  "ruff": "PASS",
+  "django_system_check": "PASS",
+  "browsers": {
+    "independent_movement": {
+      "status": "PASS",
+      "simultaneous_frames": 5,
+      "page_errors": []
+    },
+    "capacity": {
+      "status": "PASS",
+      "units": 30,
+      "lastTroopHP": "100/100",
+      "lastTroopPosition": {
+        "x": 67.59943121987875,
+        "y": 205.57077927843525
+      },
+      "distinctStagingPositions": 30,
+      "lastTroopPannableAndInspectable": true
+    },
+    "realtime_scenarios": [
+      {
+        "teams": 4,
+        "attack_events": 70,
+        "reconnect_ms": 509,
+        "version": 137,
+        "entities": 21,
+        "divergent_entities": 0,
+        "duplicate_sprites": 0
+      },
+      {
+        "teams": 8,
+        "attack_events": 96,
+        "reconnect_ms": 606,
+        "version": 161,
+        "entities": 37,
+        "divergent_entities": 0,
+        "duplicate_sprites": 0
+      },
+      {
+        "teams": 20,
+        "attack_events": 268,
+        "reconnect_ms": 701,
+        "version": 303,
+        "entities": 84,
+        "divergent_entities": 0,
+        "duplicate_sprites": 0
+      }
+    ]
+  },
+  "limits": [
+    "Two browser clients per room; room size is not concurrent browser count.",
+    "Browser backend uses one ASGI process, SQLite and InMemory Channels; PostgreSQL locking tested separately.",
+    "30-unit admission test releases terminal arrivals because a finite single-file destination has limited body capacity.",
+    "No 600-unit production load SLA was measured."
+  ]
+}

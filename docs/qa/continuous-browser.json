@@ -1,0 +1,172 @@
+{
+  "checks": [
+    {
+      "name": "opponent sees REST deployment without reload",
+      "latency_ms": 65
+    },
+    {
+      "name": "opponent sees tower without reload",
+      "latency_ms": 65
+    },
+    {
+      "name": "continuous movement, live effects, reconnect and persistent tower in next preparation"
+    },
+    {
+      "name": "complete two-round multiplayer match and persisted ranking"
+    }
+  ],
+  "scenarios": [
+    {
+      "teams": 2,
+      "initial_entities": 16,
+      "final_entities": 13,
+      "measured_seconds": 8.043,
+      "ticks": 25,
+      "websocket_bytes": 103374,
+      "websocket_kb_s": 12.85,
+      "fps_samples": [
+        62,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "frame_p95_ms_samples": [
+        17.30000001192093,
+        17.600000023841858,
+        17.30000001192093,
+        17.599999994039536,
+        17.400000005960464,
+        17.599999994039536,
+        17.400000005960464
+      ],
+      "heap_mb": 46,
+      "divergent_own_entities": 0,
+      "event_latency_ms_p95": 18
+    },
+    {
+      "teams": 4,
+      "initial_entities": 32,
+      "final_entities": 28,
+      "measured_seconds": 8.038,
+      "ticks": 26,
+      "websocket_bytes": 194602,
+      "websocket_kb_s": 24.21,
+      "fps_samples": [
+        62,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "frame_p95_ms_samples": [
+        17.30000001192093,
+        17.30000001192093,
+        17.5,
+        17.5,
+        17.5,
+        17.30000001192093,
+        17.5
+      ],
+      "heap_mb": 48.9,
+      "divergent_own_entities": 0,
+      "event_latency_ms_p95": 16
+    },
+    {
+      "teams": 8,
+      "initial_entities": 64,
+      "final_entities": 58,
+      "measured_seconds": 8.064,
+      "ticks": 29,
+      "websocket_bytes": 386776,
+      "websocket_kb_s": 47.96,
+      "fps_samples": [
+        61,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "frame_p95_ms_samples": [
+        18.80000001192093,
+        17.5,
+        18,
+        17.5,
+        17.599999994039536,
+        17.599999994039536,
+        17.5
+      ],
+      "heap_mb": 94.5,
+      "divergent_own_entities": 0,
+      "event_latency_ms_p95": 16
+    },
+    {
+      "teams": 12,
+      "initial_entities": 96,
+      "final_entities": 91,
+      "measured_seconds": 8.125,
+      "ticks": 29,
+      "websocket_bytes": 574846,
+      "websocket_kb_s": 70.75,
+      "fps_samples": [
+        62,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "frame_p95_ms_samples": [
+        17.30000001192093,
+        17.700000017881393,
+        17.599999994039536,
+        17.400000005960464,
+        17.600000023841858,
+        17.400000005960464,
+        17.399999976158142
+      ],
+      "heap_mb": 56.2,
+      "divergent_own_entities": 0,
+      "event_latency_ms_p95": 21
+    },
+    {
+      "teams": 20,
+      "initial_entities": 160,
+      "final_entities": 150,
+      "measured_seconds": 8.159,
+      "ticks": 30,
+      "websocket_bytes": 952445,
+      "websocket_kb_s": 116.74,
+      "fps_samples": [
+        61,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "frame_p95_ms_samples": [
+        19,
+        17.30000001192093,
+        17.69999998807907,
+        17.400000005960464,
+        17.30000001192093,
+        17.599999994039536,
+        17.400000005960464
+      ],
+      "heap_mb": 68.1,
+      "divergent_own_entities": 0,
+      "event_latency_ms_p95": 28
+    }
+  ],
+  "status": "PASS",
+  "page_errors": []
+}

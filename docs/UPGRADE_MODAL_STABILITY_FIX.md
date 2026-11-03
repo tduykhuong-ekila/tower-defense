@@ -1,0 +1,7 @@
+# Team upgrade modal stability
+
+The confirmed cause was content-driven height: `.team-upgrade-panel` only had max-height and overflow:auto. Category-specific stat rows, wrapped purchase text, confirmation controls, errors and removal of the second preview at Lv.4 resized the panel; the centered overlay moved it vertically. Stable React keys and the existing image placeholder already prevented remounting and image collapse.
+
+The panel now has a viewport-constrained fixed height (desktop maximum 720px), flex column layout and hidden outer overflow. Title, coin display, description and tab navigation do not shrink. The article alone flexes, has min-height:0, stable scrollbar gutter and internal scrolling. A fixed-height footer holds Close and upgrade/confirmation controls. Portrait safe-area padding and short-landscape rules keep actions inside the viewport. Fixed preview dimensions, object containment and reserved preview rows prevent delayed SVG loading from changing geometry.
+
+Category selection, level data, request key, errors and atomic purchase logic remain in the same persistent component. Realtime updates change its props; they do not close/remount the dialog. Tests cover all six categories at levels 1–4, delayed artwork, desktop 1440×1000, mobile portrait 390×844 and landscape 844×390. Final measurements and screenshots are recorded in `docs/qa/grid-browser-results.json` and `grid-upgrade-modal-*.png`.

@@ -1,0 +1,15 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><div id="root"></div><script type="module">
+import React from 'react';import {createRoot} from 'react-dom/client';
+import '/src/index.css';import '/src/game/game.css';
+import {FortificationCardContent} from '/src/components/game/FortificationCardContent.tsx';
+const root=createRoot(document.getElementById('root'));
+window.renderCards=(level=1,state='available')=>root.render(React.createElement('div',{className:'command-area'},
+ React.createElement('div',{className:'command-dock fantasy-frame'},
+  React.createElement('div',{className:'command-category'},React.createElement('button',{},'CÔNG SỰ')),
+  React.createElement('div',{className:'arsenal'},['mg_tower','cannon_tower','shield_generator'].map((code,i)=>
+   React.createElement('button',{key:code,className:`arsenal-card game-item-card fortification-card ${state==='selected'?'selected':''} ${state==='locked'?'locked':''}`,
+    'aria-pressed':state==='selected',disabled:['locked','unaffordable','building'].includes(state)},
+    React.createElement(FortificationCardContent,{unit:{code,name:code,cost:[25,40,30][i],level},teamIndex:0,unlocked:state!=='locked'})))),
+  React.createElement('div',{className:'selection-info'},'Kiểm tra công sự'))));
+window.renderCards();
+</script></html>

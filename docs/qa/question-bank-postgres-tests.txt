@@ -1,0 +1,14 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0
+django: version: 5.1.15, settings: config.settings.test_postgres (from option)
+rootdir: /Users/admin/Desktop/Ekila/tower_defense/backend
+configfile: pyproject.toml
+plugins: cov-7.1.0, asyncio-1.4.0, django-4.14.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 42 items
+
+tests/test_question_banks.py ................................            [ 76%]
+tests/test_question_bank_concurrency.py ..                               [ 80%]
+tests/test_round_concurrency.py ........                                 [100%]
+
+============================== 42 passed in 8.77s ==============================

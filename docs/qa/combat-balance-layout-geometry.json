@@ -1,0 +1,1250 @@
+[
+  {
+    "teams": 2,
+    "valid": true,
+    "slots": [
+      {
+        "slot": "node_tower_t1_slot1",
+        "before": 114.08850599424997,
+        "after": 96.97523009511245,
+        "reduction_percent": 15.000000000000025
+      },
+      {
+        "slot": "node_tower_t1_slot2",
+        "before": 113.95199191941758,
+        "after": 96.8591931315049,
+        "reduction_percent": 15.000000000000046
+      },
+      {
+        "slot": "node_tower_t1_slot3",
+        "before": 92.84977119359947,
+        "after": 78.92230551455954,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t1_slot4",
+        "before": 110.47845508136498,
+        "after": 93.90668681916023,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t1_slot5",
+        "before": 76.24816093595548,
+        "after": 64.81093679556218,
+        "reduction_percent": 14.999999999999968
+      },
+      {
+        "slot": "node_tower_t1_slot6",
+        "before": 92.84977119359947,
+        "after": 78.92230551455953,
+        "reduction_percent": 15.000000000000025
+      },
+      {
+        "slot": "node_tower_t2_slot1",
+        "before": 114.08850599424989,
+        "after": 96.97523009511238,
+        "reduction_percent": 15.000000000000025
+      },
+      {
+        "slot": "node_tower_t2_slot2",
+        "before": 113.95199191941751,
+        "after": 96.85919313150484,
+        "reduction_percent": 15.000000000000036
+      },
+      {
+        "slot": "node_tower_t2_slot3",
+        "before": 92.84977119359944,
+        "after": 78.92230551455953,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t2_slot4",
+        "before": 110.47845508136501,
+        "after": 93.90668681916026,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t2_slot5",
+        "before": 76.24816093595557,
+        "after": 64.81093679556226,
+        "reduction_percent": 14.999999999999968
+      },
+      {
+        "slot": "node_tower_t2_slot6",
+        "before": 92.84977119359948,
+        "after": 78.92230551455955,
+        "reduction_percent": 15.000000000000002
+      }
+    ]
+  },
+  {
+    "teams": 4,
+    "valid": true,
+    "slots": [
+      {
+        "slot": "node_tower_t1_slot1",
+        "before": 114.08850599424997,
+        "after": 96.97523009511245,
+        "reduction_percent": 15.000000000000025
+      },
+      {
+        "slot": "node_tower_t1_slot2",
+        "before": 113.95199191941758,
+        "after": 96.8591931315049,
+        "reduction_percent": 15.000000000000046
+      },
+      {
+        "slot": "node_tower_t1_slot3",
+        "before": 92.84977119359947,
+        "after": 78.92230551455954,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t1_slot4",
+        "before": 110.47845508136498,
+        "after": 93.90668681916023,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t1_slot5",
+        "before": 76.24816093595548,
+        "after": 64.81093679556218,
+        "reduction_percent": 14.999999999999968
+      },
+      {
+        "slot": "node_tower_t1_slot6",
+        "before": 92.84977119359947,
+        "after": 78.92230551455953,
+        "reduction_percent": 15.000000000000025
+      },
+      {
+        "slot": "node_tower_t2_slot1",
+        "before": 113.95199191941757,
+        "after": 96.85919313150494,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t2_slot2",
+        "before": 113.95199191941757,
+        "after": 96.85919313150488,
+        "reduction_percent": 15.000000000000046
+      },
+      {
+        "slot": "node_tower_t2_slot3",
+        "before": 90.17031245371173,
+        "after": 76.64476558565495,
+        "reduction_percent": 15.000000000000025
+      },
+      {
+        "slot": "node_tower_t2_slot4",
+        "before": 113.5991726539936,
+        "after": 96.5592967558946,
+        "reduction_percent": 14.99999999999998
+      },
+      {
+        "slot": "node_tower_t2_slot5",
+        "before": 112.29412501923218,
+        "after": 95.45000626634733,
+        "reduction_percent": 15.000000000000025
+      },
+      {
+        "slot": "node_tower_t2_slot6",
+        "before": 60.68718355579218,
+        "after": 57.65282437800257,
+        "reduction_percent": 5.000000000000004
+      },
+      {
+        "slot": "node_tower_t3_slot1",
+        "before": 114.08850599424989,
+        "after": 96.97523009511238,
+        "reduction_percent": 15.000000000000025
+      },
+      {
+        "slot": "node_tower_t3_slot2",
+        "before": 113.95199191941751,
+        "after": 96.85919313150484,
+        "reduction_percent": 15.000000000000036
+      },
+      {
+        "slot": "node_tower_t3_slot3",
+        "before": 92.84977119359944,
+        "after": 78.92230551455953,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t3_slot4",
+        "before": 110.47845508136501,
+        "after": 93.90668681916026,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t3_slot5",
+        "before": 76.24816093595557,
+        "after": 64.81093679556226,
+        "reduction_percent": 14.999999999999968
+      },
+      {
+        "slot": "node_tower_t3_slot6",
+        "before": 92.84977119359948,
+        "after": 78.92230551455955,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t4_slot1",
+        "before": 113.9519919194176,
+        "after": 96.85919313150494,
+        "reduction_percent": 15.000000000000014
+      },
+      {
+        "slot": "node_tower_t4_slot2",
+        "before": 113.95199191941751,
+        "after": 96.8591931315049,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t4_slot3",
+        "before": 90.17031245371174,
+        "after": 76.64476558565494,
+        "reduction_percent": 15.000000000000046
+      },
+      {
+        "slot": "node_tower_t4_slot4",
+        "before": 113.59917265399365,
+        "after": 96.55929675589456,
+        "reduction_percent": 15.000000000000036
+      },
+      {
+        "slot": "node_tower_t4_slot5",
+        "before": 112.29412501923223,
+        "after": 95.4500062663474,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t4_slot6",
+        "before": 60.687183555792096,
+        "after": 57.652824378002514,
+        "reduction_percent": 4.99999999999996
+      }
+    ]
+  },
+  {
+    "teams": 8,
+    "valid": true,
+    "slots": [
+      {
+        "slot": "node_tower_t1_slot1",
+        "before": 113.95199191941757,
+        "after": 96.85919313150485,
+        "reduction_percent": 15.00000000000007
+      },
+      {
+        "slot": "node_tower_t1_slot2",
+        "before": 113.95199191941754,
+        "after": 96.859193131505,
+        "reduction_percent": 14.999999999999925
+      },
+      {
+        "slot": "node_tower_t1_slot3",
+        "before": 92.84977119359945,
+        "after": 78.92230551455948,
+        "reduction_percent": 15.000000000000057
+      },
+      {
+        "slot": "node_tower_t1_slot4",
+        "before": 111.80800912240127,
+        "after": 95.036807754041,
+        "reduction_percent": 15.00000000000007
+      },
+      {
+        "slot": "node_tower_t1_slot5",
+        "before": 62.61737890549964,
+        "after": 57.92107548758717,
+        "reduction_percent": 7.500000000000007
+      },
+      {
+        "slot": "node_tower_t1_slot6",
+        "before": 91.32292807715883,
+        "after": 77.62448886558505,
+        "reduction_percent": 14.999999999999957
+      },
+      {
+        "slot": "node_tower_t2_slot1",
+        "before": 162.0,
+        "after": 137.70000000000002,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t2_slot2",
+        "before": 162.0,
+        "after": 137.7,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t2_slot3",
+        "before": 131.99999999999994,
+        "after": 112.19999999999993,
+        "reduction_percent": 15.000000000000014
+      },
+      {
+        "slot": "node_tower_t2_slot4",
+        "before": 157.80100551768308,
+        "after": 134.13085469003065,
+        "reduction_percent": 14.99999999999998
+      },
+      {
+        "slot": "node_tower_t2_slot5",
+        "before": 88.25157293505032,
+        "after": 75.01383699479278,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t2_slot6",
+        "before": 79.66126810812261,
+        "after": 67.71207789190422,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t3_slot1",
+        "before": 113.95199191941754,
+        "after": 96.85919313150491,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t3_slot2",
+        "before": 113.95199191941757,
+        "after": 96.85919313150497,
+        "reduction_percent": 14.999999999999968
+      },
+      {
+        "slot": "node_tower_t3_slot3",
+        "before": 92.46468930366586,
+        "after": 78.59498590811594,
+        "reduction_percent": 15.000000000000046
+      },
+      {
+        "slot": "node_tower_t3_slot4",
+        "before": 109.55143505623285,
+        "after": 93.11871979779792,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t3_slot5",
+        "before": 109.17614537703118,
+        "after": 92.79972357047647,
+        "reduction_percent": 15.000000000000025
+      },
+      {
+        "slot": "node_tower_t3_slot6",
+        "before": 80.30535480275469,
+        "after": 68.25955158234149,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t4_slot1",
+        "before": 92.88,
+        "after": 78.94800000000001,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t4_slot2",
+        "before": 92.88,
+        "after": 78.94799999999998,
+        "reduction_percent": 15.000000000000014
+      },
+      {
+        "slot": "node_tower_t4_slot3",
+        "before": 75.67999999999998,
+        "after": 64.32799999999996,
+        "reduction_percent": 15.000000000000025
+      },
+      {
+        "slot": "node_tower_t4_slot4",
+        "before": 85.64147000579638,
+        "after": 72.79524950492687,
+        "reduction_percent": 15.000000000000057
+      },
+      {
+        "slot": "node_tower_t4_slot5",
+        "before": 85.64147000579638,
+        "after": 72.79524950492693,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t4_slot6",
+        "before": 68.44920478521168,
+        "after": 58.181824067429915,
+        "reduction_percent": 15.000000000000014
+      },
+      {
+        "slot": "node_tower_t5_slot1",
+        "before": 113.95199191941757,
+        "after": 96.85919313150501,
+        "reduction_percent": 14.999999999999936
+      },
+      {
+        "slot": "node_tower_t5_slot2",
+        "before": 113.95199191941757,
+        "after": 96.85919313150491,
+        "reduction_percent": 15.000000000000014
+      },
+      {
+        "slot": "node_tower_t5_slot3",
+        "before": 92.84977119359948,
+        "after": 78.92230551455957,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t5_slot4",
+        "before": 111.80800912240133,
+        "after": 95.03680775404112,
+        "reduction_percent": 15.000000000000014
+      },
+      {
+        "slot": "node_tower_t5_slot5",
+        "before": 62.617378905499585,
+        "after": 57.92107548758711,
+        "reduction_percent": 7.500000000000007
+      },
+      {
+        "slot": "node_tower_t5_slot6",
+        "before": 91.32292807715892,
+        "after": 77.62448886558508,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t6_slot1",
+        "before": 161.99999999999991,
+        "after": 137.69999999999993,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t6_slot2",
+        "before": 162.00000000000003,
+        "after": 137.70000000000007,
+        "reduction_percent": 14.999999999999968
+      },
+      {
+        "slot": "node_tower_t6_slot3",
+        "before": 132.00000000000006,
+        "after": 112.20000000000005,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t6_slot4",
+        "before": 157.8010055176831,
+        "after": 134.13085469003067,
+        "reduction_percent": 14.99999999999998
+      },
+      {
+        "slot": "node_tower_t6_slot5",
+        "before": 88.25157293505026,
+        "after": 75.01383699479265,
+        "reduction_percent": 15.00000000000008
+      },
+      {
+        "slot": "node_tower_t6_slot6",
+        "before": 79.66126810812251,
+        "after": 67.71207789190414,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t7_slot1",
+        "before": 113.95199191941754,
+        "after": 96.85919313150485,
+        "reduction_percent": 15.000000000000046
+      },
+      {
+        "slot": "node_tower_t7_slot2",
+        "before": 113.95199191941754,
+        "after": 96.85919313150491,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t7_slot3",
+        "before": 92.46468930366582,
+        "after": 78.59498590811593,
+        "reduction_percent": 15.000000000000025
+      },
+      {
+        "slot": "node_tower_t7_slot4",
+        "before": 109.55143505623278,
+        "after": 93.11871979779787,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t7_slot5",
+        "before": 109.17614537703089,
+        "after": 92.7997235704763,
+        "reduction_percent": 14.999999999999957
+      },
+      {
+        "slot": "node_tower_t7_slot6",
+        "before": 80.30535480275468,
+        "after": 68.25955158234143,
+        "reduction_percent": 15.000000000000057
+      },
+      {
+        "slot": "node_tower_t8_slot1",
+        "before": 92.87999999999995,
+        "after": 78.94799999999996,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t8_slot2",
+        "before": 92.88000000000001,
+        "after": 78.94800000000005,
+        "reduction_percent": 14.999999999999957
+      },
+      {
+        "slot": "node_tower_t8_slot3",
+        "before": 75.68000000000004,
+        "after": 64.32800000000003,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t8_slot4",
+        "before": 85.64147000579639,
+        "after": 72.79524950492691,
+        "reduction_percent": 15.000000000000025
+      },
+      {
+        "slot": "node_tower_t8_slot5",
+        "before": 85.64147000579639,
+        "after": 72.79524950492696,
+        "reduction_percent": 14.999999999999968
+      },
+      {
+        "slot": "node_tower_t8_slot6",
+        "before": 68.44920478521165,
+        "after": 58.1818240674299,
+        "reduction_percent": 15.000000000000002
+      }
+    ]
+  },
+  {
+    "teams": 20,
+    "valid": true,
+    "slots": [
+      {
+        "slot": "node_tower_t1_slot1",
+        "before": 113.95199191941761,
+        "after": 96.85919313150475,
+        "reduction_percent": 15.000000000000192
+      },
+      {
+        "slot": "node_tower_t1_slot2",
+        "before": 113.95199191941751,
+        "after": 96.85919313150485,
+        "reduction_percent": 15.000000000000025
+      },
+      {
+        "slot": "node_tower_t1_slot3",
+        "before": 92.84977119359951,
+        "after": 78.92230551455958,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t1_slot4",
+        "before": 103.39942796293758,
+        "after": 87.88951376849674,
+        "reduction_percent": 15.000000000000192
+      },
+      {
+        "slot": "node_tower_t1_slot5",
+        "before": 103.39942796293744,
+        "after": 87.88951376849668,
+        "reduction_percent": 15.000000000000135
+      },
+      {
+        "slot": "node_tower_t1_slot6",
+        "before": 81.29532057617065,
+        "after": 69.10102248974513,
+        "reduction_percent": 14.999999999999902
+      },
+      {
+        "slot": "node_tower_t2_slot1",
+        "before": 135.90387001423528,
+        "after": 115.51828951209987,
+        "reduction_percent": 15.00000000000009
+      },
+      {
+        "slot": "node_tower_t2_slot2",
+        "before": 135.90387001423554,
+        "after": 115.51828951210027,
+        "reduction_percent": 14.999999999999957
+      },
+      {
+        "slot": "node_tower_t2_slot3",
+        "before": 110.73648667826598,
+        "after": 94.12601367652618,
+        "reduction_percent": 14.999999999999902
+      },
+      {
+        "slot": "node_tower_t2_slot4",
+        "before": 127.64914317193616,
+        "after": 108.5017716961459,
+        "reduction_percent": 14.99999999999988
+      },
+      {
+        "slot": "node_tower_t2_slot5",
+        "before": 111.39096773299327,
+        "after": 94.68232257304429,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t2_slot6",
+        "before": 101.51461165906164,
+        "after": 86.28741991020243,
+        "reduction_percent": 14.999999999999968
+      },
+      {
+        "slot": "node_tower_t3_slot1",
+        "before": 158.09763196291763,
+        "after": 134.38298716847987,
+        "reduction_percent": 15.00000000000007
+      },
+      {
+        "slot": "node_tower_t3_slot2",
+        "before": 158.09763196291766,
+        "after": 134.3829871684799,
+        "reduction_percent": 15.00000000000007
+      },
+      {
+        "slot": "node_tower_t3_slot3",
+        "before": 128.82029271052545,
+        "after": 109.49724880394645,
+        "reduction_percent": 15.000000000000146
+      },
+      {
+        "slot": "node_tower_t3_slot4",
+        "before": 148.80833894557543,
+        "after": 126.4870881037391,
+        "reduction_percent": 15.000000000000014
+      },
+      {
+        "slot": "node_tower_t3_slot5",
+        "before": 110.58374011250326,
+        "after": 93.99617909562764,
+        "reduction_percent": 15.000000000000124
+      },
+      {
+        "slot": "node_tower_t3_slot6",
+        "before": 119.26179973166475,
+        "after": 101.37252977191507,
+        "reduction_percent": 14.99999999999998
+      },
+      {
+        "slot": "node_tower_t4_slot1",
+        "before": 158.09763196291757,
+        "after": 134.38298716847993,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t4_slot2",
+        "before": 158.09763196291763,
+        "after": 134.38298716847996,
+        "reduction_percent": 15.000000000000025
+      },
+      {
+        "slot": "node_tower_t4_slot3",
+        "before": 128.82029271052537,
+        "after": 109.49724880394655,
+        "reduction_percent": 15.000000000000014
+      },
+      {
+        "slot": "node_tower_t4_slot4",
+        "before": 146.8770566032322,
+        "after": 124.84549811274744,
+        "reduction_percent": 14.999999999999957
+      },
+      {
+        "slot": "node_tower_t4_slot5",
+        "before": 126.41078852747599,
+        "after": 107.44917024835468,
+        "reduction_percent": 14.999999999999936
+      },
+      {
+        "slot": "node_tower_t4_slot6",
+        "before": 117.65414312626805,
+        "after": 100.00602165732798,
+        "reduction_percent": 14.999999999999892
+      },
+      {
+        "slot": "node_tower_t5_slot1",
+        "before": 135.90387001423545,
+        "after": 115.51828951209978,
+        "reduction_percent": 15.000000000000258
+      },
+      {
+        "slot": "node_tower_t5_slot2",
+        "before": 135.90387001423537,
+        "after": 115.51828951210003,
+        "reduction_percent": 15.000000000000025
+      },
+      {
+        "slot": "node_tower_t5_slot3",
+        "before": 110.73648667826585,
+        "after": 94.12601367652594,
+        "reduction_percent": 15.000000000000025
+      },
+      {
+        "slot": "node_tower_t5_slot4",
+        "before": 123.02036839239956,
+        "after": 104.56731313353946,
+        "reduction_percent": 15.000000000000135
+      },
+      {
+        "slot": "node_tower_t5_slot5",
+        "before": 123.02036839239972,
+        "after": 104.56731313353986,
+        "reduction_percent": 14.999999999999925
+      },
+      {
+        "slot": "node_tower_t5_slot6",
+        "before": 97.72427050633313,
+        "after": 83.06562993038311,
+        "reduction_percent": 15.000000000000046
+      },
+      {
+        "slot": "node_tower_t6_slot1",
+        "before": 113.95199191941761,
+        "after": 96.85919313150507,
+        "reduction_percent": 14.999999999999913
+      },
+      {
+        "slot": "node_tower_t6_slot2",
+        "before": 113.95199191941761,
+        "after": 96.85919313150497,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t6_slot3",
+        "before": 92.84977119359951,
+        "after": 78.92230551455964,
+        "reduction_percent": 14.999999999999936
+      },
+      {
+        "slot": "node_tower_t6_slot4",
+        "before": 98.47558744603765,
+        "after": 83.7042493291321,
+        "reduction_percent": 14.999999999999902
+      },
+      {
+        "slot": "node_tower_t6_slot5",
+        "before": 98.47558744603788,
+        "after": 83.70424932913214,
+        "reduction_percent": 15.000000000000057
+      },
+      {
+        "slot": "node_tower_t6_slot6",
+        "before": 77.25088996660969,
+        "after": 65.66325647161817,
+        "reduction_percent": 15.00000000000009
+      },
+      {
+        "slot": "node_tower_t7_slot1",
+        "before": 100.05957947959166,
+        "after": 85.0506425576528,
+        "reduction_percent": 15.000000000000124
+      },
+      {
+        "slot": "node_tower_t7_slot2",
+        "before": 100.05957947959172,
+        "after": 85.050642557653,
+        "reduction_percent": 14.999999999999957
+      },
+      {
+        "slot": "node_tower_t7_slot3",
+        "before": 81.53002772411173,
+        "after": 69.30052356549497,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t7_slot4",
+        "before": 82.31616835389221,
+        "after": 69.96874310080808,
+        "reduction_percent": 15.000000000000357
+      },
+      {
+        "slot": "node_tower_t7_slot5",
+        "before": 82.31616835389204,
+        "after": 69.96874310080835,
+        "reduction_percent": 14.999999999999858
+      },
+      {
+        "slot": "node_tower_t7_slot6",
+        "before": 63.87529825806886,
+        "after": 57.48776843226197,
+        "reduction_percent": 9.999999999999998
+      },
+      {
+        "slot": "node_tower_t8_slot1",
+        "before": 93.65242813049643,
+        "after": 79.60456391092188,
+        "reduction_percent": 15.00000000000009
+      },
+      {
+        "slot": "node_tower_t8_slot2",
+        "before": 93.65242813049633,
+        "after": 79.60456391092183,
+        "reduction_percent": 15.000000000000057
+      },
+      {
+        "slot": "node_tower_t8_slot3",
+        "before": 76.30938588410817,
+        "after": 64.86297800149198,
+        "reduction_percent": 14.999999999999947
+      },
+      {
+        "slot": "node_tower_t8_slot4",
+        "before": 75.25875948692702,
+        "after": 63.96994556388799,
+        "reduction_percent": 14.999999999999968
+      },
+      {
+        "slot": "node_tower_t8_slot5",
+        "before": 75.2587594869272,
+        "after": 63.969945563888174,
+        "reduction_percent": 14.999999999999936
+      },
+      {
+        "slot": "node_tower_t8_slot6",
+        "before": 58.01759819089365,
+        "after": 57.43742220898481,
+        "reduction_percent": 0.9999999999998344
+      },
+      {
+        "slot": "node_tower_t9_slot1",
+        "before": 93.65242813049638,
+        "after": 79.60456391092188,
+        "reduction_percent": 15.000000000000036
+      },
+      {
+        "slot": "node_tower_t9_slot2",
+        "before": 93.65242813049642,
+        "after": 79.60456391092194,
+        "reduction_percent": 15.000000000000014
+      },
+      {
+        "slot": "node_tower_t9_slot3",
+        "before": 76.30938588410814,
+        "after": 64.86297800149192,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t9_slot4",
+        "before": 76.55237566071753,
+        "after": 65.06951931161004,
+        "reduction_percent": 14.999999999999824
+      },
+      {
+        "slot": "node_tower_t9_slot5",
+        "before": 76.55237566071733,
+        "after": 65.0695193116097,
+        "reduction_percent": 15.000000000000046
+      },
+      {
+        "slot": "node_tower_t9_slot6",
+        "before": 59.074293757908,
+        "after": 57.597436413960295,
+        "reduction_percent": 2.5000000000000133
+      },
+      {
+        "slot": "node_tower_t10_slot1",
+        "before": 100.05957947959156,
+        "after": 85.0506425576528,
+        "reduction_percent": 15.000000000000036
+      },
+      {
+        "slot": "node_tower_t10_slot2",
+        "before": 100.05957947959156,
+        "after": 85.05064255765285,
+        "reduction_percent": 14.99999999999998
+      },
+      {
+        "slot": "node_tower_t10_slot3",
+        "before": 81.53002772411168,
+        "after": 69.30052356549494,
+        "reduction_percent": 14.99999999999998
+      },
+      {
+        "slot": "node_tower_t10_slot4",
+        "before": 85.90129947080393,
+        "after": 73.01610455018329,
+        "reduction_percent": 15.00000000000007
+      },
+      {
+        "slot": "node_tower_t10_slot5",
+        "before": 85.9012994708037,
+        "after": 73.01610455018306,
+        "reduction_percent": 15.000000000000103
+      },
+      {
+        "slot": "node_tower_t10_slot6",
+        "before": 66.80416105473694,
+        "after": 58.45364092289483,
+        "reduction_percent": 12.49999999999999
+      },
+      {
+        "slot": "node_tower_t11_slot1",
+        "before": 113.95199191941751,
+        "after": 96.85919313150475,
+        "reduction_percent": 15.000000000000114
+      },
+      {
+        "slot": "node_tower_t11_slot2",
+        "before": 113.95199191941741,
+        "after": 96.85919313150487,
+        "reduction_percent": 14.999999999999936
+      },
+      {
+        "slot": "node_tower_t11_slot3",
+        "before": 92.8497711935994,
+        "after": 78.92230551455958,
+        "reduction_percent": 14.999999999999892
+      },
+      {
+        "slot": "node_tower_t11_slot4",
+        "before": 103.39942796293752,
+        "after": 87.88951376849691,
+        "reduction_percent": 14.99999999999998
+      },
+      {
+        "slot": "node_tower_t11_slot5",
+        "before": 103.39942796293786,
+        "after": 87.88951376849715,
+        "reduction_percent": 15.000000000000036
+      },
+      {
+        "slot": "node_tower_t11_slot6",
+        "before": 81.29532057617055,
+        "after": 69.10102248974492,
+        "reduction_percent": 15.000000000000057
+      },
+      {
+        "slot": "node_tower_t12_slot1",
+        "before": 135.90387001423562,
+        "after": 115.51828951210027,
+        "reduction_percent": 15.000000000000014
+      },
+      {
+        "slot": "node_tower_t12_slot2",
+        "before": 135.90387001423545,
+        "after": 115.51828951210011,
+        "reduction_percent": 15.000000000000014
+      },
+      {
+        "slot": "node_tower_t12_slot3",
+        "before": 110.73648667826589,
+        "after": 94.12601367652594,
+        "reduction_percent": 15.000000000000057
+      },
+      {
+        "slot": "node_tower_t12_slot4",
+        "before": 127.64914317193616,
+        "after": 108.50177169614588,
+        "reduction_percent": 14.999999999999892
+      },
+      {
+        "slot": "node_tower_t12_slot5",
+        "before": 111.39096773299342,
+        "after": 94.68232257304436,
+        "reduction_percent": 15.000000000000036
+      },
+      {
+        "slot": "node_tower_t12_slot6",
+        "before": 101.51461165906164,
+        "after": 86.28741991020247,
+        "reduction_percent": 14.999999999999925
+      },
+      {
+        "slot": "node_tower_t13_slot1",
+        "before": 158.09763196291763,
+        "after": 134.38298716848,
+        "reduction_percent": 14.99999999999998
+      },
+      {
+        "slot": "node_tower_t13_slot2",
+        "before": 158.09763196291743,
+        "after": 134.38298716847964,
+        "reduction_percent": 15.000000000000114
+      },
+      {
+        "slot": "node_tower_t13_slot3",
+        "before": 128.8202927105254,
+        "after": 109.4972488039466,
+        "reduction_percent": 14.99999999999998
+      },
+      {
+        "slot": "node_tower_t13_slot4",
+        "before": 148.80833894557531,
+        "after": 126.4870881037392,
+        "reduction_percent": 14.99999999999988
+      },
+      {
+        "slot": "node_tower_t13_slot5",
+        "before": 110.58374011250326,
+        "after": 93.99617909562764,
+        "reduction_percent": 15.000000000000124
+      },
+      {
+        "slot": "node_tower_t13_slot6",
+        "before": 119.26179973166495,
+        "after": 101.3725297719153,
+        "reduction_percent": 14.999999999999925
+      },
+      {
+        "slot": "node_tower_t14_slot1",
+        "before": 158.09763196291757,
+        "after": 134.38298716847993,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t14_slot2",
+        "before": 158.09763196291763,
+        "after": 134.38298716847996,
+        "reduction_percent": 15.000000000000025
+      },
+      {
+        "slot": "node_tower_t14_slot3",
+        "before": 128.82029271052537,
+        "after": 109.49724880394655,
+        "reduction_percent": 15.000000000000014
+      },
+      {
+        "slot": "node_tower_t14_slot4",
+        "before": 146.8770566032322,
+        "after": 124.84549811274744,
+        "reduction_percent": 14.999999999999957
+      },
+      {
+        "slot": "node_tower_t14_slot5",
+        "before": 126.41078852747577,
+        "after": 107.44917024835446,
+        "reduction_percent": 14.999999999999957
+      },
+      {
+        "slot": "node_tower_t14_slot6",
+        "before": 117.65414312626805,
+        "after": 100.00602165732798,
+        "reduction_percent": 14.999999999999892
+      },
+      {
+        "slot": "node_tower_t15_slot1",
+        "before": 135.90387001423554,
+        "after": 115.51828951210035,
+        "reduction_percent": 14.999999999999892
+      },
+      {
+        "slot": "node_tower_t15_slot2",
+        "before": 135.90387001423545,
+        "after": 115.51828951210011,
+        "reduction_percent": 15.000000000000014
+      },
+      {
+        "slot": "node_tower_t15_slot3",
+        "before": 110.73648667826593,
+        "after": 94.12601367652599,
+        "reduction_percent": 15.000000000000046
+      },
+      {
+        "slot": "node_tower_t15_slot4",
+        "before": 123.0203683923998,
+        "after": 104.56731313353986,
+        "reduction_percent": 14.99999999999998
+      },
+      {
+        "slot": "node_tower_t15_slot5",
+        "before": 123.02036839239963,
+        "after": 104.5673131335397,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t15_slot6",
+        "before": 97.72427050633303,
+        "after": 83.06562993038308,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t16_slot1",
+        "before": 113.95199191941751,
+        "after": 96.85919313150475,
+        "reduction_percent": 15.000000000000114
+      },
+      {
+        "slot": "node_tower_t16_slot2",
+        "before": 113.95199191941751,
+        "after": 96.85919313150497,
+        "reduction_percent": 14.999999999999925
+      },
+      {
+        "slot": "node_tower_t16_slot3",
+        "before": 92.84977119359951,
+        "after": 78.92230551455964,
+        "reduction_percent": 14.999999999999936
+      },
+      {
+        "slot": "node_tower_t16_slot4",
+        "before": 98.47558744603775,
+        "after": 83.704249329132,
+        "reduction_percent": 15.00000000000009
+      },
+      {
+        "slot": "node_tower_t16_slot5",
+        "before": 98.4755874460378,
+        "after": 83.70424932913215,
+        "reduction_percent": 14.99999999999998
+      },
+      {
+        "slot": "node_tower_t16_slot6",
+        "before": 77.25088996660978,
+        "after": 65.66325647161841,
+        "reduction_percent": 14.999999999999869
+      },
+      {
+        "slot": "node_tower_t17_slot1",
+        "before": 100.05957947959156,
+        "after": 85.0506425576529,
+        "reduction_percent": 14.999999999999925
+      },
+      {
+        "slot": "node_tower_t17_slot2",
+        "before": 100.05957947959172,
+        "after": 85.0506425576529,
+        "reduction_percent": 15.000000000000057
+      },
+      {
+        "slot": "node_tower_t17_slot3",
+        "before": 81.53002772411173,
+        "after": 69.30052356549503,
+        "reduction_percent": 14.999999999999936
+      },
+      {
+        "slot": "node_tower_t17_slot4",
+        "before": 82.31616835389215,
+        "after": 69.96874310080831,
+        "reduction_percent": 15.000000000000025
+      },
+      {
+        "slot": "node_tower_t17_slot5",
+        "before": 82.31616835389205,
+        "after": 69.96874310080831,
+        "reduction_percent": 14.999999999999925
+      },
+      {
+        "slot": "node_tower_t17_slot6",
+        "before": 63.87529825806889,
+        "after": 57.48776843226203,
+        "reduction_percent": 9.999999999999954
+      },
+      {
+        "slot": "node_tower_t18_slot1",
+        "before": 93.6524281304964,
+        "after": 79.60456391092185,
+        "reduction_percent": 15.00000000000009
+      },
+      {
+        "slot": "node_tower_t18_slot2",
+        "before": 93.65242813049633,
+        "after": 79.60456391092194,
+        "reduction_percent": 14.999999999999936
+      },
+      {
+        "slot": "node_tower_t18_slot3",
+        "before": 76.30938588410811,
+        "after": 64.8629780014919,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t18_slot4",
+        "before": 75.25875948692713,
+        "after": 63.969945563887904,
+        "reduction_percent": 15.000000000000213
+      },
+      {
+        "slot": "node_tower_t18_slot5",
+        "before": 75.25875948692713,
+        "after": 63.969945563888146,
+        "reduction_percent": 14.999999999999892
+      },
+      {
+        "slot": "node_tower_t18_slot6",
+        "before": 58.017598190893686,
+        "after": 57.437422208984685,
+        "reduction_percent": 1.000000000000112
+      },
+      {
+        "slot": "node_tower_t19_slot1",
+        "before": 93.65242813049638,
+        "after": 79.60456391092188,
+        "reduction_percent": 15.000000000000036
+      },
+      {
+        "slot": "node_tower_t19_slot2",
+        "before": 93.65242813049642,
+        "after": 79.60456391092194,
+        "reduction_percent": 15.000000000000014
+      },
+      {
+        "slot": "node_tower_t19_slot3",
+        "before": 76.30938588410814,
+        "after": 64.86297800149192,
+        "reduction_percent": 14.999999999999991
+      },
+      {
+        "slot": "node_tower_t19_slot4",
+        "before": 76.55237566071753,
+        "after": 65.06951931161004,
+        "reduction_percent": 14.999999999999824
+      },
+      {
+        "slot": "node_tower_t19_slot5",
+        "before": 76.55237566071733,
+        "after": 65.0695193116097,
+        "reduction_percent": 15.000000000000046
+      },
+      {
+        "slot": "node_tower_t19_slot6",
+        "before": 59.074293757908,
+        "after": 57.597436413960295,
+        "reduction_percent": 2.5000000000000133
+      },
+      {
+        "slot": "node_tower_t20_slot1",
+        "before": 100.05957947959166,
+        "after": 85.0506425576529,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t20_slot2",
+        "before": 100.05957947959166,
+        "after": 85.05064255765285,
+        "reduction_percent": 15.000000000000057
+      },
+      {
+        "slot": "node_tower_t20_slot3",
+        "before": 81.53002772411173,
+        "after": 69.30052356549491,
+        "reduction_percent": 15.00000000000007
+      },
+      {
+        "slot": "node_tower_t20_slot4",
+        "before": 85.90129947080368,
+        "after": 73.01610455018313,
+        "reduction_percent": 15.000000000000002
+      },
+      {
+        "slot": "node_tower_t20_slot5",
+        "before": 85.9012994708036,
+        "after": 73.016104550183,
+        "reduction_percent": 15.000000000000057
+      },
+      {
+        "slot": "node_tower_t20_slot6",
+        "before": 66.80416105473685,
+        "after": 58.453640922894735,
+        "reduction_percent": 12.50000000000001
+      }
+    ]
+  }
+]

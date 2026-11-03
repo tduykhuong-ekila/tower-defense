@@ -1,0 +1,30 @@
+[
+  {
+    "teams": 2,
+    "previousCandidates": 2399,
+    "currentCandidates": 2650,
+    "previousVisibleGap": 41.423,
+    "currentVisibleGap": 23.054
+  },
+  {
+    "teams": 4,
+    "previousCandidates": 914,
+    "currentCandidates": 1059,
+    "previousVisibleGap": 41.423,
+    "currentVisibleGap": 23.054
+  },
+  {
+    "teams": 8,
+    "previousCandidates": 151,
+    "currentCandidates": 221,
+    "previousVisibleGap": 41.423,
+    "currentVisibleGap": 23.054
+  },
+  {
+    "teams": 20,
+    "previousCandidates": 490,
+    "currentCandidates": 679,
+    "previousVisibleGap": 41.51,
+    "currentVisibleGap": 23.141
+  }
+]

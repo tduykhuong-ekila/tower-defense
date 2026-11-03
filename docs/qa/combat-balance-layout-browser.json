@@ -1,0 +1,122 @@
+{
+  "status": "PASS",
+  "scenarios": [
+    {
+      "teams": 2,
+      "units": 20,
+      "all_move_first_tick": true,
+      "artillery_hp": 80,
+      "artillery_speed": 5,
+      "artillery_range": 1.5,
+      "cannon_range": 2,
+      "slots": 12,
+      "layout_version": 4,
+      "two_client_agreement": true,
+      "stable_visuals": true,
+      "reconnect": true,
+      "frames": [
+        {
+          "fps": 60,
+          "frameMsP95": 17.19999998807907
+        },
+        {
+          "fps": 60,
+          "frameMsP95": 17.299999982118607
+        },
+        {
+          "fps": 60,
+          "frameMsP95": 17.5
+        }
+      ]
+    },
+    {
+      "teams": 4,
+      "units": 20,
+      "all_move_first_tick": true,
+      "artillery_hp": 80,
+      "artillery_speed": 5,
+      "artillery_range": 1.5,
+      "cannon_range": 2,
+      "slots": 24,
+      "layout_version": 4,
+      "two_client_agreement": true,
+      "stable_visuals": true,
+      "reconnect": true,
+      "frames": [
+        {
+          "fps": 60,
+          "frameMsP95": 18
+        },
+        {
+          "fps": 60,
+          "frameMsP95": 16.80000001192093
+        },
+        {
+          "fps": 60,
+          "frameMsP95": 17
+        }
+      ]
+    },
+    {
+      "teams": 8,
+      "units": 20,
+      "all_move_first_tick": true,
+      "artillery_hp": 80,
+      "artillery_speed": 5,
+      "artillery_range": 1.5,
+      "cannon_range": 2,
+      "slots": 48,
+      "layout_version": 4,
+      "two_client_agreement": true,
+      "stable_visuals": true,
+      "reconnect": true,
+      "frames": [
+        {
+          "fps": 60,
+          "frameMsP95": 16.899999976158142
+        },
+        {
+          "fps": 60,
+          "frameMsP95": 17.599999994039536
+        },
+        {
+          "fps": 60,
+          "frameMsP95": 16.80000001192093
+        }
+      ]
+    },
+    {
+      "teams": 20,
+      "units": 20,
+      "all_move_first_tick": true,
+      "artillery_hp": 80,
+      "artillery_speed": 5,
+      "artillery_range": 1.5,
+      "cannon_range": 2,
+      "slots": 120,
+      "layout_version": 4,
+      "two_client_agreement": true,
+      "stable_visuals": true,
+      "reconnect": true,
+      "frames": [
+        {
+          "fps": 60,
+          "frameMsP95": 17.600000023841858
+        },
+        {
+          "fps": 60,
+          "frameMsP95": 17.599999994039536
+        },
+        {
+          "fps": 60,
+          "frameMsP95": 17.599999994039536
+        },
+        {
+          "fps": 60,
+          "frameMsP95": 17.599999994039536
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

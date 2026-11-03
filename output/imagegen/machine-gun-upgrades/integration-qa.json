@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "Phaser loads and renders all three PNG upgrades at 94px with the shared ground anchor",
+    "Existing tower upgrades in place without movement, rescaling, or recreation",
+    "Build preview uses the selected upgrade texture",
+    "Picker cards and all upgrade previews load, including the mobile upgrade dialog"
+  ],
+  "errors": [],
+  "failures": [],
+  "status": "PASS"
+}

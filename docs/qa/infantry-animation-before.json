@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "baseline": true,
+  "errors": [],
+  "movement": {
+    "frames": 421,
+    "visibility_changes": 74,
+    "animation_starts": 134,
+    "identity_changes": 0,
+    "ticks": 34,
+    "per_unit": {
+      "20d3c93c-f957-48ed-95d2-5e6586bca1be": 5,
+      "561a367f-17ab-4715-8574-1366b4accb1c": 8,
+      "564270ba-1d56-48ec-acf1-4ee5e40d5e81": 7,
+      "91cf4f0b-de81-481f-85cb-f86b75a5b528": 4,
+      "9dbc2501-4f01-4ff0-b484-cef5c78d5fae": 5,
+      "a197eec0-d384-48bc-9442-576dd61c5314": 8,
+      "b3df6001-2f73-445d-b807-dde6dd00beae": 6,
+      "df407538-c7e4-4c25-8b27-e21568959b6c": 4,
+      "2d33b50c-abdc-4626-af41-cb66ee3ce617": 7,
+      "a5913700-311c-4436-8376-1e9f243f4e6a": 7,
+      "94ed1805-9b76-4891-a27b-bbca48366c52": 5,
+      "b741979d-3c1f-4e9b-b44a-969a8d1d03ff": 4,
+      "27a8c7c6-b16e-4258-8ecc-8bcb7a4ec98e": 4
+    },
+    "sprites": 20,
+    "visible": 6,
+    "fps": [
+      62,
+      60,
+      59,
+      60,
+      60,
+      60,
+      60
+    ]
+  }
+}

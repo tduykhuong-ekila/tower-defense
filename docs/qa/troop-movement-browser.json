@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "checks": [
+    "+20 coin reward remains claimable exactly once",
+    "five distinct server rally positions, immediate live Infantry eligibility at 80 HP, Artillery retains 100 HP",
+    "both clients see artillery attacks while all five infantry independently receive movement",
+    "pause and reload restore exact physical positions, zones, combat states, targets and cooldowns",
+    "next major round retains surviving troops"
+  ],
+  "errors": [],
+  "simultaneous_frames": 5,
+  "final_version": 87
+}

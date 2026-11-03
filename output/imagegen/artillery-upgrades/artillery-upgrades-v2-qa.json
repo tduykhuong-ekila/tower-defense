@@ -1,0 +1,44 @@
+{
+  "path": "/Users/admin/Desktop/Ekila/tower_defense/output/imagegen/artillery-upgrades/artillery-upgrades-v2.png",
+  "size": [
+    1942,
+    809
+  ],
+  "mode": "RGBA",
+  "alpha_bounds": [
+    38,
+    74,
+    1941,
+    793
+  ],
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "transparent_vertical_gaps": [
+    [
+      0,
+      38
+    ],
+    [
+      622,
+      635
+    ],
+    [
+      638,
+      673
+    ],
+    [
+      1266,
+      1275
+    ],
+    [
+      1276,
+      1297
+    ],
+    [
+      1300,
+      1312
+    ]
+  ]
+}

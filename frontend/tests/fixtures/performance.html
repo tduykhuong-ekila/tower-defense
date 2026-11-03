@@ -1,0 +1,17 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><title>Đo hiệu năng đấu trường thật</title>
+<style>body{margin:0;background:#263b30;color:#eee6ca;font:12px system-ui}header{padding:8px}iframe{display:block;border:0}</style>
+<header id="status">Đang kết nối khán giả kiểm thử…</header><iframe title="Chiến trường đo hiệu năng"></iframe>
+<script type="module">
+// Dev-only fixture: authenticates through the real public join endpoint. It contains
+// no embedded tokens and renders the actual battle page, not a mock scene.
+const p=new URLSearchParams(location.search), code=p.get('code'), frame=document.querySelector('iframe');
+frame.width=p.get('width')||1280; frame.height=p.get('height')||720;
+try {
+ const match=await fetch('/api/v1/matches/code/'+encodeURIComponent(code)+'/').then(r=>{if(!r.ok)throw Error(r.status);return r.json()});
+ const joined=await fetch('/api/v1/matches/'+match.id+'/join/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({room_code:code,display_name:'Browser performance probe',role:'SPECTATOR'})}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()});
+ sessionStorage.setItem('tower_participant_token',joined.participant_token);
+ sessionStorage.setItem('tower_active_member',JSON.stringify(joined.member));
+ document.querySelector('#status').textContent='Khán giả · '+match.name+' · '+frame.width+' × '+frame.height+' · Dữ liệu thật';
+ frame.src='/battle/'+match.id+'?performance=1';
+} catch(e) {document.querySelector('#status').textContent='Lỗi kết nối fixture: '+e.message;}
+</script></html>

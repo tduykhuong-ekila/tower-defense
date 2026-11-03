@@ -1,0 +1,62 @@
+{
+  "platform": "macOS-26.5.2-x86_64-i386-64bit",
+  "database": "sqlite",
+  "transport": "InMemory Channels without connected clients; browser TCP results are separate",
+  "scenarios": [
+    {
+      "teams": 2,
+      "entities": 66,
+      "ticks": 30,
+      "tick_ms_median": 21.1,
+      "tick_ms_p95": 22.66,
+      "tick_ms_max": 37.28,
+      "queries_median": 11.0,
+      "delta_bytes_median": 2302.0,
+      "process_peak_rss_mb": 107.7
+    },
+    {
+      "teams": 4,
+      "entities": 132,
+      "ticks": 30,
+      "tick_ms_median": 34.99,
+      "tick_ms_p95": 60.45,
+      "tick_ms_max": 84.29,
+      "queries_median": 11.0,
+      "delta_bytes_median": 4873.5,
+      "process_peak_rss_mb": 107.7
+    },
+    {
+      "teams": 8,
+      "entities": 264,
+      "ticks": 30,
+      "tick_ms_median": 66.1,
+      "tick_ms_p95": 94.11,
+      "tick_ms_max": 116.33,
+      "queries_median": 11.0,
+      "delta_bytes_median": 13412.5,
+      "process_peak_rss_mb": 109.8
+    },
+    {
+      "teams": 12,
+      "entities": 396,
+      "ticks": 30,
+      "tick_ms_median": 98.43,
+      "tick_ms_p95": 169.72,
+      "tick_ms_max": 171.7,
+      "queries_median": 11.0,
+      "delta_bytes_median": 21116.0,
+      "process_peak_rss_mb": 109.8
+    },
+    {
+      "teams": 20,
+      "entities": 660,
+      "ticks": 30,
+      "tick_ms_median": 173.36,
+      "tick_ms_p95": 290.31,
+      "tick_ms_max": 363.1,
+      "queries_median": 11.5,
+      "delta_bytes_median": 34911.0,
+      "process_peak_rss_mb": 117.4
+    }
+  ]
+}

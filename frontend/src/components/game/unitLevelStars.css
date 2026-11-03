@@ -1,0 +1,20 @@
+.unit-level-stars {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  height: 16px;
+  color: #e6c779;
+  line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.unit-level-stars > svg { display: block; width: 13px; height: 13px; flex-shrink: 0; }
+.unit-level-stars--compact > svg { width: 11px; height: 11px; }
+.unit-level-stars--tiny > svg { width: 9px; height: 9px; }
+.unit-level-stars--large > svg { width: 17px; height: 17px; }
+.unit-level-stars--large { height: 20px; }
+.team-upgrade-panel nav button { display: inline-flex; align-items: center; gap: 6px; }
+.team-upgrade-panel h3 { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.upgrade-previews small { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: center; text-align: center; }
+@media(max-width:600px) { .upgrade-previews small { font-size: 10px; } }

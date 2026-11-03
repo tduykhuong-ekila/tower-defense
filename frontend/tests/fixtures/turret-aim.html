@@ -1,0 +1,56 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><title>Machine gun aiming regression</title>
+<style>body{margin:0;background:#78934b}canvas{display:block}</style><div id="game"></div>
+<script type="module">
+import Phaser from 'phaser';
+import {BootScene} from '/src/game/scenes/BootScene.ts';
+import {BattleScene} from '/src/game/scenes/BattleScene.ts';
+import {EMPTY_SCENE} from '/src/game/bridge.ts';
+const mode=new URLSearchParams(location.search).get('tower');
+const mobile=mode==='tank'||mode==='artillery';
+const towerCode=mobile?mode:mode==='cannon'?'cannon_tower':'mg_tower';
+const a=-Math.PI*3/4;
+function node(id,type,x,y) {
+ const px=(x-800)/1.5,py=(y-580)/.86;
+ return {node_id:id,node_type:type,team_index:type==='tower_slot'?1:2,is_passable:type!=='tower_slot',x:px*Math.cos(a)+py*Math.sin(a),y:-px*Math.sin(a)+py*Math.cos(a)};
+}
+const towers=[570,800,1030],nodes=[];
+for(let i=0;i<3;i++) {
+ nodes.push(node('tower-'+i,mobile?'lane':'tower_slot',towers[i],640));
+ for(let d=0;d<16;d++) {
+  const yaw=d/16*Math.PI*2;
+  nodes.push(node('target-'+i+'-'+d,'lane',towers[i]+Math.cos(yaw)*145,640+Math.sin(yaw)*145*.55));
+ }
+}
+if(mobile)nodes.push(node('node_base_t2','base',1250,500));
+const map={num_teams:2,team_ids:['a','b'],nodes,edges:[]};
+const teams=['a','b'].map((id,i)=>({id,name:'Team '+i,base_hp:500,initial_base_hp:500,base_shield:0,status:'ACTIVE'}));
+const entities=towers.flatMap((x,i)=>[
+ {id:'mg'+i,team_id:'a',unit_code:towerCode,entity_kind:mobile?'UNIT':'TOWER',level:i+1,current_node_id:'tower-'+i,status:'ACTIVE',current_hp:140,max_hp:140,current_shield:0,range:2,simulation_state:{attack_target_id:'enemy'+i,combat_state:'ATTACKING',...(mobile?{formation_order:i}:{})}},
+ {id:'enemy'+i,team_id:'b',unit_code:'infantry',entity_kind:'UNIT',level:1,current_node_id:'target-'+i+'-7',status:'ACTIVE',current_hp:80,max_hp:80,current_shield:0},
+]);
+if(new URLSearchParams(location.search).has('panel')) {
+ const {default:React}=await import('react');const {createRoot}=await import('react-dom/client');
+ const {TeamUpgradeModal}=await import('/src/components/game/TeamUpgradeModal.tsx');
+ await import('/src/index.css');await import('/src/game/game.css');
+ const root=createRoot(document.getElementById('game'));
+ const stats={hp:150,damage:20,range:2,attack_rate_multiplier:1,attack_interval_seconds:2,movement_speed:0,shield:0};
+ window.renderLevel=level=>root.render(React.createElement(TeamUpgradeModal,{units:[{id:towerCode,code:towerCode,name:mode==='artillery'?'Xe Pháo binh':mode==='tank'?'Xe tăng':'Tháp đại bác',category:mobile?'UNIT':'TOWER',level,cost:mobile?35:40,is_unlocked:true,upgrade:{eligible:true,max_level:3,cost:50,current_stats:stats,next_stats:level<3?stats:null}}],coins:500,teamIndex:0,disabled:false,selectedType:towerCode,onSelectType:()=>{},onClose:()=>{},onPurchase:async()=>{}}));
+ renderLevel(1);
+} else {
+window.game=new Phaser.Game({type:Phaser.AUTO,parent:'game',width:1200,height:800,scene:[BootScene,BattleScene],audio:{noAudio:true}});
+game.events.on('art-error',()=>{window.artError=true});
+game.events.on('battle-ready',scene=>{
+ window.aimScene=scene;
+ scene.callbacks={onNodeClick:()=>{},onBaseClick:()=>{},onEntityClick:()=>{},onPlaybackChange:()=>{}};
+ scene.updateState({...EMPTY_SCENE,mapData:map,myTeamId:'a',teams,entities});
+ window.setTargets=direction=>scene.updateState({...scene.state,entities:scene.state.entities.map(e=>e.unit_code==='infantry'?{...e,current_node_id:'target-'+e.id.slice(-1)+'-'+direction}:e)});
+ window.setTower=(id,patch)=>scene.updateState({...scene.state,entities:scene.state.entities.map(e=>e.id===id?{...e,...patch}:e)});
+ window.moveTanks=(offset,offsetY=0)=>scene.updateState({...scene.state,liveBattle:true,entities:scene.state.entities.map(e=>{
+  if(e.unit_code!==towerCode)return e;
+  const index=Number(e.id.slice(-1)),p=node('','lane',towers[index]+offset,640+offsetY);
+  return {...e,tick_interval_ms:100,simulation_state:{...e.simulation_state,formation_order:index,
+   world_position:{x:p.x,y:p.y},attack_target_id:'enemy'+index,combat_state:'ATTACKING',movement_state:'MOVING'}};
+ })});
+});
+}
+</script></html>

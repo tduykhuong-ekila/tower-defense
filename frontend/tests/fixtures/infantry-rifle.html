@@ -1,0 +1,37 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><title>Infantry rifle combat regression</title>
+<style>body{margin:0;background:#78934b}canvas{display:block}</style><div id="game"></div>
+<script type="module">
+import Phaser from 'phaser';
+import {BootScene} from '/src/game/scenes/BootScene.ts';
+import {BattleScene} from '/src/game/scenes/BattleScene.ts';
+import {EMPTY_SCENE} from '/src/game/bridge.ts';
+const a=-Math.PI*3/4;
+function node(id,type,x,y,team=1) {
+ const px=(x-800)/1.5,py=(y-580)/.86;
+ return {node_id:id,node_type:type,team_index:team,is_passable:type!=='tower_slot',
+  x:px*Math.cos(a)+py*Math.sin(a),y:-px*Math.sin(a)+py*Math.cos(a)};
+}
+const nodes=[],entities=[];
+const teams=Array.from({length:20},(_,i)=>({id:'team'+i,name:'Team '+i,base_hp:500,initial_base_hp:500,base_shield:0,status:'ACTIVE'}));
+for(let i=0;i<6;i++) {
+ const x=650+(i%3)*150,y=540+Math.floor(i/3)*100;
+ nodes.push(node('rifle'+i,'lane',x,y),node('target'+i,'lane',x+(i<3?38:-38),y));
+ const n=nodes[nodes.length-2];
+ entities.push({id:'rifle'+i,team_id:'team0',unit_code:'infantry',entity_kind:'UNIT',level:i%3+1,current_node_id:n.node_id,
+  status:'ACTIVE',current_hp:80,max_hp:80,current_shield:0,range:1,simulation_state:{formation_order:i,world_position:{x:n.x,y:n.y},movement_state:'STOPPED',combat_state:'ATTACKING'}});
+ entities.push({id:'enemy'+i,team_id:'team1',unit_code:i%2?'mg_tower':'infantry',entity_kind:i%2?'TOWER':'UNIT',level:1,
+  current_node_id:'target'+i,status:'ACTIVE',current_hp:80,max_hp:80,current_shield:0,range:1,simulation_state:{formation_order:i}});
+}
+nodes.push(node('node_base_t2','base',1100,580,2));
+const map={num_teams:20,team_ids:teams.map(t=>t.id),nodes,edges:[]};
+window.game=new Phaser.Game({type:Phaser.AUTO,parent:'game',width:1200,height:800,scene:[BootScene,BattleScene],audio:{noAudio:true}});
+game.events.on('art-error',()=>{window.artError=true});
+game.events.on('battle-ready',scene=>{
+ window.rifleScene=scene;
+ scene.callbacks={onNodeClick:()=>{},onBaseClick:()=>{},onEntityClick:()=>{},onPlaybackChange:()=>{}};
+ scene.updateState({...EMPTY_SCENE,mapData:map,myTeamId:'team0',teams,entities,liveBattle:true});
+ const update=scene.update.bind(scene);
+ scene.update=(time,delta)=>update(time,window.freezeRifle?0:delta);
+ window.fire=()=>scene.playLiveEvents(Array.from({length:6},(_,i)=>({type:'UNIT_ATTACKED',attacker_id:'rifle'+i,target_entity_id:'enemy'+i,damage:5,hp_damage:5,target_hp_remaining:75})));
+});
+</script></html>

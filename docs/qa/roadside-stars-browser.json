@@ -1,0 +1,206 @@
+{
+  "status": "PASS",
+  "layouts": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1,
+      "levels": 3,
+      "states": 6,
+      "categories": 2,
+      "stable": true
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "zoom": 1.25,
+      "levels": 3,
+      "states": 6,
+      "categories": 2,
+      "stable": true
+    },
+    {
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "zoom": 1,
+      "levels": 3,
+      "states": 6,
+      "categories": 2,
+      "stable": true
+    },
+    {
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "zoom": 1.25,
+      "levels": 3,
+      "states": 6,
+      "categories": 2,
+      "stable": true
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "zoom": 1,
+      "levels": 3,
+      "states": 6,
+      "categories": 2,
+      "stable": true
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "zoom": 1.25,
+      "levels": 3,
+      "states": 6,
+      "categories": 2,
+      "stable": true
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "zoom": 1,
+      "levels": 3,
+      "states": 6,
+      "categories": 2,
+      "stable": true
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "zoom": 1.25,
+      "levels": 3,
+      "states": 6,
+      "categories": 2,
+      "stable": true
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "zoom": 1,
+      "levels": 3,
+      "states": 6,
+      "categories": 2,
+      "stable": true
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "zoom": 1.25,
+      "levels": 3,
+      "states": 6,
+      "categories": 2,
+      "stable": true
+    }
+  ],
+  "maps": [
+    {
+      "teams": 2,
+      "cell": {
+        "row": 35,
+        "col": 47
+      },
+      "nearestPaintedGap": 21.15165820153615,
+      "greenPreview": true,
+      "redRoadPreview": true,
+      "serverAccepted": true,
+      "zoomPan": true
+    },
+    {
+      "teams": 4,
+      "cell": {
+        "row": 35,
+        "col": 47
+      },
+      "nearestPaintedGap": 21.15165820153615,
+      "greenPreview": true,
+      "redRoadPreview": true,
+      "serverAccepted": true,
+      "zoomPan": true
+    },
+    {
+      "teams": 8,
+      "cell": {
+        "row": 27,
+        "col": 33
+      },
+      "nearestPaintedGap": 21.15165820153615,
+      "greenPreview": true,
+      "redRoadPreview": true,
+      "serverAccepted": true,
+      "zoomPan": true
+    },
+    {
+      "teams": 20,
+      "cell": {
+        "row": 47,
+        "col": 68
+      },
+      "nearestPaintedGap": 20.127972295692075,
+      "greenPreview": true,
+      "redRoadPreview": true,
+      "serverAccepted": true,
+      "zoomPan": true
+    }
+  ],
+  "errors": [],
+  "multiplayer": {
+    "teammateStars": [
+      2,
+      3
+    ],
+    "opponentIsolated": true,
+    "existingAndFuture": true,
+    "reconnect": true,
+    "damage24": true
+  },
+  "movement": {
+    "allThreeTypes": [
+      {
+        "code": "artillery",
+        "moved": true
+      },
+      {
+        "code": "artillery",
+        "moved": true
+      },
+      {
+        "code": "tank",
+        "moved": true
+      },
+      {
+        "code": "tank",
+        "moved": true
+      },
+      {
+        "code": "infantry",
+        "moved": true
+      },
+      {
+        "code": "infantry",
+        "moved": true
+      }
+    ],
+    "retarget": true,
+    "retreatAll": true
+  }
+}

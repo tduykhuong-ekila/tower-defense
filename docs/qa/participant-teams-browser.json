@@ -1,0 +1,13 @@
+{
+  "status": "PASSED",
+  "scenarios": [
+    "Mentee creates and joins a team from an empty room",
+    "Mentee has no lobby creation controls; both team API and join replay reject creation; invitations remain available",
+    "Mobile mentor follows an invitation and joins the selected team; full team disables invitation",
+    "Mentor creates a team only during initial join; lobby controls and APIs block further creation; invitations work",
+    "Invitation prevents a second mentor and accepts a mentee",
+    "Invalid invitation explicitly warns and leaves team choice to the recipient",
+    "Host can still create teams from lobby; rejected participant requests leave no extra teams or members"
+  ],
+  "errors": []
+}

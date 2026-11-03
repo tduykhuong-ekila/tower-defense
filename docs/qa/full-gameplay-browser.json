@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "checks": [
+    "correct answer grants exactly 20 coins",
+    "free tank unlock persists",
+    "round 1 real UI deployment and construction",
+    "automatic round 2 restores both purchases without host WebSocket or refresh",
+    "round 3 actual Phaser spawn click sends purchase and renders confirmation",
+    "refresh during planning restores state and eligibility",
+    "wall-clock watchdog clears a stalled Phaser replay",
+    "round 5 deploy and canvas construction with persistent capacity",
+    "refresh during playback restores current planning state",
+    "legal later-round tank waves cause elimination, victory and persisted results"
+  ],
+  "winner": "Amber Attack",
+  "results": [
+    {
+      "name": "Amber Attack",
+      "rank": 1,
+      "hp": 100,
+      "score": 201
+    },
+    {
+      "name": "Blue Defense",
+      "rank": 2,
+      "hp": 0,
+      "score": 111
+    }
+  ]
+}

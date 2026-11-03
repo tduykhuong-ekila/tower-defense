@@ -1,0 +1,479 @@
+
+> tower-defense-frontend@1.0.0 test
+> node --import tsx --test tests/*.test.ts
+
+TAP version 13
+# Subtest: rounds 1, 2 and 5 permit purchases without resetting persistent state or depending on animation
+ok 1 - rounds 1, 2 and 5 permit purchases without resetting persistent state or depending on animation
+  ---
+  duration_ms: 2.176083
+  ...
+# Subtest: actual capacity, coins, unlock, placement and phase have distinct rejection reasons
+ok 2 - actual capacity, coins, unlock, placement and phase have distinct rejection reasons
+  ---
+  duration_ms: 0.173042
+  ...
+# Subtest: pause, pending request and elimination stay locked while next planning is restored
+ok 3 - pause, pending request and elimination stay locked while next planning is restored
+  ---
+  duration_ms: 1.665916
+  ...
+# Subtest: late old-round events cannot roll back a newer planning round or its HP
+ok 4 - late old-round events cannot roll back a newer planning round or its HP
+  ---
+  duration_ms: 0.765416
+  ...
+# Subtest: a timed-out request releases its promise with a resync message and never retries a purchase
+ok 5 - a timed-out request releases its promise with a resync message and never retries a purchase
+  ---
+  duration_ms: 17.629584
+  ...
+# Subtest: structured action rejection preserves the actual server explanation
+ok 6 - structured action rejection preserves the actual server explanation
+  ---
+  duration_ms: 4.703708
+  ...
+# Subtest: all twenty visual identities have real textures, distinct symbols and colors
+ok 7 - all twenty visual identities have real textures, distinct symbols and colors
+  ---
+  duration_ms: 4.65
+  ...
+# Subtest: 2 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+ok 8 - 2 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+  ---
+  duration_ms: 0.367708
+  ...
+# Subtest: 3 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+ok 9 - 3 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+  ---
+  duration_ms: 0.191792
+  ...
+# Subtest: 4 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+ok 10 - 4 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+  ---
+  duration_ms: 0.502167
+  ...
+# Subtest: 5 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+ok 11 - 5 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+  ---
+  duration_ms: 0.242917
+  ...
+# Subtest: 8 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+ok 12 - 8 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+  ---
+  duration_ms: 10.7375
+  ...
+# Subtest: 12 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+ok 13 - 12 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+  ---
+  duration_ms: 0.163875
+  ...
+# Subtest: 13 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+ok 14 - 13 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+  ---
+  duration_ms: 0.146416
+  ...
+# Subtest: 16 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+ok 15 - 16 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+  ---
+  duration_ms: 0.236791
+  ...
+# Subtest: 19 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+ok 16 - 19 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+  ---
+  duration_ms: 0.264917
+  ...
+# Subtest: 20 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+ok 17 - 20 teams: server projection preserves identities within dynamic world and route preview avoids impassable slots
+  ---
+  duration_ms: 0.178917
+  ...
+# Subtest: scoreboard renders every team including team 20, score, status and search controls
+ok 18 - scoreboard renders every team including team 20, score, status and search controls
+  ---
+  duration_ms: 22.783833
+  ...
+# Subtest: expanded arena overview keeps the whole world clear of command HUD and desktop minimap
+ok 19 - expanded arena overview keeps the whole world clear of command HUD and desktop minimap
+  ---
+  duration_ms: 0.243958
+  ...
+# Subtest: legacy four-team overview retains its original zoom and center
+ok 20 - legacy four-team overview retains its original zoom and center
+  ---
+  duration_ms: 2.715667
+  ...
+# Subtest: quantity maximum uses current wallet and shared vehicle capacity, excluding Infantry
+ok 21 - quantity maximum uses current wallet and shared vehicle capacity, excluding Infantry
+  ---
+  duration_ms: 2.639083
+  ...
+# Subtest: invalid quantities and sixth tower eligibility reflect authoritative rules
+ok 22 - invalid quantities and sixth tower eligibility reflect authoritative rules
+  ---
+  duration_ms: 0.158458
+  ...
+# Subtest: quantity controls show numeric input, presets, maximum, total cost and validation
+ok 23 - quantity controls show numeric input, presets, maximum, total cost and validation
+  ---
+  duration_ms: 8.382834
+  ...
+# Subtest: batched creations upsert stable IDs once across REST snapshots, duplicate events and reconnect
+ok 24 - batched creations upsert stable IDs once across REST snapshots, duplicate events and reconnect
+  ---
+  duration_ms: 0.668875
+  ...
+# Subtest: artillery preview covers exactly 1.5 hops, clipping the second edge halfway
+ok 25 - artillery preview covers exactly 1.5 hops, clipping the second edge halfway
+  ---
+  duration_ms: 1.675
+  ...
+# Subtest: 2 teams: visual padding preserves all graph coordinates and fits with negative bounds
+ok 26 - 2 teams: visual padding preserves all graph coordinates and fits with negative bounds
+  ---
+  duration_ms: 1.015791
+  ...
+# Subtest: 4 teams: visual padding preserves all graph coordinates and fits with negative bounds
+ok 27 - 4 teams: visual padding preserves all graph coordinates and fits with negative bounds
+  ---
+  duration_ms: 0.187042
+  ...
+# Subtest: 8 teams: visual padding preserves all graph coordinates and fits with negative bounds
+ok 28 - 8 teams: visual padding preserves all graph coordinates and fits with negative bounds
+  ---
+  duration_ms: 0.182667
+  ...
+# Subtest: 20 teams: visual padding preserves all graph coordinates and fits with negative bounds
+ok 29 - 20 teams: visual padding preserves all graph coordinates and fits with negative bounds
+  ---
+  duration_ms: 0.08675
+  ...
+# Subtest: minimap projects all padded corners and clips a viewport against every edge
+ok 30 - minimap projects all padded corners and clips a viewport against every edge
+  ---
+  duration_ms: 0.237875
+  ...
+# Subtest: every supported entity maps to real Phaser artwork, with team frame clamping and graceful unknown fallback
+ok 31 - every supported entity maps to real Phaser artwork, with team frame clamping and graceful unknown fallback
+  ---
+  duration_ms: 43.673292
+  ...
+# Subtest: Cannon preview is two thirds of previous three-hop range and excludes outer road
+ok 32 - Cannon preview is two thirds of previous three-hop range and excludes outer road
+  ---
+  duration_ms: 4.028625
+  ...
+# Subtest: instance range can retain three hops while newly selected Cannon uses two
+ok 33 - instance range can retain three hops while newly selected Cannon uses two
+  ---
+  duration_ms: 0.357167
+  ...
+# Subtest: Artillery speed and 80 HP survive creation, updates and reconnect without duplicate IDs
+ok 34 - Artillery speed and 80 HP survive creation, updates and reconnect without duplicate IDs
+  ---
+  duration_ms: 0.828833
+  ...
+# Subtest: slot projection follows authoritative coordinates and troop offsets use the same projection
+ok 35 - slot projection follows authoritative coordinates and troop offsets use the same projection
+  ---
+  duration_ms: 0.308291
+  ...
+# Subtest: movement follows buffered road corner and clamps after packet loss
+ok 36 - movement follows buffered road corner and clamps after packet loss
+  ---
+  duration_ms: 0.803333
+  ...
+# Subtest: spawn/build stable IDs and live tick HP reconcile without advancing major round
+ok 37 - spawn/build stable IDs and live tick HP reconcile without advancing major round
+  ---
+  duration_ms: 0.681709
+  ...
+# Subtest: out of order events wait for snapshot and stale snapshots never overwrite newer state
+ok 38 - out of order events wait for snapshot and stale snapshots never overwrite newer state
+  ---
+  duration_ms: 0.868208
+  ...
+# Subtest: simulation timestamps keep interpolation pace despite receive jitter
+ok 39 - simulation timestamps keep interpolation pace despite receive jitter
+  ---
+  duration_ms: 0.327584
+  ...
+# Subtest: recovery snapshots retain the simulation clock before the next live tick
+ok 40 - recovery snapshots retain the simulation clock before the next live tick
+  ---
+  duration_ms: 2.863042
+  ...
+# Subtest: expiration, claimed rewards and reconnect without pending data release invisible modal locks
+ok 41 - expiration, claimed rewards and reconnect without pending data release invisible modal locks
+  ---
+  duration_ms: 0.378083
+  ...
+# Subtest: valid question and reward dialogs still block battlefield input while visible
+ok 42 - valid question and reward dialogs still block battlefield input while visible
+  ---
+  duration_ms: 0.061625
+  ...
+# Subtest: projects every server branch, preserving IDs and team ownership for eight teams
+ok 43 - projects every server branch, preserving IDs and team ownership for eight teams
+  ---
+  duration_ms: 0.490292
+  ...
+# Subtest: build validation rejects foreign, occupied and nonexistent slots, permits destroyed slot reuse
+ok 44 - build validation rejects foreign, occupied and nonexistent slots, permits destroyed slot reuse
+  ---
+  duration_ms: 0.115833
+  ...
+# Subtest: camera drag and multi-touch never become placement clicks
+ok 45 - camera drag and multi-touch never become placement clicks
+  ---
+  duration_ms: 0.166625
+  ...
+# Subtest: deployment upserts by ID, uses real server HP and ignores duplicate and stale events
+ok 46 - deployment upserts by ID, uses real server HP and ignores duplicate and stale events
+  ---
+  duration_ms: 11.269792
+  ...
+# Subtest: combat reconciliation follows server movement, HP, destruction, shield and income
+ok 47 - combat reconciliation follows server movement, HP, destruction, shield and income
+  ---
+  duration_ms: 0.448542
+  ...
+# Subtest: 100 Infantry do not disable purchases or consume vehicle capacity; coins still apply
+ok 48 - 100 Infantry do not disable purchases or consume vehicle capacity; coins still apply
+  ---
+  duration_ms: 4.818709
+  ...
+# Subtest: large snapshots reassemble once, preserving Unicode and ignoring duplicate chunks
+ok 49 - large snapshots reassemble once, preserving Unicode and ignoring duplicate chunks
+  ---
+  duration_ms: 1.189833
+  ...
+# Subtest: missing, stale, malformed and abandoned chunks cannot expose partial state
+ok 50 - missing, stale, malformed and abandoned chunks cannot expose partial state
+  ---
+  duration_ms: 0.241333
+  ...
+# Subtest: large-army occlusion preserves representatives through motion and never merges distinct positions
+ok 51 - large-army occlusion preserves representatives through motion and never merges distinct positions
+  ---
+  duration_ms: 36.659708
+  ...
+# Subtest: battle permits deploy/build/target and continuous quiz, while special actions stay gated
+ok 52 - battle permits deploy/build/target and continuous quiz, while special actions stay gated
+  ---
+  duration_ms: 0.47375
+  ...
+# Subtest: formation is projected onto the authoritative centerline including its spawn approach
+ok 53 - formation is projected onto the authoritative centerline including its spawn approach
+  ---
+  duration_ms: 0.399
+  ...
+# Subtest: live spawns retain 100 HP and authoritative staging; REST/socket stable IDs never duplicate
+ok 54 - live spawns retain 100 HP and authoritative staging; REST/socket stable IDs never duplicate
+  ---
+  duration_ms: 0.522292
+  ...
+# Subtest: matchStore initial state and reset
+ok 55 - matchStore initial state and reset
+  ---
+  duration_ms: 0.409292
+  ...
+# Subtest: matchStore applySnapshot sets authoritative state
+ok 56 - matchStore applySnapshot sets authoritative state
+  ---
+  duration_ms: 4.513667
+  ...
+# Subtest: matchStore applyEvent updates state predictably and monotonically
+ok 57 - matchStore applyEvent updates state predictably and monotonically
+  ---
+  duration_ms: 0.622584
+  ...
+# Subtest: sequence gap detection logic identifies gaps
+ok 58 - sequence gap detection logic identifies gaps
+  ---
+  duration_ms: 2.038708
+  ...
+# Subtest: event deduplication ignores identical event_id
+ok 59 - event deduplication ignores identical event_id
+  ---
+  duration_ms: 0.123125
+  ...
+# Subtest: Phase 6: Match results data structure preserves tie-break order and includes eliminated teams
+ok 60 - Phase 6: Match results data structure preserves tie-break order and includes eliminated teams
+  ---
+  duration_ms: 3.973542
+  ...
+# Subtest: Phase 6: 5 optional awards schema matches design decision D14 without altering official scores
+ok 61 - Phase 6: 5 optional awards schema matches design decision D14 without altering official scores
+  ---
+  duration_ms: 0.361042
+  ...
+# Subtest: Phase 6: Host telemetry schema correctly represents teams, active units, and presence
+ok 62 - Phase 6: Host telemetry schema correctly represents teams, active units, and presence
+  ---
+  duration_ms: 0.086917
+  ...
+# Subtest: Phase 6: Balance preview accurately provides durations and pacing metrics
+ok 63 - Phase 6: Balance preview accurately provides durations and pacing metrics
+  ---
+  duration_ms: 0.128917
+  ...
+# Subtest: creation upload offers the actual XLSX format and a labelled file input
+ok 64 - creation upload offers the actual XLSX format and a labelled file input
+  ---
+  duration_ms: 4.949042
+  ...
+# Subtest: quiz eligibility persists across major rounds but honors pause, spectator and completion
+ok 65 - quiz eligibility persists across major rounds but honors pause, spectator and completion
+  ---
+  duration_ms: 0.283208
+  ...
+# Subtest: team quiz events carry recoverable question data without touching battlefield or combat clock
+ok 66 - team quiz events carry recoverable question data without touching battlefield or combat clock
+  ---
+  duration_ms: 9.147792
+  ...
+# Subtest: chunked snapshots apply atomically before buffered deltas and deduplicate on replay
+ok 67 - chunked snapshots apply atomically before buffered deltas and deduplicate on replay
+  ---
+  duration_ms: 2.124042
+  ...
+# Subtest: initial delta waits for full snapshot; duplicate buffered delivery creates one entity
+ok 68 - initial delta waits for full snapshot; duplicate buffered delivery creates one entity
+  ---
+  duration_ms: 0.577834
+  ...
+# Subtest: offline sync request cannot wedge the next connected recovery
+ok 69 - offline sync request cannot wedge the next connected recovery
+  ---
+  duration_ms: 0.464792
+  ...
+# Subtest: lost snapshot and half-open socket cause automatic reconnect instead of permanent pending state
+ok 70 - lost snapshot and half-open socket cause automatic reconnect instead of permanent pending state
+  ---
+  duration_ms: 42.288792
+  ...
+# Subtest: heartbeat discovers missing last event without needing a later gameplay event
+ok 71 - heartbeat discovers missing last event without needing a later gameplay event
+  ---
+  duration_ms: 0.287542
+  ...
+# Subtest: old callbacks and buffered events cannot leak into another room
+ok 72 - old callbacks and buffered events cannot leak into another room
+  ---
+  duration_ms: 0.183291
+  ...
+# Subtest: clean remote close reconnects, explicit disconnect cancels retries and wake listeners
+ok 73 - clean remote close reconnects, explicit disconnect cancels retries and wake listeners
+  ---
+  duration_ms: 0.220833
+  ...
+# Subtest: zero-version stale snapshot cannot erase newer entities
+ok 74 - zero-version stale snapshot cannot erase newer entities
+  ---
+  duration_ms: 0.24275
+  ...
+# Subtest: connection handshake timeout also recovers an indefinitely connecting socket
+ok 75 - connection handshake timeout also recovers an indefinitely connecting socket
+  ---
+  duration_ms: 41.801292
+  ...
+# Subtest: reconnection continues beyond the old eight-attempt cutoff
+ok 76 - reconnection continues beyond the old eight-attempt cutoff
+  ---
+  duration_ms: 0.344834
+  ...
+# Subtest: unsequenced action replies cannot drain live events before a recovery snapshot
+ok 77 - unsequenced action replies cannot drain live events before a recovery snapshot
+  ---
+  duration_ms: 0.215917
+  ...
+# Subtest: a full tick restores late opponent entities, deduplicates IDs and removes destroyed towers
+ok 78 - a full tick restores late opponent entities, deduplicates IDs and removes destroyed towers
+  ---
+  duration_ms: 0.6125
+  ...
+# Subtest: maximum capacity select uses server bounds, defaults to four and has no minimum input
+ok 79 - maximum capacity select uses server bounds, defaults to four and has no minimum input
+  ---
+  duration_ms: 7.82425
+  ...
+# Subtest: one mentor or mentee suffices; empty, spectators and foreign team members do not
+ok 80 - one mentor or mentee suffices; empty, spectators and foreign team members do not
+  ---
+  duration_ms: 0.104042
+  ...
+# Subtest: zoom is deferred, monotonic, clamped and converges without overshooting after rapid input
+ok 81 - zoom is deferred, monotonic, clamped and converges without overshooting after rapid input
+  ---
+  duration_ms: 0.651208
+  ...
+# Subtest: wheel anchor preserves the exact world point through every interpolated frame
+ok 82 - wheel anchor preserves the exact world point through every interpolated frame
+  ---
+  duration_ms: 0.22125
+  ...
+# Subtest: damping is independent of frame rate and zoom buttons retain viewport center
+ok 83 - damping is independent of frame rate and zoom buttons retain viewport center
+  ---
+  duration_ms: 0.128417
+  ...
+# Subtest: reset animates zoom and position; dragging cancels focus without fighting the drag
+ok 84 - reset animates zoom and position; dragging cancels focus without fighting the drag
+  ---
+  duration_ms: 0.223166
+  ...
+# Subtest: round result opens next planning round and duplicate cannot replay combat or income
+ok 85 - round result opens next planning round and duplicate cannot replay combat or income
+  ---
+  duration_ms: 0.910708
+  ...
+# Subtest: round countdown freezes on pause and follows server resume and phase events
+ok 86 - round countdown freezes on pause and follows server resume and phase events
+  ---
+  duration_ms: 0.165
+  ...
+# Subtest: final round and leaderboard immediately expose finished state and actual scores
+ok 87 - final round and leaderboard immediately expose finished state and actual scores
+  ---
+  duration_ms: 2.548792
+  ...
+# Subtest: EMP recovery, entity shield and fallback targeting come entirely from deltas
+ok 88 - EMP recovery, entity shield and fallback targeting come entirely from deltas
+  ---
+  duration_ms: 0.136708
+  ...
+# Subtest: staging and bypass positions use the server projection without client offsets
+ok 89 - staging and bypass positions use the server projection without client offsets
+  ---
+  duration_ms: 0.955
+  ...
+# Subtest: one stopped attack track does not pause another unit's bypass interpolation
+ok 90 - one stopped attack track does not pause another unit's bypass interpolation
+  ---
+  duration_ms: 0.214708
+  ...
+# Subtest: combat events and position deltas retain each unit's independent state
+ok 91 - combat events and position deltas retain each unit's independent state
+  ---
+  duration_ms: 0.934125
+  ...
+# Subtest: real socket client changes rooms, resets sequence, deduplicates and reconnects safely
+ok 92 - real socket client changes rooms, resets sequence, deduplicates and reconnects safely
+  ---
+  duration_ms: 1.269667
+  ...
+# Subtest: many sequence gaps coalesce to one in-flight recovery snapshot
+ok 93 - many sequence gaps coalesce to one in-flight recovery snapshot
+  ---
+  duration_ms: 0.356333
+  ...
+1..93
+# tests 93
+# suites 0
+# pass 93
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1080.369917

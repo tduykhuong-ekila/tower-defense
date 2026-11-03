@@ -1,0 +1,252 @@
+{
+  "home": {},
+  "join": {
+    "code": {
+      "x": 821.796875,
+      "y": 305,
+      "width": 520.203125,
+      "height": 46
+    },
+    "name": {
+      "x": 821.796875,
+      "y": 389,
+      "width": 520.203125,
+      "height": 46
+    },
+    "team": {
+      "x": 821.796875,
+      "y": 533,
+      "width": 520.203125,
+      "height": 88
+    },
+    "select": {
+      "x": 821.796875,
+      "y": 473,
+      "width": 520.203125,
+      "height": 46
+    },
+    "role": {
+      "x": 821.796875,
+      "y": 660,
+      "width": 520.203125,
+      "height": 96
+    },
+    "submit": {
+      "x": 821.796875,
+      "y": 774,
+      "width": 520.203125,
+      "height": 50
+    }
+  },
+  "lobby": {
+    "own": {
+      "x": 180,
+      "y": 381,
+      "width": 403.328125,
+      "height": 347.015625
+    },
+    "ready": {
+      "x": 200,
+      "y": 660.015625,
+      "width": 363.328125,
+      "height": 51
+    },
+    "launch": {
+      "x": 180,
+      "y": 1082.03125,
+      "width": 1240,
+      "height": 74
+    }
+  },
+  "invite": {
+    "dialog": {
+      "x": 560,
+      "y": 357,
+      "width": 480,
+      "height": 286
+    },
+    "link": {
+      "x": 589,
+      "y": 514,
+      "width": 422,
+      "height": 39
+    }
+  },
+  "battle": {
+    "hud": {
+      "x": 10,
+      "y": 12,
+      "width": 1580,
+      "height": 61
+    },
+    "round": {
+      "x": 680,
+      "y": -1,
+      "width": 240,
+      "height": 108.921875
+    },
+    "quest": {
+      "x": 1515,
+      "y": 127,
+      "width": 54,
+      "height": 56
+    },
+    "teams": {
+      "x": 18,
+      "y": 100,
+      "width": 190,
+      "height": 143
+    },
+    "dock": {
+      "x": 45,
+      "y": 832,
+      "width": 1510,
+      "height": 146
+    },
+    "minimap": {
+      "x": 1422,
+      "y": 564.03125,
+      "width": 160,
+      "height": 187.96875
+    },
+    "wallet": {
+      "x": 60,
+      "y": 50,
+      "width": 112.125,
+      "height": 14
+    },
+    "camera": {
+      "x": 300,
+      "y": 180,
+      "width": 900,
+      "height": 500
+    }
+  },
+  "deploy": {
+    "dialog": {
+      "x": 500,
+      "y": 380,
+      "width": 600,
+      "height": 240
+    },
+    "quantity": {
+      "x": 520,
+      "y": 499,
+      "width": 272,
+      "height": 101
+    },
+    "target": {
+      "x": 808,
+      "y": 499,
+      "width": 272,
+      "height": 101
+    },
+    "submit": {
+      "x": 808,
+      "y": 562,
+      "width": 272,
+      "height": 38
+    }
+  },
+  "build": {
+    "dock": {
+      "x": 45,
+      "y": 832,
+      "width": 1510,
+      "height": 146
+    },
+    "hint": {
+      "x": 541,
+      "y": 900,
+      "width": 890,
+      "height": 22
+    }
+  },
+  "upgrade": {
+    "dialog": {
+      "x": 420,
+      "y": 140,
+      "width": 760,
+      "height": 720
+    },
+    "types": {
+      "x": 446,
+      "y": 248.5,
+      "width": 708,
+      "height": 128
+    },
+    "footer": {
+      "x": 446,
+      "y": 722,
+      "width": 708,
+      "height": 112
+    }
+  },
+  "question": {
+    "dialog": {
+      "x": 458,
+      "y": 307,
+      "width": 684,
+      "height": 388
+    },
+    "input": {
+      "x": 486,
+      "y": 557.5,
+      "width": 628,
+      "height": 44
+    }
+  },
+  "reward": {
+    "dialog": {
+      "x": 420,
+      "y": 306.0625,
+      "width": 760,
+      "height": 387.875
+    }
+  },
+  "settings": {
+    "drawer": {
+      "x": 1240,
+      "y": 240,
+      "width": 330,
+      "height": 545
+    }
+  },
+  "directory": {
+    "drawer": {
+      "x": 1280,
+      "y": 240,
+      "width": 290,
+      "height": 545
+    }
+  },
+  "army": {
+    "panel": {
+      "x": 61,
+      "y": 877.703125,
+      "width": 1478,
+      "height": 88.296875
+    },
+    "dock": {
+      "x": 45,
+      "y": 865.703125,
+      "width": 1510,
+      "height": 112.296875
+    }
+  },
+  "war": {
+    "round": {
+      "x": 680,
+      "y": -1,
+      "width": 240,
+      "height": 97.734375
+    },
+    "panel": {
+      "x": 61,
+      "y": 877.703125,
+      "width": 1478,
+      "height": 88.296875
+    }
+  },
+  "results": {}
+}

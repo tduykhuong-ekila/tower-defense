@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "Invalid upload reports error; replacement validates 20 real questions; paginated host preview and confirmed room attachment.",
+    "Preparation question survives Battle; open modal preserves troop movement, live clock and active Phaser scene; teammates share a single +30 reward; other team remains independent.",
+    "Different teams answer independently after Host disconnect; refresh preserves progress and explicit Next opens the next imported question and total; second-round answer and reward preserve history."
+  ],
+  "errors": [],
+  "status": "PASS"
+}

@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-24",
+  "backend": {
+    "command": ".venv/bin/pytest -q",
+    "passed": 469,
+    "skipped": 19,
+    "failed": 0,
+    "seconds": 146.48
+  },
+  "postgresql": {
+    "settings": "config.settings.test_postgres",
+    "passed": 4,
+    "failed": 0,
+    "coverage": [
+      "concurrent overlapping builds: one debit",
+      "concurrent team upgrade: one debit",
+      "concurrent explicit quiz open",
+      "duplicate commands and movement tick ordering"
+    ],
+    "database": "Disposable pytest database; dropped after tests"
+  },
+  "frontend": {
+    "command": "npm test",
+    "passed": 121,
+    "failed": 0
+  },
+  "productionBuild": {
+    "command": "npm run build",
+    "passed": true,
+    "note": "Vite reports its existing large Phaser bundle warning"
+  },
+  "browser": {
+    "command": "node tests/rank-roadside.browser.mjs",
+    "result": "PASS",
+    "report": "rank-roadside-results.json",
+    "engine": "Chrome",
+    "teams": [
+      2,
+      4,
+      8,
+      20
+    ]
+  },
+  "limitations": [
+    "Other browser engines not exercised",
+    "Browser QA uses an isolated in-process channel layer",
+    "Remaining PostgreSQL-only tests outside the targeted set were skipped by the SQLite full-suite run"
+  ],
+  "vegetation": {
+    "report": "rank-vegetation-results.json",
+    "result": "PASS",
+    "maps": [
+      2,
+      4,
+      8,
+      20
+    ],
+    "visibleOverlappingDecorations": 0
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "realClaim": {
+    "amount": 25,
+    "before": 1000,
+    "after": 1025,
+    "teammateDuplicateSafe": true,
+    "reloadStayedSealed": true
+  },
+  "freeUnlock": true,
+  "jackpotFixture": {
+    "amount": 60,
+    "earlyEventPreservedReveal": true
+  },
+  "pageErrors": []
+}

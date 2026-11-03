@@ -1,0 +1,42 @@
+✔ map-first commands show one stable action row without quick-group chips (4.55275ms)
+✔ empty map selection has a one-line hint and no executable command form (0.571458ms)
+✔ selection includes mixed friendly mobile troops and rejects opponents, towers and dead units (0.407125ms)
+✔ command deltas preserve unselected units and duplicates cannot undo newer retreat (0.850125ms)
+✔ question/reward events do not open a hidden quiz and open results remain visible (0.077875ms)
+✔ multi-select toggles an entire type while preserving unrelated groups (0.119708ms)
+✔ empty or expired selected-only commands never become implicit all-army retreat (0.0835ms)
+✔ quantity maximum uses current wallet and shared vehicle capacity, excluding Infantry (0.580792ms)
+✔ invalid quantities and unlimited tower eligibility reflect authoritative rules (0.10475ms)
+✔ quantity controls show numeric input, total cost and validation without quick presets (3.559041ms)
+✔ batched creations upsert stable IDs once across REST snapshots, duplicate events and reconnect (0.76075ms)
+✔ artillery preview covers exactly 1.5 hops, clipping the second edge halfway (1.246375ms)
+✔ initial targets form a ring with one attacker per opponent (1.030917ms)
+✔ manual selections survive team updates (0.070375ms)
+✔ invalid selections rotate to the next active opponent (0.067209ms)
+✔ waits for assignment and handles having no opponents (0.119667ms)
+✔ battle permits deploy/build/target and continuous quiz, while special actions stay gated (0.493167ms)
+✔ formation is projected onto the authoritative centerline including its spawn approach (0.365041ms)
+✔ live spawns retain 100 HP and authoritative staging; REST/socket stable IDs never duplicate (0.566ms)
+✔ maximum capacity select uses server bounds, defaults to four and has no minimum input (4.563834ms)
+✔ one mentor or mentee suffices; empty, spectators and foreign team members do not (0.108ms)
+✔ zoom is deferred, monotonic, clamped and converges without overshooting after rapid input (0.562667ms)
+✔ wheel anchor preserves the exact world point through every interpolated frame (0.184625ms)
+✔ damping is independent of frame rate and zoom buttons retain viewport center (0.111833ms)
+✔ reset animates zoom and position; dragging cancels focus without fighting the drag (0.1195ms)
+✔ levels and Phaser geometry stop at three filled stars (0.802292ms)
+✔ star LOD suppresses dense armies in overview (0.089208ms)
+✔ infantry selects its exact team-wide type (0.0845ms)
+✔ tank selects its exact team-wide type (0.1115ms)
+✔ artillery selects its exact team-wide type (0.049875ms)
+✔ cannon_tower selects its exact team-wide type (0.039625ms)
+✔ mg_tower selects its exact team-wide type (0.031ms)
+✔ shield_generator selects its exact team-wide type (0.034959ms)
+✔ unknown or ineligible types never fall back to another type (0.125291ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 267.64225

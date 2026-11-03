@@ -1,0 +1,115 @@
+{
+  "checks": [
+    "Rejected reward shows server error and preserves selection without success",
+    "All unlock artwork; mobile footer; keyboard selection; confirmed claim; teammate synchronization; duplicate claim cannot pay twice (existing idempotent replay)",
+    "+20 coin alternative",
+    "320px mobile, landscape and short desktop: primary action reachable without horizontal overflow",
+    "Contained single quantity control; Infantry/Tank batches; presets/MAX; costs; invalid quantity; mobile; Battle deployment, movement and opposing client synchronization",
+    "2 teams: padded terrain at four edges; interior trees; minimap; cursor zoom; drag; mobile resize",
+    "Failed image fallback",
+    "Reward popup leaves Battle movement and WebSocket ticks running",
+    "4 teams: padded terrain at four edges; interior trees; minimap; cursor zoom; drag; mobile resize",
+    "8 teams: padded terrain at four edges; interior trees; minimap; cursor zoom; drag; mobile resize",
+    "20 teams: padded terrain at four edges; interior trees; minimap; cursor zoom; drag; mobile resize"
+  ],
+  "errors": [],
+  "worlds": [
+    {
+      "world": {
+        "x": -320,
+        "y": -240,
+        "width": 2240,
+        "height": 1568,
+        "centerX": 800,
+        "centerY": 544
+      },
+      "arena": {
+        "version": 4,
+        "key": "radial-v4-six-slots-2",
+        "profile": "SMALL",
+        "width": 1600,
+        "height": 1088,
+        "centerX": 800,
+        "centerY": 544,
+        "layout_scale": 1,
+        "regions": 1
+      },
+      "projected": 27,
+      "treeCount": 19,
+      "objects": 152
+    },
+    {
+      "world": {
+        "x": -320,
+        "y": -240,
+        "width": 2240,
+        "height": 1568,
+        "centerX": 800,
+        "centerY": 544
+      },
+      "arena": {
+        "version": 4,
+        "key": "radial-v4-six-slots-4",
+        "profile": "SMALL",
+        "width": 1600,
+        "height": 1088,
+        "centerX": 800,
+        "centerY": 544,
+        "layout_scale": 1,
+        "regions": 1
+      },
+      "projected": 53,
+      "treeCount": 12,
+      "objects": 132
+    },
+    {
+      "world": {
+        "x": -320,
+        "y": -240,
+        "width": 2960,
+        "height": 1981,
+        "centerX": 1160,
+        "centerY": 750.5
+      },
+      "arena": {
+        "version": 4,
+        "key": "radial-v4-six-slots-8",
+        "profile": "MEDIUM",
+        "width": 2320,
+        "height": 1501,
+        "centerX": 1160,
+        "centerY": 750.5,
+        "layout_scale": 1.6,
+        "regions": 2
+      },
+      "projected": 105,
+      "treeCount": 6,
+      "objects": 166
+    },
+    {
+      "world": {
+        "x": -624,
+        "y": -441,
+        "width": 6448,
+        "height": 4034,
+        "centerX": 2600,
+        "centerY": 1576
+      },
+      "arena": {
+        "version": 4,
+        "key": "radial-v4-six-slots-20",
+        "profile": "LARGE",
+        "width": 5200,
+        "height": 3152,
+        "centerX": 2600,
+        "centerY": 1576,
+        "layout_scale": 4,
+        "regions": 5
+      },
+      "projected": 261,
+      "treeCount": 14,
+      "objects": 316
+    }
+  ],
+  "status": "PASS"
+}

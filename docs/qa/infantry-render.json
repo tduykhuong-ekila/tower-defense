@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "ui_purchase_beyond_cap": true,
+  "pool": {
+    "pooled": 2,
+    "recycled": true,
+    "stable_ids": true,
+    "ids_rebound": true,
+    "no_new_objects": true
+  }
+}

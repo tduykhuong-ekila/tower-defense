@@ -1,0 +1,21 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Mystery coin reveal fixture</title><div id="root"></div>
+<script type="module">
+import React, {useState} from 'react';
+import {createRoot} from 'react-dom/client';
+import {RewardSelectionModal} from '/src/components/RewardSelectionModal.tsx';
+import '/src/index.css';
+import '/src/game/game.css';
+const distribution=[20,25,30,40,60].map((amount,i)=>({amount,probability_percent:[15,20,35,25,5][i]}));
+function Fixture(){
+  const [options,setOptions]=useState({team_question_id:'fixture',coin_amount:null,coin_distribution:distribution,unlock_available:false,message:'',eligible_units:[]});
+  const [open,setOpen]=useState(true),[revealing,setRevealing]=useState(false);
+  const onClaimReward=async()=>{
+    // Simulate a durable claim event clearing live options before HTTP resolves.
+    setOptions(null);
+    await new Promise(resolve=>setTimeout(resolve,100));
+    return {id:'receipt',team_question_id:'fixture',team_id:'team',reward_type:'COIN',coin_amount:60,team_coins:160,unlocked_unit_codes:[],status:'CLAIMED',claimed_at:new Date().toISOString()};
+  };
+  return React.createElement(RewardSelectionModal,{isOpen:open||revealing,rewardOptions:options,onClaimReward,onRevealChange:setRevealing,onClose:()=>setOpen(false),onSuccess:()=>setOpen(false)});
+}
+createRoot(document.getElementById('root')).render(React.createElement(Fixture));
+</script></html>

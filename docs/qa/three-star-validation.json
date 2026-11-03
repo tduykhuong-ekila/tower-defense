@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-24",
+  "revision": "three-star-upgrades",
+  "backendSQLite": {"passed": 530, "skipped": 23, "command": "cd backend && .venv/bin/pytest -q"},
+  "backendPostgreSQL": {"passed": 46, "command": "DJANGO_SETTINGS_MODULE=config.settings.test_postgres DATABASE_URL=<disposable PostgreSQL database> .venv/bin/pytest -q tests/test_team_upgrades.py tests/test_three_star_migration.py tests/test_unlimited_towers.py", "teardownWarning": "A test connection delayed pytest database teardown; the disposable test database was explicitly removed."},
+  "frontend": {"passed": 125, "command": "cd frontend && npm test"},
+  "build": "PASS",
+  "ruff": "PASS",
+  "migrationCheck": "No changes detected",
+  "chrome": {
+    "roadsideStars": "roadside-stars-browser.json: PASS",
+    "globalModalAndScene": "three-star-global-browser.json: PASS",
+    "denseLoad": "roadside-stars-load.json: PASS"
+  },
+  "limitations": [
+    "Chrome local single-server and disposable room validation, not a production multi-worker Redis load certification.",
+    "The older coordinate-click rank-roadside fixture timed out selecting overlapping Infantry; the new global check covers scene selection callbacks, category resolution, and in-place Phaser updates. The scene hitbox was not changed in this revision.",
+    "The workspace's persistent SQLite file had no upgrade table or saved entities; production Level 4 row counts were unavailable."
+  ]
+}

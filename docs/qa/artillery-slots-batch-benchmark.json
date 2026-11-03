@@ -1,0 +1,43 @@
+{
+  "database": "postgresql",
+  "scenarios": [
+    {
+      "teams": 20,
+      "concurrent_commands": 20,
+      "quantity_per_command": 10,
+      "entities": 200,
+      "all_commands_ms": 490.99,
+      "command_median_ms": 267.92499999999995,
+      "command_max_ms": 485.75,
+      "command_queries_min": 29,
+      "command_queries_max": 29,
+      "creation_events": 20,
+      "coin_events": 20,
+      "creation_event_bytes": 153726,
+      "combat_tick_ms": 94.51,
+      "snapshot_ms": 122.61,
+      "snapshot_queries": 7,
+      "duplicates": 0,
+      "coin_divergence": 0
+    },
+    {
+      "teams": 20,
+      "concurrent_commands": 20,
+      "quantity_per_command": 50,
+      "entities": 1000,
+      "all_commands_ms": 2088.05,
+      "command_median_ms": 1252.5500000000002,
+      "command_max_ms": 2067.53,
+      "command_queries_min": 29,
+      "command_queries_max": 29,
+      "creation_events": 20,
+      "coin_events": 20,
+      "creation_event_bytes": 755598,
+      "combat_tick_ms": 1545.59,
+      "snapshot_ms": 280.82,
+      "snapshot_queries": 7,
+      "duplicates": 0,
+      "coin_divergence": 0
+    }
+  ]
+}

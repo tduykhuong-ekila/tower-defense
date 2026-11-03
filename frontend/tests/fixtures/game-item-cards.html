@@ -1,0 +1,16 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><div id="root"></div><script type="module">
+import React from 'react';import {createRoot} from 'react-dom/client';
+import '/src/index.css';import '/src/game/game.css';
+import {GameItemCardContent} from '/src/components/game/GameItemCardContent.tsx';
+const root=createRoot(document.getElementById('root'));
+window.renderCards=(level=1,state='available',category='UNIT')=>root.render(React.createElement('div',{className:'command-area'},
+ React.createElement('div',{className:'command-dock fantasy-frame'},
+  React.createElement('div',{className:'command-category'},React.createElement('button',{},category==='UNIT'?'QUÂN ĐỘI':'CÔNG SỰ')),
+  React.createElement('div',{className:'arsenal'},(category==='UNIT'?['infantry','tank','artillery']:['mg_tower','cannon_tower','shield_generator']).map((code,i)=>
+   React.createElement('button',{key:code,className:`arsenal-card game-item-card ${category==='TOWER'?'fortification-card':''} ${state==='selected'?'selected':''} ${state==='locked'?'locked':''}`,
+    'aria-pressed':state==='selected',disabled:['locked','unaffordable','building','deploying'].includes(state)},
+    React.createElement(GameItemCardContent,{unit:{code,name:code,cost:[25,40,30][i],level},teamIndex:0,unlocked:state!=='locked'}),
+    state==='selected'?React.createElement('span',{className:'card-check','aria-hidden':true},'✓'):null))),
+  React.createElement('div',{className:'selection-info'},'Kiểm tra bố cục'))));
+window.renderCards();
+</script></html>

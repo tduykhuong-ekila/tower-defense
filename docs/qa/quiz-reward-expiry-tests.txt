@@ -1,0 +1,6 @@
+{
+  "modalVisible": 0,
+  "cardDisabled": false,
+  "reason": ""
+}
+PASS expired reward shows a result; explicit Close restores legal deployment

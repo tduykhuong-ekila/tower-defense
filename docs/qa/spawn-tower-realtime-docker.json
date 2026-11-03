@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "checked_on": "2026-10-22",
+  "frontend_url": "http://localhost:5173",
+  "frontend_http_status": 200,
+  "heading": "TH\u1ee6 TH\u00c0NH CHI\u1ebeN THU\u1eacT\nB\u1ea2O V\u1ec6 C\u0102N C\u1ee8",
+  "api_health": {
+    "status": "healthy",
+    "version": "1.0.0",
+    "components": {
+      "database": "connected",
+      "channel_layer": "connected"
+    }
+  },
+  "page_errors": [],
+  "backend": {
+    "status": "PASS",
+    "authoritative_speed": 4,
+    "redis_read_timeout": 10,
+    "redis_connect_timeout": 5,
+    "idle_receive_seconds": 12.01,
+    "subsequent_delivery": "PASS"
+  }
+}

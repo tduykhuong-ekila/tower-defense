@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "clients": [
+    {
+      "attack_teams": 2,
+      "attacks": 32,
+      "deaths": 2,
+      "moved": 10,
+      "identity_replacements": 0,
+      "shots_resetting_position": 0,
+      "authoritative_state_matches": true
+    },
+    {
+      "attack_teams": 2,
+      "attacks": 32,
+      "deaths": 2,
+      "moved": 10,
+      "identity_replacements": 0,
+      "shots_resetting_position": 0,
+      "authoritative_state_matches": true
+    }
+  ]
+}

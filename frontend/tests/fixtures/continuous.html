@@ -1,0 +1,19 @@
+<!doctype html><html><meta charset="utf-8"><title>Continuous verification</title><div id="root"></div><script type="module">
+import {BattleScene} from '/src/game/scenes/BattleScene.ts';
+import {useMatchStore} from '/src/stores/matchStore.ts';
+import {wsClient} from '/src/services/websocket.ts';
+window.flowSocketClient=wsClient;
+const create=BattleScene.prototype.create;
+BattleScene.prototype.create=function(...a){window.flowScene=this;return create.apply(this,a);};window.flowStore=useMatchStore;
+window.frameSamples=[];
+const update=BattleScene.prototype.update;
+BattleScene.prototype.update=function(...a){
+  const now=performance.now();this._frames??=[];this._lastFrame??=now;this._metricStart??=now;
+  this._frames.push(now-this._lastFrame);this._lastFrame=now;
+  if(now-this._metricStart>=1000){const times=this._frames.slice().sort((a,b)=>a-b);frameSamples.push({fps:Math.round(times.length*1000/(now-this._metricStart)),frameMsP95:times[Math.floor(times.length*.95)]});this._frames=[];this._metricStart=now;}
+  return update.apply(this,a);
+};
+const r=JSON.parse(localStorage.getItem('continuous-room'));sessionStorage.clear();
+sessionStorage.setItem('tower_active_match_id',r.match.id);sessionStorage.setItem('tower_participant_token',r.join.participant_token);sessionStorage.setItem('tower_active_member',JSON.stringify(r.join.member));
+history.replaceState(null,'',`/battle/${r.match.id}`);await import('/src/main.tsx');
+</script></html>

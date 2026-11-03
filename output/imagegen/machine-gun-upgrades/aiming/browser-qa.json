@@ -1,0 +1,136 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "Gun frames match original 512px detail density, with transparent padding at all 32 headings",
+      "detail": [
+        {
+          "level": 1,
+          "width": 512,
+          "height": 384,
+          "expected": 512,
+          "clearEdges": true
+        },
+        {
+          "level": 2,
+          "width": 512,
+          "height": 384,
+          "expected": 512,
+          "clearEdges": true
+        },
+        {
+          "level": 3,
+          "width": 512,
+          "height": 384,
+          "expected": 512,
+          "clearEdges": true
+        }
+      ]
+    },
+    {
+      "name": "All three levels track moving targets in every quadrant while their foundations stay fixed",
+      "directions": [
+        {
+          "direction": 0,
+          "frames": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "direction": 4,
+          "frames": [
+            9,
+            9,
+            9
+          ]
+        },
+        {
+          "direction": 8,
+          "frames": [
+            16,
+            16,
+            16
+          ]
+        },
+        {
+          "direction": 12,
+          "frames": [
+            23,
+            23,
+            23
+          ]
+        },
+        {
+          "direction": 15,
+          "frames": [
+            29,
+            29,
+            29
+          ]
+        },
+        {
+          "direction": 1,
+          "frames": [
+            3,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Live shots wait for aim, leave the muzzle, and recoil only the upper assembly",
+      "shots": [
+        {
+          "id": "mg0",
+          "muzzle": {
+            "x": 602.0762642220767,
+            "y": 607.1431881206328
+          },
+          "ground": {
+            "x": 570,
+            "y": 640
+          },
+          "yaw": 6.804979950436103
+        },
+        {
+          "id": "mg1",
+          "muzzle": {
+            "x": 832.1848585888217,
+            "y": 610.3496554442169
+          },
+          "ground": {
+            "x": 800,
+            "y": 640
+          },
+          "yaw": 6.804979950436103
+        },
+        {
+          "id": "mg2",
+          "muzzle": {
+            "x": 1064.6308796654891,
+            "y": 598.0661605623328
+          },
+          "ground": {
+            "x": 1030,
+            "y": 640
+          },
+          "yaw": 0.5222344662280186
+        }
+      ]
+    },
+    {
+      "name": "Legacy round playback also aims and fires"
+    },
+    {
+      "name": "Upgrading preserves the turret, ground anchor and current bearing"
+    },
+    {
+      "name": "Disabled and idle towers stop tracking; destroyed towers dispose of their moving parts"
+    }
+  ],
+  "errors": [],
+  "failures": []
+}

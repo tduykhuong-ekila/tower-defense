@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "scenarios": [
+    "Two teams: all 12 slots built through actual Phaser hit testing, mouse and touch",
+    "Quiz hidden expiry and explicit reopen without NEXT confirmation",
+    "Single and modifier selection, selected-only retarget replicated to Teams B and C",
+    "Mixed Infantry/Tank/Artillery retreat, independent return, HP preservation and rally idle on all three clients",
+    "Box selection preserves camera; returned troops attack again; client reconnect and new enemy deployment converge"
+  ],
+  "errors": []
+}

@@ -1,0 +1,19 @@
+# Infantry upgrade concepts
+
+Generated with the built-in imagegen tool from the supplied infantry reference. The concept sheet is split into three RGBA PNG sprites and shared by the infantry picker and in-game units.
+
+## Prompt used
+
+Use case: stylized-concept.
+Asset type: three transparent PNG game character concepts for a Phaser 3 Tower Defense game.
+Primary request: Create exactly three progressively upgraded versions of the SAME cute, chibi infantry soldier. Use the supplied reference as the primary guide to face identity, compact body proportions, olive/brown military palette, right-facing three-quarter combat-ready pose, polished stylized 3D rendering and orderly side-by-side presentation.
+Composition: Wide 3:1 transparent concept sheet, exactly one complete soldier centered in each equal cell, ordered Level 1 / Level 2 / Level 3 from left to right. Same camera, scale, running-ready semi-crouch stance, facial identity, shoulder width, limb proportions and bottom-center ground anchor. Hands hold one assault rifle across the torso, pointing diagonally right in the same direction in all three. Leave transparent gutters between silhouettes and 6% transparent padding around the outside. No cropping.
+Level 1 basic: warm medium olive uniform and rounded simple olive helmet. Uncovered friendly determined face with visible eyes and eyebrows. Basic dark olive tactical vest with a few brown ammo pouches, small brown backpack and rolled bedroll. Compact standard dark steel assault rifle with clearly visible warm wooden stock/handguard and simple iron sights. Basic gloves, cloth trousers, modest knee pads and plain dark military boots. Minimal armor, light silhouette.
+Level 2 reinforced: unmistakably the SAME soldier and clothing, face, stance and helmet shell. Add a medium-gray steel chest plate, discrete shoulder caps, slightly larger forearm and knee protection, helmet-mounted dark goggles above the eyes (eyes and face still visible), slightly larger olive backpack and a few more pouches. Keep much of original olive cloth and brown pouches visible. Same rifle model upgraded with one compact top-mounted dark optical sight. Intermediate weight and complexity.
+Level 3 elite: same face, same head/body proportions and stance, olive uniform beneath layered deep-olive/dark charcoal armor. Same rounded helmet identity with a few additional armor plates, raised compact blue-lit optic pods and a dark tactical face covering over nose and mouth (eyes visible). Stronger shoulder, chest, forearm, glove and knee plates, larger but compact backpack. Same recognizable rifle now with dark advanced optic, short rail attachments, thicker fore-end and restrained brass details. Elite but grounded military design, slightly heavier compact silhouette.
+Distinct at thumbnail size: level 1 open olive/wood silhouette, level 2 medium steel plate shapes and visible goggles, level 3 dense deep-olive/charcoal armor with tiny restrained blue optics and brass details. Realistic coherent upgrade steps. Preserve same olive-green, dark steel and warm brown family across all.
+High-quality polished colorful stylized 3D cartoon character render, slightly chibi proportions, clean bevelled forms, expressive face, sharp well-defined rifle, soft consistent upper-left studio light, crisp edges without blur.
+Background must be genuinely alpha-transparent. Outside only: no environment, floor, shadows beyond a minimal soft transparent contact shadow beneath each boot, battlefield, text, labels, stars, captions, numbers, frames, UI, muzzle flash, smoke, extra characters or weapons. Exactly three figures. No duplicate parts or changing pose.
+
+Layout refinement applied: Preserve the exact three generated soldiers; reframe into three equal cells with 7% transparent vertical gutters, 5% outer margins and aligned same-size boots at one ground line.
+

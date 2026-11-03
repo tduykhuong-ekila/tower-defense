@@ -1,0 +1,20 @@
+
+> tower-defense-frontend@1.0.0 build
+> tsc && vite build
+
+vite v5.4.21 building for production...
+transforming...
+✓ 1622 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                          0.85 kB │ gzip:   0.47 kB
+dist/assets/index-C9g_AoWs.css           3.43 kB │ gzip:   1.30 kB
+dist/assets/BattlePage-CQYJjUjg.css     38.13 kB │ gzip:   8.87 kB
+dist/assets/index-BgiEOw80.js          307.17 kB │ gzip:  88.79 kB
+dist/assets/BattlePage-iyb898ae.js   1,601.20 kB │ gzip: 378.73 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 6.97s

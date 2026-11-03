@@ -1,0 +1,82 @@
+[
+  {
+    "teams": 2,
+    "revision5ValidOrigins": 2710,
+    "revision6ValidOrigins": 2730,
+    "change": 20,
+    "formerRallyOrigins": 50,
+    "formerRallyWithin64pxOfRoad": 11,
+    "minimumTextureGapToOuterRoad": 1.11,
+    "paintedRoadWidths": [
+      92,
+      80,
+      70
+    ],
+    "placementEnvelope": [
+      -46.0,
+      -68.0,
+      46.0,
+      15.000000000000004
+    ]
+  },
+  {
+    "teams": 4,
+    "revision5ValidOrigins": 1119,
+    "revision6ValidOrigins": 1139,
+    "change": 20,
+    "formerRallyOrigins": 50,
+    "formerRallyWithin64pxOfRoad": 11,
+    "minimumTextureGapToOuterRoad": 1.11,
+    "paintedRoadWidths": [
+      92,
+      80,
+      70
+    ],
+    "placementEnvelope": [
+      -46.0,
+      -68.0,
+      46.0,
+      15.000000000000004
+    ]
+  },
+  {
+    "teams": 8,
+    "revision5ValidOrigins": 244,
+    "revision6ValidOrigins": 262,
+    "change": 18,
+    "formerRallyOrigins": 31,
+    "formerRallyWithin64pxOfRoad": 12,
+    "minimumTextureGapToOuterRoad": 1.11,
+    "paintedRoadWidths": [
+      92,
+      80,
+      70
+    ],
+    "placementEnvelope": [
+      -46.0,
+      -68.0,
+      46.0,
+      15.000000000000004
+    ]
+  },
+  {
+    "teams": 20,
+    "revision5ValidOrigins": 689,
+    "revision6ValidOrigins": 735,
+    "change": 46,
+    "formerRallyOrigins": 17,
+    "formerRallyWithin64pxOfRoad": 12,
+    "minimumTextureGapToOuterRoad": 1.2,
+    "paintedRoadWidths": [
+      92,
+      80,
+      70
+    ],
+    "placementEnvelope": [
+      -46.0,
+      -68.0,
+      46.0,
+      15.000000000000004
+    ]
+  }
+]

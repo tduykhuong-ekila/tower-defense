@@ -1,0 +1,61 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0
+django: version: 5.1.15, settings: config.settings.test (from ini)
+rootdir: /Users/admin/Desktop/Ekila/tower_defense/backend
+configfile: pyproject.toml
+plugins: cov-7.1.0, asyncio-1.4.0, django-4.14.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 332 items
+
+tests/test_arena_preview.py .                                            [  0%]
+tests/test_arena_scaling.py .............                                [  4%]
+tests/test_continuous_combat.py .....                                    [  5%]
+tests/test_formation_realtime.py .                                       [  6%]
+tests/test_full_gameplay_flow.py ........                                [  8%]
+tests/test_graphics.py .....                                             [  9%]
+tests/test_health.py .                                                   [ 10%]
+tests/test_infantry_fire_rate.py .                                       [ 10%]
+tests/test_infantry_gameplay.py ........                                 [ 12%]
+tests/test_live_battle_gameplay.py .....                                 [ 14%]
+tests/test_phase_1.py ..........                                         [ 17%]
+tests/test_phase_2.py .............                                      [ 21%]
+tests/test_phase_3.py ...........                                        [ 24%]
+tests/test_phase_4.py ....                                               [ 25%]
+tests/test_phase_6.py .........                                          [ 28%]
+tests/test_phase_7.py ...........                                        [ 31%]
+tests/test_phase_7_coverage.py ......                                    [ 33%]
+tests/test_question_banks.py ...............................             [ 43%]
+tests/test_room_configuration.py .....................                   [ 49%]
+tests/test_round_lifecycle.py ...........                                [ 52%]
+tests/test_spawn_tower_realtime.py ..                                    [ 53%]
+tests/test_troop_movement_combat.py .                                    [ 53%]
+tests/test_arena_scaling.py ..                                           [ 54%]
+tests/test_battle_websocket.py ..                                        [ 54%]
+tests/test_continuous_combat.py ...                                      [ 55%]
+tests/test_formation_realtime.py .                                       [ 56%]
+tests/test_large_realtime.py .                                           [ 56%]
+tests/test_phase_2.py .                                                  [ 56%]
+tests/test_phase_3.py .                                                  [ 56%]
+tests/test_phase_5.py .........                                          [ 59%]
+tests/test_phase_7.py ...                                                [ 60%]
+tests/test_question_bank_concurrency.py ss                               [ 61%]
+tests/test_question_banks.py .                                           [ 61%]
+tests/test_round_concurrency.py ssssssss                                 [ 63%]
+tests/test_spawn_tower_realtime.py ....                                  [ 65%]
+tests/test_arena_preview.py .                                            [ 65%]
+tests/test_arena_scaling.py ........................                     [ 72%]
+tests/test_continuous_combat.py ....                                     [ 73%]
+tests/test_formation_realtime.py .....                                   [ 75%]
+tests/test_full_gameplay_flow.py .                                       [ 75%]
+tests/test_health.py .                                                   [ 75%]
+tests/test_infantry_fire_rate.py .................                       [ 81%]
+tests/test_infantry_gameplay.py ......                                   [ 82%]
+tests/test_live_battle_gameplay.py ...........                           [ 86%]
+tests/test_phase_4.py ........                                           [ 88%]
+tests/test_phase_7_coverage.py ..                                        [ 89%]
+tests/test_room_configuration.py .                                       [ 89%]
+tests/test_round_lifecycle.py .                                          [ 89%]
+tests/test_spawn_tower_realtime.py ......................                [ 96%]
+tests/test_troop_movement_combat.py ............                         [100%]
+
+======================= 322 passed, 10 skipped in 51.90s =======================

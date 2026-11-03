@@ -1,0 +1,13 @@
+{
+  "geometryRevision": 17,
+  "buildableCellsByTeam": [
+    1188,
+    1119,
+    1326,
+    1105,
+    1284
+  ],
+  "waterBlockedBuildableCells": 0,
+  "recoveredBuildableCells": 222,
+  "lostBuildableCells": 0
+}

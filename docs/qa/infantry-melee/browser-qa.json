@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "All 20 team colours and all 3 upgrade levels load five sword frames at the original sprite dimensions",
+    "All 3 levels face targets left/right, swing the sword and show a local arc without bullets, explosions or movement of the ground anchor",
+    "Sword recovery restores idle art and live walking resumes without a stale sword pose",
+    "Base attacks and legacy combat replay use sword animation; skipping playback clears it",
+    "Repeated attacks keep the effect count bounded; pooled soldiers reset their pose and use their new team and level",
+    "Machine gun towers still aim and fire projectiles"
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "status": "PASS"
+}

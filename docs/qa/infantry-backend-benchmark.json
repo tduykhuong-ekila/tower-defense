@@ -1,0 +1,80 @@
+{
+  "platform": "macOS-26.5.2-x86_64-i386-64bit",
+  "teams": 20,
+  "database": "disposable SQLite",
+  "transport": "InMemory Channels, no browser subscribers",
+  "scenarios": [
+    {
+      "infantry_per_team": 20,
+      "aggregate_entities": 400,
+      "committed_ticks": 20,
+      "tick_ms": {
+        "median": 147.49,
+        "p95": 280.31,
+        "max": 280.31
+      },
+      "cpu_ms_per_tick": {
+        "median": 144.29,
+        "p95": 229.64,
+        "max": 229.64
+      },
+      "queries_median": 12.0,
+      "delta_bytes_median": 331639.5,
+      "estimated_payload_kb_per_second_per_viewer": 1619.33,
+      "dense_combat_engine_ms": {
+        "median": 35.98,
+        "p95": 65.17,
+        "max": 65.17
+      },
+      "process_peak_rss_mb": 119.8
+    },
+    {
+      "infantry_per_team": 50,
+      "aggregate_entities": 1000,
+      "committed_ticks": 20,
+      "tick_ms": {
+        "median": 363.45,
+        "p95": 529.13,
+        "max": 529.13
+      },
+      "cpu_ms_per_tick": {
+        "median": 359.79,
+        "p95": 488.09,
+        "max": 488.09
+      },
+      "queries_median": 14.0,
+      "delta_bytes_median": 828409.5,
+      "estimated_payload_kb_per_second_per_viewer": 4044.97,
+      "dense_combat_engine_ms": {
+        "median": 85.67,
+        "p95": 184.75,
+        "max": 184.75
+      },
+      "process_peak_rss_mb": 148.3
+    },
+    {
+      "infantry_per_team": 100,
+      "aggregate_entities": 2000,
+      "committed_ticks": 20,
+      "tick_ms": {
+        "median": 757.75,
+        "p95": 1018.3,
+        "max": 1018.3
+      },
+      "cpu_ms_per_tick": {
+        "median": 740.53,
+        "p95": 1003.17,
+        "max": 1003.17
+      },
+      "queries_median": 17.0,
+      "delta_bytes_median": 1657362.5,
+      "estimated_payload_kb_per_second_per_viewer": 8092.59,
+      "dense_combat_engine_ms": {
+        "median": 184.06,
+        "p95": 395.01,
+        "max": 395.01
+      },
+      "process_peak_rss_mb": 191.1
+    }
+  ]
+}

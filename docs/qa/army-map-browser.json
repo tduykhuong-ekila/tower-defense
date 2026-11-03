@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "layouts": [
+    {
+      "count": 2,
+      "version": 4,
+      "slots": 12,
+      "baseMarkerOverlaps": [
+        {
+          "slot": "node_tower_t2_slot1",
+          "base": "f7a0b7a0-694a-400f-95f7-7b9c7ad81d5e"
+        },
+        {
+          "slot": "node_tower_t2_slot2",
+          "base": "f7a0b7a0-694a-400f-95f7-7b9c7ad81d5e"
+        }
+      ],
+      "towersBuilt": 12,
+      "zooms": [
+        0.6,
+        1,
+        1.4
+      ]
+    },
+    {
+      "count": 2,
+      "version": 5,
+      "slots": 12,
+      "baseMarkerOverlaps": [],
+      "towersBuilt": 12,
+      "zooms": [
+        0.6,
+        1,
+        1.4
+      ]
+    },
+    {
+      "count": 4,
+      "version": 5,
+      "slots": 24,
+      "baseMarkerOverlaps": [],
+      "towersBuilt": 24,
+      "zooms": [
+        0.6,
+        1,
+        1.4
+      ]
+    },
+    {
+      "count": 8,
+      "version": 5,
+      "slots": 48,
+      "baseMarkerOverlaps": [],
+      "towersBuilt": 48,
+      "zooms": [
+        0.6,
+        1,
+        1.4
+      ]
+    },
+    {
+      "count": 20,
+      "version": 5,
+      "slots": 120,
+      "baseMarkerOverlaps": [],
+      "towersBuilt": 120,
+      "zooms": [
+        0.6,
+        1,
+        1.4
+      ]
+    }
+  ]
+}

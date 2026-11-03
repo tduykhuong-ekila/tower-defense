@@ -1,0 +1,82 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- /Users/admin/Desktop/Ekila/tower_defense/backend/.venv/bin/python3.12
+cachedir: .pytest_cache
+django: version: 5.1.15, settings: config.settings.test_postgres (from option)
+rootdir: /Users/admin/Desktop/Ekila/tower_defense/backend
+configfile: pyproject.toml
+plugins: cov-7.1.0, asyncio-1.4.0, django-4.14.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 65 items
+
+tests/test_unlimited_towers.py::test_all_teams_build_beyond_six_pay_and_inherit_upgrade[2] PASSED [  1%]
+tests/test_unlimited_towers.py::test_all_teams_build_beyond_six_pay_and_inherit_upgrade[4] PASSED [  3%]
+tests/test_unlimited_towers.py::test_all_teams_build_beyond_six_pay_and_inherit_upgrade[8] PASSED [  4%]
+tests/test_unlimited_towers.py::test_all_teams_build_beyond_six_pay_and_inherit_upgrade[20] PASSED [  6%]
+tests/test_unlimited_towers.py::test_failed_build_leaves_economy_and_occupancy_unchanged[locked] PASSED [  7%]
+tests/test_unlimited_towers.py::test_failed_build_leaves_economy_and_occupancy_unchanged[coins] PASSED [  9%]
+tests/test_unlimited_towers.py::test_failed_build_leaves_economy_and_occupancy_unchanged[phase] PASSED [ 10%]
+tests/test_unlimited_towers.py::test_failed_build_leaves_economy_and_occupancy_unchanged[team] PASSED [ 12%]
+tests/test_unlimited_towers.py::test_failed_build_leaves_economy_and_occupancy_unchanged[actor] PASSED [ 13%]
+tests/test_unlimited_towers.py::test_failed_build_leaves_economy_and_occupancy_unchanged[enemy] PASSED [ 15%]
+tests/test_unlimited_towers.py::test_failed_build_leaves_economy_and_occupancy_unchanged[footprint] PASSED [ 16%]
+tests/test_unlimited_towers.py::test_failed_build_leaves_economy_and_occupancy_unchanged[request] PASSED [ 18%]
+tests/test_unlimited_towers.py::test_failed_build_leaves_economy_and_occupancy_unchanged[conflict] PASSED [ 20%]
+tests/test_unlimited_towers.py::test_saved_arenas_gain_grid_without_moving_foundations_or_routes[2-3] PASSED [ 21%]
+tests/test_unlimited_towers.py::test_saved_arenas_gain_grid_without_moving_foundations_or_routes[2-4] PASSED [ 23%]
+tests/test_unlimited_towers.py::test_saved_arenas_gain_grid_without_moving_foundations_or_routes[2-5] PASSED [ 24%]
+tests/test_unlimited_towers.py::test_saved_arenas_gain_grid_without_moving_foundations_or_routes[4-3] PASSED [ 26%]
+tests/test_unlimited_towers.py::test_saved_arenas_gain_grid_without_moving_foundations_or_routes[4-4] PASSED [ 27%]
+tests/test_unlimited_towers.py::test_saved_arenas_gain_grid_without_moving_foundations_or_routes[4-5] PASSED [ 29%]
+tests/test_unlimited_towers.py::test_saved_arenas_gain_grid_without_moving_foundations_or_routes[8-3] PASSED [ 30%]
+tests/test_unlimited_towers.py::test_saved_arenas_gain_grid_without_moving_foundations_or_routes[8-4] PASSED [ 32%]
+tests/test_unlimited_towers.py::test_saved_arenas_gain_grid_without_moving_foundations_or_routes[8-5] PASSED [ 33%]
+tests/test_unlimited_towers.py::test_saved_arenas_gain_grid_without_moving_foundations_or_routes[20-3] PASSED [ 35%]
+tests/test_unlimited_towers.py::test_saved_arenas_gain_grid_without_moving_foundations_or_routes[20-4] PASSED [ 36%]
+tests/test_unlimited_towers.py::test_saved_arenas_gain_grid_without_moving_foundations_or_routes[20-5] PASSED [ 38%]
+tests/test_grid_placement.py::test_cannon_base_levels_and_migration_preserve_other_fields PASSED [ 40%]
+tests/test_grid_placement.py::test_authoritative_position_idempotency_upgrade_events_and_destroyed_release PASSED [ 41%]
+tests/test_grid_placement.py::test_strict_coordinates_rejected_without_debit[invalid0] PASSED [ 43%]
+tests/test_grid_placement.py::test_strict_coordinates_rejected_without_debit[invalid1] PASSED [ 44%]
+tests/test_grid_placement.py::test_strict_coordinates_rejected_without_debit[invalid2] PASSED [ 46%]
+tests/test_grid_placement.py::test_strict_coordinates_rejected_without_debit[invalid3] PASSED [ 47%]
+tests/test_grid_placement.py::test_strict_coordinates_rejected_without_debit[invalid4] PASSED [ 49%]
+tests/test_grid_placement.py::test_strict_coordinates_rejected_without_debit[invalid5] PASSED [ 50%]
+tests/test_grid_placement.py::test_every_exclusion_and_opponent_region_rejects_purchase PASSED [ 52%]
+tests/test_grid_placement.py::test_rest_permissions_lock_coins_ignored_cap_and_legacy_compatibility PASSED [ 53%]
+tests/test_unlimited_towers.py::test_concurrent_teammates_real_postgres[overlap] PASSED [ 55%]
+tests/test_unlimited_towers.py::test_concurrent_teammates_real_postgres[different] PASSED [ 56%]
+tests/test_unlimited_towers.py::test_concurrent_teammates_real_postgres[retry] PASSED [ 58%]
+tests/test_unlimited_towers.py::test_concurrent_teammates_real_postgres[last-coins] PASSED [ 60%]
+tests/test_unlimited_towers.py::test_eighth_tower_battle_realtime_upgrade_retry_and_reconnect PASSED [ 61%]
+tests/test_grid_placement.py::test_concurrent_overlap_real_postgres_only_one_debit PASSED [ 63%]
+tests/test_grid_placement.py::test_grid_build_two_teams_spectator_battle_and_reconnect PASSED [ 64%]
+tests/test_round_concurrency.py::test_competing_schedulers_resolve_deadline_once PASSED [ 66%]
+tests/test_round_concurrency.py::test_simultaneous_shared_team_deployment_retry_charges_once PASSED [ 67%]
+tests/test_round_concurrency.py::test_many_teammates_deploy_beyond_cap_without_losing_debits PASSED [ 69%]
+tests/test_round_concurrency.py::test_concurrent_distinct_and_duplicate_requests_cannot_overspend PASSED [ 70%]
+tests/test_round_concurrency.py::test_simultaneous_reward_choice_cannot_claim_both PASSED [ 72%]
+tests/test_round_concurrency.py::test_two_real_members_share_wallet_and_keep_deploying_in_round_two PASSED [ 73%]
+tests/test_round_concurrency.py::test_continuous_workers_commit_tick_and_damage_exactly_once PASSED [ 75%]
+tests/test_round_concurrency.py::test_live_commands_racing_tick_preserve_entities_coins_and_deadline PASSED [ 76%]
+tests/test_round_concurrency.py::test_simultaneous_batch_retry_creates_ten_and_one_debit PASSED [ 78%]
+tests/test_round_concurrency.py::test_concurrent_batch_requests_cannot_overspend_shared_wallet PASSED [ 80%]
+tests/test_round_concurrency.py::test_concurrent_vehicle_batches_cannot_exceed_shared_capacity PASSED [ 81%]
+tests/test_round_concurrency.py::test_twenty_teams_deploy_concurrent_batches_during_battle PASSED [ 83%]
+tests/test_unlimited_towers.py::test_spatial_targets_equal_brute_force_at_edges_and_all_ranges[2] PASSED [ 84%]
+tests/test_unlimited_towers.py::test_spatial_targets_equal_brute_force_at_edges_and_all_ranges[4] PASSED [ 86%]
+tests/test_unlimited_towers.py::test_spatial_targets_equal_brute_force_at_edges_and_all_ranges[8] PASSED [ 87%]
+tests/test_unlimited_towers.py::test_spatial_targets_equal_brute_force_at_edges_and_all_ranges[20] PASSED [ 89%]
+tests/test_unlimited_towers.py::test_retired_capacity_input_is_ignored_and_published_as_null PASSED [ 90%]
+tests/test_grid_placement.py::test_grid_world_mask_all_teams_have_six_disjoint_footprints[2] PASSED [ 92%]
+tests/test_grid_placement.py::test_grid_world_mask_all_teams_have_six_disjoint_footprints[4] PASSED [ 93%]
+tests/test_grid_placement.py::test_grid_world_mask_all_teams_have_six_disjoint_footprints[8] PASSED [ 95%]
+tests/test_grid_placement.py::test_grid_world_mask_all_teams_have_six_disjoint_footprints[20] PASSED [ 96%]
+tests/test_grid_placement.py::test_grid_tower_combat_uses_physical_position_and_exact_range PASSED [ 98%]
+tests/test_grid_placement.py::test_configuration_rejects_incompatible_grid_and_legacy_arenas PASSED [100%]
+
+=============================== warnings summary ===============================
+tests/test_grid_placement.py::test_configuration_rejects_incompatible_grid_and_legacy_arenas
+  /Users/admin/Desktop/Ekila/tower_defense/backend:0: PytestWarning: Error when trying to teardown test databases: OperationalError('database "test_tower_defense_combat" is being accessed by other users\nDETAIL:  There is 1 other session using the database.')
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 65 passed, 1 warning in 34.14s ========================

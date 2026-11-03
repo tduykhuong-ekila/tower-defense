@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "audit": true,
+  "scenarios": [
+    {
+      "teams": 4,
+      "checks": [],
+      "action_latency_ms": [],
+      "reused_lobby_socket_missing_opponent": true,
+      "own_sync_recovers_missing_opponent": true
+    }
+  ],
+  "errors": []
+}

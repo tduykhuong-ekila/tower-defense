@@ -1,0 +1,35 @@
+✔ gathering panel offers retarget for selected troops without retreat commands (4.493ms)
+✔ selection includes mixed friendly mobile troops and rejects opponents, towers and dead units (0.61925ms)
+✔ command deltas preserve unselected units and duplicates cannot undo newer retreat (0.859041ms)
+✔ question/reward events do not open a hidden quiz and open results remain visible (0.073292ms)
+✔ multi-select toggles an entire type while preserving unrelated groups (0.203208ms)
+✔ empty or expired selected-only commands never become implicit all-army retreat (0.080333ms)
+✔ quantity maximum uses current wallet and shared vehicle capacity, excluding Infantry (0.674625ms)
+✔ invalid quantities and unlimited tower eligibility reflect authoritative rules (0.123709ms)
+✔ quantity controls show numeric input, total cost and validation without quick presets (3.847ms)
+✔ batched creations upsert stable IDs once across REST snapshots, duplicate events and reconnect (0.657208ms)
+✔ artillery preview covers exactly 1.5 hops, clipping the second edge halfway (0.600917ms)
+✔ initial targets form a ring with one attacker per opponent (2.359708ms)
+✔ manual selections survive team updates (0.070083ms)
+✔ invalid selections rotate to the next active opponent (0.066084ms)
+✔ waits for assignment and handles having no opponents (0.066208ms)
+✔ battle permits deploy/build/target and continuous quiz, while special actions stay gated (0.489833ms)
+✔ formation is projected onto the authoritative centerline including its spawn approach (0.373708ms)
+✔ live spawns retain 100 HP and authoritative staging; REST/socket stable IDs never duplicate (0.547542ms)
+✔ levels and Phaser geometry stop at three filled stars (1.618666ms)
+✔ star LOD suppresses dense armies in overview (0.102708ms)
+✔ infantry selects its exact team-wide type (0.355167ms)
+✔ tank selects its exact team-wide type (0.249459ms)
+✔ artillery selects its exact team-wide type (0.061542ms)
+✔ cannon_tower selects its exact team-wide type (0.037958ms)
+✔ mg_tower selects its exact team-wide type (0.036041ms)
+✔ shield_generator selects its exact team-wide type (0.036792ms)
+✔ unknown or ineligible types never fall back to another type (0.078166ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 310.733084

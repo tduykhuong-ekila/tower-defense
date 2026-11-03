@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "units": 30,
+  "lastTroopHP": "100/100",
+  "lastTroopPosition": {
+    "x": 67.59943121987875,
+    "y": 205.57077927843525
+  },
+  "distinctStagingPositions": 30,
+  "lastTroopPannableAndInspectable": true
+}

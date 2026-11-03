@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "maps": [
+    {
+      "teams": 2,
+      "build": true,
+      "damage": 20,
+      "opponentRealtime": true,
+      "zoomPanSnapping": true,
+      "occupiedRejected": true,
+      "escapeRightCancel": true
+    },
+    {
+      "teams": 4,
+      "preview": true,
+      "objects": 326
+    },
+    {
+      "teams": 8,
+      "preview": true,
+      "objects": 312
+    },
+    {
+      "teams": 20,
+      "preview": true,
+      "objects": 397
+    }
+  ],
+  "modal": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "height": 720,
+      "stable": true,
+      "internalScroll": false,
+      "delayedImage": true,
+      "confirmationStable": true
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "height": 720,
+      "stable": true,
+      "internalScroll": true,
+      "delayedImage": true,
+      "confirmationStable": true
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "height": 354,
+      "stable": true,
+      "internalScroll": true,
+      "delayedImage": true,
+      "confirmationStable": true
+    }
+  ],
+  "errors": [],
+  "pinchWithoutBuild": true,
+  "touchSecondTap": true,
+  "upgradeWhileBuilding": true
+}

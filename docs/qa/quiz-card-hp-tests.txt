@@ -1,0 +1,1 @@
+{"status":"PASS","initialHp":80,"serverHp":70,"displayedHp":70,"combatRounds":3}

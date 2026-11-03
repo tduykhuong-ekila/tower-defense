@@ -1,0 +1,223 @@
+{
+  "status": "PASS",
+  "scenarios": [
+    {
+      "teams": 20,
+      "infantry_per_team": 20,
+      "initial_entities": 400,
+      "final_entities": 402,
+      "measured_seconds": 10.945,
+      "clients": [
+        {
+          "fps": [
+            60,
+            60,
+            60,
+            60,
+            59,
+            60,
+            60
+          ],
+          "frame_p95_ms": [
+            17.5,
+            17.599999994039536,
+            17.5,
+            17.599999994039536,
+            19,
+            17.5,
+            17.5
+          ],
+          "heap_mb": 107.6630687713623,
+          "visible": 22,
+          "pool": 0,
+          "entities": 402,
+          "combat_ticks": 5,
+          "websocket_kb_per_second": 1131.7684899164078
+        },
+        {
+          "fps": [
+            57,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60
+          ],
+          "frame_p95_ms": [
+            38.599999994039536,
+            17.69999998807907,
+            17.5,
+            17.400000005960464,
+            17.400000005960464,
+            17.5,
+            17.5
+          ],
+          "heap_mb": 112.25089454650879,
+          "visible": 40,
+          "pool": 0,
+          "entities": 402,
+          "combat_ticks": 8,
+          "websocket_kb_per_second": 1183.9384820939156
+        }
+      ],
+      "divergent_entities": 0,
+      "duplicate_sprites": 0,
+      "reconnect_restored": true,
+      "paid_live_deployments_both_directions": true
+    },
+    {
+      "teams": 20,
+      "infantry_per_team": 50,
+      "initial_entities": 1000,
+      "final_entities": 1002,
+      "measured_seconds": 13.527,
+      "clients": [
+        {
+          "fps": [
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            58,
+            60
+          ],
+          "frame_p95_ms": [
+            17.399999976158142,
+            17.299999982118607,
+            20.899999976158142,
+            17.400000005960464,
+            17.400000005960464,
+            17.30000001192093,
+            18.099999994039536,
+            17.400000005960464
+          ],
+          "heap_mb": 86.89982986450195,
+          "visible": 32,
+          "pool": 0,
+          "entities": 1002,
+          "combat_ticks": 4,
+          "websocket_kb_per_second": 1466.6844696024616
+        },
+        {
+          "fps": [
+            58,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60
+          ],
+          "frame_p95_ms": [
+            26.200000017881393,
+            17.5,
+            17.400000005960464,
+            17.100000023841858,
+            19,
+            17.400000005960464,
+            17.400000005960464,
+            17.5
+          ],
+          "heap_mb": 112.94557189941406,
+          "visible": 50,
+          "pool": 0,
+          "entities": 1002,
+          "combat_ticks": 5,
+          "websocket_kb_per_second": 966.6013747967029
+        }
+      ],
+      "divergent_entities": 0,
+      "duplicate_sprites": 0,
+      "reconnect_restored": true,
+      "paid_live_deployments_both_directions": true
+    },
+    {
+      "teams": 20,
+      "infantry_per_team": 100,
+      "initial_entities": 2000,
+      "final_entities": 2002,
+      "measured_seconds": 16.457,
+      "clients": [
+        {
+          "fps": [
+            59,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60,
+            60
+          ],
+          "frame_p95_ms": [
+            18.799999982118607,
+            16.899999976158142,
+            16.80000001192093,
+            16.80000001192093,
+            16.900000005960464,
+            17.600000023841858,
+            17.599999994039536,
+            17.19999998807907,
+            17.799999982118607,
+            17.399999976158142,
+            17.600000023841858,
+            17.5
+          ],
+          "heap_mb": 182.76365852355957,
+          "visible": 36,
+          "pool": 0,
+          "entities": 2002,
+          "combat_ticks": 2,
+          "websocket_kb_per_second": 1527.893537419487
+        },
+        {
+          "fps": [
+            60,
+            60,
+            60,
+            60,
+            60,
+            59,
+            61,
+            60,
+            60,
+            60,
+            57
+          ],
+          "frame_p95_ms": [
+            25,
+            17.400000005960464,
+            17.30000001192093,
+            18.100000023841858,
+            17.19999998807907,
+            18.899999976158142,
+            17.30000001192093,
+            17.30000001192093,
+            17.30000001192093,
+            17.200000017881393,
+            17.19999998807907
+          ],
+          "heap_mb": 96.10194873809814,
+          "visible": 50,
+          "pool": 0,
+          "entities": 2002,
+          "combat_ticks": 1,
+          "websocket_kb_per_second": 1620.1340994713496
+        }
+      ],
+      "divergent_entities": 0,
+      "duplicate_sprites": 0,
+      "reconnect_restored": true,
+      "paid_live_deployments_both_directions": true
+    }
+  ],
+  "errors": []
+}

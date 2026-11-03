@@ -1,0 +1,350 @@
+{
+  "status": "PASS",
+  "scenarios": [
+    {
+      "teams": 4,
+      "checks": [
+        "opponent sees infantry without reload",
+        "opponent sees tank without reload",
+        "concurrent Battle deploy/build retries preserve one entity per key and debit once",
+        "movement and HP agree with authoritative snapshot on both clients",
+        "offline opponent recovers deployments and towers automatically without reload",
+        "dropped/out-of-order movement frame triggers recovery and cannot roll state back"
+      ],
+      "action_latency_ms": [
+        153,
+        159,
+        36
+      ],
+      "combat_measurement_ms": 11453,
+      "combat_attacks": 70,
+      "combat_destructions": 1,
+      "before_recovery": {
+        "version": 124,
+        "entities": 19,
+        "divergent_entities": 0,
+        "duplicate_sprites": 0
+      },
+      "reconnect_recovery_ms": 509,
+      "after_recovery": {
+        "version": 137,
+        "entities": 21,
+        "divergent_entities": 0,
+        "duplicate_sprites": 0
+      },
+      "injected_delayed_frames": 1,
+      "client_a": {
+        "raw_events": 125,
+        "raw_duplicates": 5,
+        "observed_raw_sequence_gaps": 0,
+        "snapshots": 2,
+        "latency_p95_ms": 44
+      },
+      "client_b": {
+        "raw_events": 117,
+        "raw_duplicates": 5,
+        "observed_raw_sequence_gaps": 7,
+        "snapshots": 3,
+        "latency_p95_ms": 47
+      },
+      "performance": {
+        "frames": [
+          {
+            "fps": 22,
+            "frameMsP95": 255.09999999403954
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.5
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 19.099999994039536
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.69999998807907
+          },
+          {
+            "fps": 56,
+            "frameMsP95": 18
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.599999994039536
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.5
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.5
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.599999994039536
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.5
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.400000005960464
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.5
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.30000001192093
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.5
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.599999994039536
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.599999994039536
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.400000005960464
+          }
+        ],
+        "heap_bytes": 57704850
+      }
+    },
+    {
+      "teams": 8,
+      "checks": [
+        "opponent sees infantry without reload",
+        "opponent sees tank without reload",
+        "concurrent Battle deploy/build retries preserve one entity per key and debit once",
+        "movement and HP agree with authoritative snapshot on both clients",
+        "offline opponent recovers deployments and towers automatically without reload",
+        "dropped/out-of-order movement frame triggers recovery and cannot roll state back"
+      ],
+      "action_latency_ms": [
+        56,
+        129,
+        38
+      ],
+      "combat_measurement_ms": 7434,
+      "combat_attacks": 96,
+      "combat_destructions": 1,
+      "before_recovery": {
+        "version": 147,
+        "entities": 35,
+        "divergent_entities": 0,
+        "duplicate_sprites": 0
+      },
+      "reconnect_recovery_ms": 606,
+      "after_recovery": {
+        "version": 161,
+        "entities": 37,
+        "divergent_entities": 0,
+        "duplicate_sprites": 0
+      },
+      "injected_delayed_frames": 1,
+      "client_a": {
+        "raw_events": 132,
+        "raw_duplicates": 0,
+        "observed_raw_sequence_gaps": 0,
+        "snapshots": 3,
+        "latency_p95_ms": 69
+      },
+      "client_b": {
+        "raw_events": 123,
+        "raw_duplicates": 0,
+        "observed_raw_sequence_gaps": 8,
+        "snapshots": 4,
+        "latency_p95_ms": 44
+      },
+      "performance": {
+        "frames": [
+          {
+            "fps": 62,
+            "frameMsP95": 17.599999994039536
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 18.19999998807907
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 19.700000017881393
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.69999998807907
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 18.099999994039536
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 19
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.600000023841858
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.700000017881393
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.400000005960464
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.400000005960464
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 19.69999998807907
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.599999994039536
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.5
+          }
+        ],
+        "heap_bytes": 64170967
+      }
+    },
+    {
+      "teams": 20,
+      "checks": [
+        "opponent sees infantry without reload",
+        "opponent sees tank without reload",
+        "concurrent Battle deploy/build retries preserve one entity per key and debit once",
+        "movement and HP agree with authoritative snapshot on both clients",
+        "offline opponent recovers deployments and towers automatically without reload",
+        "dropped/out-of-order movement frame triggers recovery and cannot roll state back"
+      ],
+      "action_latency_ms": [
+        94,
+        116,
+        65
+      ],
+      "combat_measurement_ms": 8240,
+      "combat_attacks": 268,
+      "combat_destructions": 1,
+      "before_recovery": {
+        "version": 289,
+        "entities": 83,
+        "divergent_entities": 0,
+        "duplicate_sprites": 0
+      },
+      "reconnect_recovery_ms": 701,
+      "after_recovery": {
+        "version": 303,
+        "entities": 84,
+        "divergent_entities": 0,
+        "duplicate_sprites": 0
+      },
+      "injected_delayed_frames": 1,
+      "client_a": {
+        "raw_events": 241,
+        "raw_duplicates": 3,
+        "observed_raw_sequence_gaps": 0,
+        "snapshots": 3,
+        "latency_p95_ms": 46
+      },
+      "client_b": {
+        "raw_events": 232,
+        "raw_duplicates": 3,
+        "observed_raw_sequence_gaps": 8,
+        "snapshots": 5,
+        "latency_p95_ms": 39
+      },
+      "performance": {
+        "frames": [
+          {
+            "fps": 61,
+            "frameMsP95": 17.69999998807907
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 17.400000005960464
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 19.400000005960464
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 19.400000005960464
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 21.400000005960464
+          },
+          {
+            "fps": 59,
+            "frameMsP95": 33.400000005960464
+          },
+          {
+            "fps": 50,
+            "frameMsP95": 27.5
+          },
+          {
+            "fps": 61,
+            "frameMsP95": 17.80000001192093
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 18.30000001192093
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 18.80000001192093
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 19.900000005960464
+          },
+          {
+            "fps": 59,
+            "frameMsP95": 25.900000005960464
+          },
+          {
+            "fps": 61,
+            "frameMsP95": 17.599999994039536
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 21.5
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 21
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 18.900000005960464
+          },
+          {
+            "fps": 60,
+            "frameMsP95": 19.30000001192093
+          }
+        ],
+        "heap_bytes": 80490911
+      }
+    }
+  ],
+  "page_errors": []
+}

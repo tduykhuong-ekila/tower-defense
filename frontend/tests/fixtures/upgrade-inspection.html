@@ -1,0 +1,21 @@
+<!doctype html><html><meta charset="utf-8"><div id="root"></div><script type="module">
+const params=new URLSearchParams(location.search),id=params.get('match');
+if(params.get('mode')==='panel') {
+ const {default:React}=await import('react');const {createRoot}=await import('react-dom/client');
+ const {TeamUpgradeModal}=await import('/src/components/game/TeamUpgradeModal.tsx');
+ await import('/src/index.css');await import('/src/game/game.css');
+ const r=JSON.parse(localStorage.getItem('upgrade-inspection-room'));
+ const headers={'X-Participant-Token':r.joins[0].participant_token};
+ const units=await fetch(`/api/v1/matches/${id}/units/`,{headers}).then(r=>r.json());
+ const state=await fetch(`/api/v1/matches/${id}/teams/${r.teams[0].id}/state/`,{headers}).then(r=>r.json());
+ const root=createRoot(document.getElementById('root'));
+ const render=selectedType=>root.render(React.createElement(TeamUpgradeModal,{selectedType,onSelectType:render,units,coins:state.team.coins,teamIndex:0,disabled:true,onClose:()=>{},onPurchase:async()=>{}}));render();
+} else {
+ const {BattleScene}=await import('/src/game/scenes/BattleScene.ts');
+ const create=BattleScene.prototype.create,update=BattleScene.prototype.update;
+ BattleScene.prototype.create=function(...args){window.flowScene=this;return create.apply(this,args)};
+ window.frameTimes=[];let previous=0;
+ BattleScene.prototype.update=function(...args){const now=performance.now();if(previous)window.frameTimes.push(now-previous);previous=now;return update.apply(this,args)};
+ sessionStorage.clear();history.replaceState(null,'',`/battle/${id}`);await import('/src/main.tsx');
+}
+</script></html>

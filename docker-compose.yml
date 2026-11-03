@@ -1,0 +1,64 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: tower_defense_postgres
+    environment:
+      POSTGRES_DB: tower_defense_db
+      POSTGRES_USER: tower
+      POSTGRES_PASSWORD: defense_password
+    ports:
+      # Ánh xạ ra host 5433 để tránh trùng port 5432 của PostgreSQL cục bộ
+      - "5435:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tower -d tower_defense_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: tower_defense_redis
+    ports:
+      # Ánh xạ ra host 6380 để tránh trùng port 6379 của container redis khác trên máy
+      - "6385:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: tower_defense_backend
+    command: daphne -b 0.0.0.0 -p 8000 config.asgi:application
+    environment:
+      - DEBUG=True
+      - SECRET_KEY=django-insecure-tower-defense-docker-secret-key
+      - ALLOWED_HOSTS=*
+      - DATABASE_URL=postgres://tower:defense_password@postgres:5432/tower_defense_db
+      - REDIS_URL=redis://redis:6379/0
+      - CORS_ALLOW_ALL_ORIGINS=True
+    ports:
+      - "8005:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: tower_defense_frontend
+    ports:
+      - "5175:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-21",
+  "backend": {
+    "passed": 216,
+    "skipped_postgres_tests": 6
+  },
+  "postgres_concurrency": {
+    "passed": 6,
+    "cluster": "disposable PostgreSQL 17"
+  },
+  "frontend": {
+    "passed": 64
+  },
+  "production_build": "PASS (existing Phaser chunk size warning)",
+  "edited_python_ruff": "PASS",
+  "django_system_check": "PASS",
+  "ui_browser": "PASS",
+  "multiplayer_browser": "PASS",
+  "multiplayer_room_sizes": [
+    4,
+    8,
+    20
+  ],
+  "independent_chrome_contexts_per_room": 2,
+  "page_errors": 0,
+  "details": "formation-realtime-browser.json",
+  "speed_details": "formation-speed.json"
+}

@@ -1,0 +1,235 @@
+{
+  "date": "2026-10-24",
+  "status": "PASS",
+  "backend": {
+    "command": "cd backend && .venv/bin/pytest -q",
+    "passed": 529,
+    "skipped": 23,
+    "log": "roadside-stars-backend.txt",
+    "skipScope": "PostgreSQL-only concurrency scenarios in the SQLite run; six relevant races separately verified on PostgreSQL."
+  },
+  "frontend": {
+    "command": "cd frontend && npm test",
+    "passed": 128,
+    "failed": 0,
+    "log": "roadside-stars-frontend.txt"
+  },
+  "postgresql": {
+    "command": "DJANGO_SETTINGS_MODULE=config.settings.test_postgres pytest (construction overlap, different cells, retries, last coins, upgrade/spawn/tick serialization)",
+    "passed": 6,
+    "log": "roadside-stars-postgresql.txt"
+  },
+  "build": {
+    "command": "cd frontend && npm run build",
+    "status": "PASS",
+    "log": "roadside-stars-build.txt",
+    "advisory": "Existing Phaser bundle exceeds Vite 500 kB chunk advisory."
+  },
+  "lint": {
+    "status": "PASS",
+    "backend": "ruff check apps and changed Python fixtures/tests",
+    "frontend": "TypeScript compilation included in production build",
+    "log": "roadside-stars-ruff.txt"
+  },
+  "browser": {
+    "status": "PASS",
+    "engine": "Chrome",
+    "report": "roadside-stars-browser.json",
+    "cardCombinations": 480,
+    "viewportSizes": [
+      "1440x1000",
+      "1024x768",
+      "390x844",
+      "320x844",
+      "844x390"
+    ],
+    "pageScaling": [
+      1,
+      1.25
+    ],
+    "arenaTeamCounts": [
+      2,
+      4,
+      8,
+      20
+    ],
+    "checks": [
+      "1–4 filled SVG stars",
+      "stable rows in six states and both pickers",
+      "green and red previews",
+      "nearest anchor after zoom/pan",
+      "server accepted close-road builds",
+      "teammate upgrades and opponent isolation",
+      "existing/future tower levels and reconnect",
+      "mixed troop movement",
+      "Retarget",
+      "Retreat All"
+    ]
+  },
+  "load": {
+    "status": "PASS",
+    "report": "roadside-stars-load.json",
+    "scenarios": [
+      {
+        "towersPerTeam": 25,
+        "rafFPS": 60,
+        "maxFrameMs": 17,
+        "heapMB": 139.9,
+        "receivedSequences": 14,
+        "towers": 50,
+        "troops": 107
+      },
+      {
+        "towersPerTeam": 50,
+        "rafFPS": 60,
+        "maxFrameMs": 17,
+        "heapMB": 149.9,
+        "receivedSequences": 11,
+        "towers": 100,
+        "troops": 104
+      }
+    ],
+    "deployment": "100 additional Infantry, 50 for each team; natural combat can change survivor counts",
+    "liveLayoutChecks": 8
+  },
+  "performance": {
+    "report": "roadside-stars-performance.json",
+    "scenarios": [
+      {
+        "teams": 2,
+        "towers_per_team": 10,
+        "entities": 40,
+        "construction_median_ms": 9.667,
+        "construction_last_ms": 10.301,
+        "construction_queries": 27,
+        "collision_mean_ms": 1.945,
+        "candidate_pass_ms": 0.742,
+        "tick_median_ms": 2.323,
+        "tick_max_ms": 3.856,
+        "attacks": 20,
+        "snapshot_ms": 8.055,
+        "snapshot_queries": 8,
+        "snapshot_bytes": 48394,
+        "tower_event_bytes": 655
+      },
+      {
+        "teams": 2,
+        "towers_per_team": 25,
+        "entities": 70,
+        "construction_median_ms": 10.065,
+        "construction_last_ms": 11.527,
+        "construction_queries": 27,
+        "collision_mean_ms": 3.341,
+        "candidate_pass_ms": 1.278,
+        "tick_median_ms": 3.6,
+        "tick_max_ms": 5.617,
+        "attacks": 20,
+        "snapshot_ms": 10.867,
+        "snapshot_queries": 8,
+        "snapshot_bytes": 67587,
+        "tower_event_bytes": 655
+      },
+      {
+        "teams": 2,
+        "towers_per_team": 50,
+        "entities": 120,
+        "construction_median_ms": 12.155,
+        "construction_last_ms": 13.857,
+        "construction_queries": 27,
+        "collision_mean_ms": 5.436,
+        "candidate_pass_ms": 2.419,
+        "tick_median_ms": 7.071,
+        "tick_max_ms": 12.021,
+        "attacks": 20,
+        "snapshot_ms": 15.348,
+        "snapshot_queries": 8,
+        "snapshot_bytes": 99548,
+        "tower_event_bytes": 655
+      },
+      {
+        "teams": 4,
+        "towers_per_team": 50,
+        "entities": 240,
+        "construction_median_ms": 13.736,
+        "construction_last_ms": 18.124,
+        "construction_queries": 27,
+        "collision_mean_ms": 8.345,
+        "candidate_pass_ms": 4.691,
+        "tick_median_ms": 13.042,
+        "tick_max_ms": 35.844,
+        "attacks": 0,
+        "snapshot_ms": 26.972,
+        "snapshot_queries": 8,
+        "snapshot_bytes": 191936,
+        "tower_event_bytes": 655
+      },
+      {
+        "teams": 20,
+        "towers_per_team": 10,
+        "entities": 400,
+        "construction_median_ms": 16.435,
+        "construction_last_ms": 23.696,
+        "construction_queries": 27,
+        "collision_mean_ms": 15.349,
+        "candidate_pass_ms": 14.146,
+        "tick_median_ms": 25.253,
+        "tick_max_ms": 54.864,
+        "attacks": 0,
+        "snapshot_ms": 44.635,
+        "snapshot_queries": 8,
+        "snapshot_bytes": 441965,
+        "tower_event_bytes": 658
+      },
+      {
+        "teams": 20,
+        "towers_per_team": 25,
+        "entities": 700,
+        "construction_median_ms": 21.245,
+        "construction_last_ms": 32.203,
+        "construction_queries": 27,
+        "collision_mean_ms": 25.366,
+        "candidate_pass_ms": 18.521,
+        "tick_median_ms": 39.208,
+        "tick_max_ms": 89.455,
+        "attacks": 0,
+        "snapshot_ms": 70.381,
+        "snapshot_queries": 8,
+        "snapshot_bytes": 634006,
+        "tower_event_bytes": 658
+      }
+    ]
+  },
+  "geometry": {
+    "report": "roadside-refinement-geometry.json",
+    "cellSize": 32,
+    "newFootprintCells": [
+      3,
+      3
+    ],
+    "newAnchorOffsetY": 36,
+    "savedFootprints": "Retained individually, including 4x4/anchor32",
+    "protectedEnvelope": [
+      -71,
+      -68,
+      71,
+      15
+    ],
+    "savedOffsets": "Additional shared dynamic corridor checks; no relocation",
+    "allTeamCounts": "2–20 verified"
+  },
+  "visualInspection": [
+    "stars-live-towers-390.png",
+    "stars-live-army-320.png",
+    "stars-live-army-844.png",
+    "stars-army-1440.png",
+    "stars-fortification-390.png",
+    "refined-roadside-2.png",
+    "refined-preview-2.png"
+  ],
+  "limitations": [
+    "Browser checks use Chrome and CSS page scaling.",
+    "Multiplayer browser fixture is one local ASGI process with in-memory channels; production multi-worker Redis is not load-certified.",
+    "Existing invalid saved towers are preserved; unsupported/corrupted custom sprite bodies or positions without offsets require separate validation."
+  ],
+  "deployment": "Restart backend and frontend together; no new database migration."
+}

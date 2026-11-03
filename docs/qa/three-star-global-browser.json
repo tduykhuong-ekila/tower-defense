@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "layouts": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "stable": true,
+      "levels": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "stable": true,
+      "levels": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "stable": true,
+      "levels": [
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "selection": [
+    "infantry",
+    "tank",
+    "artillery",
+    "cannon_tower",
+    "mg_tower",
+    "shield_generator"
+  ],
+  "overlays": [
+    {
+      "type": "cannon",
+      "level": 3,
+      "cachedTexture": true,
+      "equipment": true
+    }
+  ]
+}

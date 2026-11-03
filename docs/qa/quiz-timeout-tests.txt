@@ -1,0 +1,1 @@
+{"status":"PASS","configuredSeconds":60,"explicitTimeout":true,"noReward":true,"noAutomaticNext":true,"nextRequiresUserAction":true}

@@ -1,0 +1,142 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "Gun frames match original 512px detail density, with transparent padding at all 32 headings",
+      "detail": [
+        {
+          "level": 1,
+          "width": 512,
+          "height": 384,
+          "expected": 512,
+          "clearEdges": true
+        },
+        {
+          "level": 2,
+          "width": 512,
+          "height": 384,
+          "expected": 512,
+          "clearEdges": true
+        },
+        {
+          "level": 3,
+          "width": 512,
+          "height": 384,
+          "expected": 512,
+          "clearEdges": true
+        }
+      ]
+    },
+    {
+      "name": "All three levels track moving targets in every quadrant while their foundations stay fixed",
+      "directions": [
+        {
+          "direction": 0,
+          "frames": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "direction": 4,
+          "frames": [
+            9,
+            9,
+            9
+          ]
+        },
+        {
+          "direction": 8,
+          "frames": [
+            16,
+            16,
+            16
+          ]
+        },
+        {
+          "direction": 12,
+          "frames": [
+            23,
+            23,
+            23
+          ]
+        },
+        {
+          "direction": 15,
+          "frames": [
+            29,
+            29,
+            29
+          ]
+        },
+        {
+          "direction": 1,
+          "frames": [
+            3,
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Construction preview uses the full approved PNG for the selected cannon level"
+    },
+    {
+      "name": "Live shots wait for aim, leave the muzzle, and recoil only the upper assembly",
+      "shots": [
+        {
+          "id": "mg0",
+          "muzzle": {
+            "x": 593.4070036215154,
+            "y": 603.6467859258672
+          },
+          "ground": {
+            "x": 570,
+            "y": 640
+          },
+          "yaw": 6.804979950436105
+        },
+        {
+          "id": "mg1",
+          "muzzle": {
+            "x": 827.7416339217959,
+            "y": 603.69248702325
+          },
+          "ground": {
+            "x": 800,
+            "y": 640
+          },
+          "yaw": 6.804979950436105
+        },
+        {
+          "id": "mg2",
+          "muzzle": {
+            "x": 1062.0681498341453,
+            "y": 602.7459464721265
+          },
+          "ground": {
+            "x": 1030,
+            "y": 640
+          },
+          "yaw": 0.5222344662280171
+        }
+      ]
+    },
+    {
+      "name": "Legacy round playback also aims and fires"
+    },
+    {
+      "name": "Upgrading preserves the turret, ground anchor and current bearing"
+    },
+    {
+      "name": "Disabled and idle towers stop tracking; destroyed towers dispose of their moving parts"
+    },
+    {
+      "name": "All cannon picker cards and upgrade previews load the approved PNGs on desktop and mobile"
+    }
+  ],
+  "errors": [],
+  "failures": []
+}

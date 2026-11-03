@@ -1,0 +1,50 @@
+<!doctype html><html><meta charset="utf-8"><title>Live combat regression</title>
+<style>body{font:16px system-ui;background:#172c21;color:#f9e8bb;padding:32px}button,a{padding:12px;margin:8px;display:inline-block;color:inherit}button{background:#36553f}pre{white-space:pre-wrap}</style>
+<h1>Live multiplayer combat regression</h1><p>Disposable test database only. Uses real API purchases, server rounds and WebSocket events.</p>
+<button id="create">Create and start a two-team battle</button><nav id="views"></nav><pre id="status">Ready</pre>
+<script type="module">
+const saved=()=>JSON.parse(localStorage.getItem('combat-regression-room')||'null');
+const status=document.querySelector('#status');
+let socket;
+function views(room){
+  document.querySelector('#views').innerHTML=['host','a','b'].map(role=>`<a href="/tests/fixtures/combat.html?view=${role}">Open ${role} battlefield</a>`).join('');
+}
+async function api(path,data,token,host=false){
+  const res=await fetch(`/api/v1${path}`,{method:data===undefined?'GET':'POST',headers:{'Content-Type':'application/json',
+    ...(token?{[host?'X-Host-Token':'X-Participant-Token']:token}:{})},...(data===undefined?{}:{body:JSON.stringify(data)})});
+  if(!res.ok)throw new Error(`${path}: ${res.status} ${await res.text()}`);return res.json();
+}
+function observe(room){
+  socket?.close();socket=new WebSocket(`${location.protocol==='https:'?'wss:':'ws:'}//${location.host}/ws/matches/${room.match.id}/?token=${room.match.host_token}`);
+  const counts={};
+  socket.onmessage=message=>{const ev=JSON.parse(message.data);if(ev.event_type==='COMBAT_RESOLVED'){
+    for(const e of ev.payload.events)counts[e.type]=(counts[e.type]||0)+1;
+    status.textContent=JSON.stringify({round:ev.payload.current_round,counts,ended:ev.payload.is_match_over},null,2);
+  }if(ev.event_type==='MATCH_ENDED')status.textContent+='\nMATCH_ENDED '+JSON.stringify(ev.payload)};
+}
+const mode=new URLSearchParams(location.search).get('view');
+if(mode){
+  const room=saved();if(!room)throw new Error('Create the fixture room first');
+  sessionStorage.clear();sessionStorage.setItem('tower_active_match_id',room.match.id);
+  if(mode==='host')sessionStorage.setItem('tower_host_token',room.match.host_token);
+  else {sessionStorage.setItem('tower_participant_token',room[mode].participant_token);
+    sessionStorage.setItem('tower_active_member',JSON.stringify(room[mode].member));}
+  location.replace(`/battle/${room.match.id}`);
+}else if(saved()){views(saved());observe(saved());}
+document.querySelector('#create').onclick=async()=>{try{
+  const match=await api('/matches/',{name:'Live combat regression',configuration:{max_teams:2,initial_coins:500,initial_base_hp:10,
+    round_duration_seconds:10,phase_durations:{PREPARATION:10,BUILD_AND_SCOUT:200,WAR:100,FINAL_ASSAULT:100,RESULTS:10}}});
+  const aTeam=await api(`/matches/${match.id}/teams/`,{name:'Amber Attack'},match.host_token,true);
+  const bTeam=await api(`/matches/${match.id}/teams/`,{name:'Blue Defense'},match.host_token,true);
+  const a=await api(`/matches/${match.id}/join/`,{display_name:'Alice',team_id:aTeam.id,role:'MENTEE'});
+  const b=await api(`/matches/${match.id}/join/`,{display_name:'Bob',team_id:bTeam.id,role:'MENTEE'});
+  await api(`/matches/${match.id}/teams/${aTeam.id}/ready/`,{is_ready:true},a.participant_token);
+  await api(`/matches/${match.id}/teams/${bTeam.id}/ready/`,{is_ready:true},b.participant_token);
+  await api(`/matches/${match.id}/start/`,{},match.host_token,true);
+  const room={match,a,b};localStorage.setItem('combat-regression-room',JSON.stringify(room));views(room);observe(room);
+  const tower=await api(`/matches/${match.id}/actions/build/`,{unit_type_code_or_id:'mg_tower',node_id:'node_tower_t2_slot1',idempotency_key:crypto.randomUUID()},b.participant_token);
+  for(let i=0;i<5;i++)await api(`/matches/${match.id}/actions/deploy/`,{unit_type_code_or_id:'infantry',target_team_id:bTeam.id,idempotency_key:crypto.randomUUID()},a.participant_token);
+  await api(`/matches/${match.id}/actions/deploy/`,{unit_type_code_or_id:'infantry',target_team_id:aTeam.id,idempotency_key:crypto.randomUUID()},b.participant_token);
+  status.textContent='Purchased five attacking infantry, one defending infantry and one MG tower. Waiting for automatic rounds.';
+}catch(e){status.textContent=e.stack;}};
+</script></html>

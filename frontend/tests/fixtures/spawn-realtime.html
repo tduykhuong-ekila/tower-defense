@@ -1,0 +1,20 @@
+<!doctype html><html><meta charset="utf-8"><title>Spawn and realtime verification</title><div id="root"></div><script type="module">
+import React from '/node_modules/.vite/deps/react.js';
+import ReactDOM from '/node_modules/.vite/deps/react-dom_client.js';
+import { BattleScene } from '/src/game/scenes/BattleScene.ts';
+import { useMatchStore } from '/src/stores/matchStore.ts';
+import { wsClient } from '/src/services/websocket.ts';
+const create = BattleScene.prototype.create;
+BattleScene.prototype.create = function(...args) { window.flowScene = this; return create.apply(this, args); };
+window.flowStore = useMatchStore;
+window.flowSocketClient = wsClient;
+const data = JSON.parse(localStorage.getItem('spawn-room'));
+sessionStorage.clear();
+sessionStorage.setItem('tower_active_match_id', data.match.id);
+sessionStorage.setItem('tower_participant_token', data.join.participant_token);
+sessionStorage.setItem('tower_active_member', JSON.stringify(data.join.member));
+history.replaceState(null, '', `/${data.lobby ? 'lobby' : 'battle'}/${data.match.id}`);
+const { App } = await import('/src/App.tsx');
+// Production React mounts effects once; dev StrictMode otherwise hides the reused-socket bug.
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+</script></html>

@@ -1,0 +1,266 @@
+{
+  "status": "PASS",
+  "scenarios": [
+    {
+      "towersPerTeam": 25,
+      "rafFPS": 60,
+      "maxFrameMs": 17,
+      "heapMB": 146.8,
+      "receivedSequences": 12,
+      "towers": 50,
+      "troops": 107
+    },
+    {
+      "towersPerTeam": 50,
+      "rafFPS": 60,
+      "maxFrameMs": 17,
+      "heapMB": 158.9,
+      "receivedSequences": 11,
+      "towers": 100,
+      "troops": 106
+    }
+  ],
+  "liveLayouts": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "category": "QUÂN ĐỘI",
+      "dimensions": [
+        {
+          "x": 172,
+          "right": 276,
+          "height": 142,
+          "artHeight": 66,
+          "overflow": false
+        },
+        {
+          "x": 284,
+          "right": 388,
+          "height": 142,
+          "artHeight": 66,
+          "overflow": false
+        },
+        {
+          "x": 396,
+          "right": 500,
+          "height": 142,
+          "artHeight": 66,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "category": "CÔNG SỰ",
+      "dimensions": [
+        {
+          "x": 172,
+          "right": 276,
+          "height": 142,
+          "artHeight": 66,
+          "overflow": false
+        },
+        {
+          "x": 284,
+          "right": 388,
+          "height": 142,
+          "artHeight": 66,
+          "overflow": false
+        },
+        {
+          "x": 396,
+          "right": 500,
+          "height": 142,
+          "artHeight": 66,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "category": "QUÂN ĐỘI",
+      "dimensions": [
+        {
+          "x": 21,
+          "right": 133.65625,
+          "height": 140,
+          "artHeight": 64,
+          "overflow": false
+        },
+        {
+          "x": 138.65625,
+          "right": 251.328125,
+          "height": 140,
+          "artHeight": 64,
+          "overflow": false
+        },
+        {
+          "x": 256.328125,
+          "right": 368.984375,
+          "height": 140,
+          "artHeight": 64,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "category": "CÔNG SỰ",
+      "dimensions": [
+        {
+          "x": 21,
+          "right": 133.65625,
+          "height": 140,
+          "artHeight": 64,
+          "overflow": false
+        },
+        {
+          "x": 138.65625,
+          "right": 251.328125,
+          "height": 140,
+          "artHeight": 64,
+          "overflow": false
+        },
+        {
+          "x": 256.328125,
+          "right": 368.984375,
+          "height": 140,
+          "artHeight": 64,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "category": "QUÂN ĐỘI",
+      "dimensions": [
+        {
+          "x": 21,
+          "right": 110.328125,
+          "height": 140,
+          "artHeight": 64,
+          "overflow": false
+        },
+        {
+          "x": 115.328125,
+          "right": 204.65625,
+          "height": 140,
+          "artHeight": 64,
+          "overflow": false
+        },
+        {
+          "x": 209.65625,
+          "right": 299,
+          "height": 140,
+          "artHeight": 64,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "category": "CÔNG SỰ",
+      "dimensions": [
+        {
+          "x": 21,
+          "right": 110.328125,
+          "height": 140,
+          "artHeight": 64,
+          "overflow": false
+        },
+        {
+          "x": 115.328125,
+          "right": 204.65625,
+          "height": 140,
+          "artHeight": 64,
+          "overflow": false
+        },
+        {
+          "x": 209.65625,
+          "right": 299,
+          "height": 140,
+          "artHeight": 64,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "category": "QUÂN ĐỘI",
+      "dimensions": [
+        {
+          "x": 130,
+          "right": 228,
+          "height": 127,
+          "artHeight": 51,
+          "overflow": false
+        },
+        {
+          "x": 234,
+          "right": 332,
+          "height": 127,
+          "artHeight": 51,
+          "overflow": false
+        },
+        {
+          "x": 338,
+          "right": 436,
+          "height": 127,
+          "artHeight": 51,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "category": "CÔNG SỰ",
+      "dimensions": [
+        {
+          "x": 130,
+          "right": 228,
+          "height": 127,
+          "artHeight": 51,
+          "overflow": false
+        },
+        {
+          "x": 234,
+          "right": 332,
+          "height": 127,
+          "artHeight": 51,
+          "overflow": false
+        },
+        {
+          "x": 338,
+          "right": 436,
+          "height": 127,
+          "artHeight": 51,
+          "overflow": false
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

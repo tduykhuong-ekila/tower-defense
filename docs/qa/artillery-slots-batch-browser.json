@@ -1,0 +1,119 @@
+{
+  "status": "PASS",
+  "scenarios": [
+    {
+      "teams": 4,
+      "quantity_controls": true,
+      "total_cost": 75,
+      "tanks": 3,
+      "artillery_hp": 70,
+      "artillery_range": 1.5,
+      "sixth_tower": true,
+      "seventh_rejected": true,
+      "retry_deduplicated": true,
+      "two_client_agreement": true,
+      "reconnect": true,
+      "mobile_bounds": {
+        "x": 38,
+        "y": 526,
+        "width": 340,
+        "height": 104
+      }
+    },
+    {
+      "teams": 20,
+      "quantity_per_team": 50,
+      "entities": 1000,
+      "creation_ms": 1822,
+      "clients": [
+        {
+          "frames": [
+            {
+              "fps": 60,
+              "frameMsP95": 18.400000005960464
+            },
+            {
+              "fps": 60,
+              "frameMsP95": 16.900000005960464
+            },
+            {
+              "fps": 60,
+              "frameMsP95": 17.100000023841858
+            },
+            {
+              "fps": 60,
+              "frameMsP95": 16.900000005960464
+            },
+            {
+              "fps": 60,
+              "frameMsP95": 17.599999994039536
+            },
+            {
+              "fps": 60,
+              "frameMsP95": 16.80000001192093
+            },
+            {
+              "fps": 56,
+              "frameMsP95": 17.599999994039536
+            }
+          ],
+          "applied_combat_ticks": 0,
+          "entities": 1000,
+          "sprites": 1000,
+          "websocket_events": {
+            "bytes": 13241087,
+            "batches": 23,
+            "ticks": 0
+          }
+        },
+        {
+          "frames": [
+            {
+              "fps": 58,
+              "frameMsP95": 17.69999998807907
+            },
+            {
+              "fps": 59,
+              "frameMsP95": 22.69999998807907
+            },
+            {
+              "fps": 60,
+              "frameMsP95": 17.5
+            },
+            {
+              "fps": 60,
+              "frameMsP95": 17.30000001192093
+            },
+            {
+              "fps": 60,
+              "frameMsP95": 17.400000005960464
+            },
+            {
+              "fps": 60,
+              "frameMsP95": 17.600000023841858
+            },
+            {
+              "fps": 59,
+              "frameMsP95": 17.69999998807907
+            },
+            {
+              "fps": 57,
+              "frameMsP95": 17.700000017881393
+            }
+          ],
+          "applied_combat_ticks": 1,
+          "entities": 1000,
+          "sprites": 1000,
+          "websocket_events": {
+            "bytes": 11844573,
+            "batches": 23,
+            "ticks": 0
+          }
+        }
+      ],
+      "duplicates": 0,
+      "divergent_entities": 0
+    }
+  ],
+  "errors": []
+}

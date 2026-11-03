@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-21",
+  "sqlite": {
+    "passed": 193,
+    "skipped": 5,
+    "seconds": 27.28,
+    "skipped_reason": "PostgreSQL row-lock checks; verified separately"
+  },
+  "postgresql": {
+    "passed": 17,
+    "seconds": 5.57,
+    "database": "disposable PostgreSQL 17 UTF8 cluster"
+  },
+  "frontend": {
+    "passed": 51,
+    "seconds": 0.373
+  },
+  "preview_regression": {
+    "passed": 13,
+    "seconds": 4.12
+  },
+  "ruff": "PASS",
+  "typescript_vite_build": "PASS; existing Phaser chunk-size warning retained",
+  "migration_drift": "No changes detected",
+  "browser": "PASS; see continuous-browser.json"
+}

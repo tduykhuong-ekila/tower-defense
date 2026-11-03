@@ -1,0 +1,12 @@
+{
+  "round": 2,
+  "status": "ACTIVE",
+  "phase": "PREPARATION",
+  "connection": "connected",
+  "coins": 995,
+  "entities": 1,
+  "playback": true,
+  "deployCardDisabled": true,
+  "backendRound2DeploymentAccepted": true,
+  "firstRoundPlacementCoinsExpected": 985
+}

@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "maps": [
+    {
+      "count": 2,
+      "vegetation": 54,
+      "frameSamples": 120,
+      "frameMsP95": 17.5,
+      "fps": 59.51790497009697,
+      "pan": true,
+      "zoom": true
+    },
+    {
+      "count": 4,
+      "vegetation": 57,
+      "frameSamples": 120,
+      "frameMsP95": 17.5,
+      "fps": 60.00900135056027,
+      "pan": true,
+      "zoom": true
+    },
+    {
+      "count": 8,
+      "vegetation": 88,
+      "frameSamples": 120,
+      "frameMsP95": 17.5,
+      "fps": 59.994000598509786,
+      "pan": true,
+      "zoom": true
+    },
+    {
+      "count": 20,
+      "vegetation": 155,
+      "frameSamples": 120,
+      "frameMsP95": 17.5,
+      "fps": 60.012002399764555,
+      "pan": true,
+      "zoom": true
+    }
+  ],
+  "elitePreviewLoaded": true,
+  "mobilePanelFits": true
+}

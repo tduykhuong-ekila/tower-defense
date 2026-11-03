@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "vegetation": [
+    {
+      "count": 2,
+      "trees": 54,
+      "slots": 12,
+      "frames": []
+    },
+    {
+      "count": 4,
+      "trees": 57,
+      "slots": 24,
+      "frames": []
+    },
+    {
+      "count": 8,
+      "trees": 88,
+      "slots": 48,
+      "frames": []
+    },
+    {
+      "count": 20,
+      "trees": 155,
+      "slots": 120,
+      "frames": []
+    }
+  ],
+  "quiz": {
+    "hiddenCountdown": true,
+    "sharedDeadline": true,
+    "draftPreserved": true,
+    "hiddenExpirySameQuestion": true,
+    "reopenShowsExpired": true,
+    "explicitNext": true,
+    "reward30ExactlyOnce": true
+  },
+  "upgrades": {
+    "allSixTypesLevel4": true,
+    "allExistingAndFuture": true,
+    "threeClientsSynchronized": true,
+    "stableRoot": true,
+    "levelEquipment": true,
+    "maxLevelRejected": true,
+    "reconnectRecovered": true
+  }
+}

@@ -1,0 +1,31 @@
+<!doctype html><html><meta charset="utf-8"><title>Phaser camera interaction regression</title>
+<style>body{margin:0;background:#18271e}canvas{display:block}nav{position:fixed;z-index:2;bottom:8px;left:8px}</style>
+<nav><button id="in">Zoom in</button><button id="out">Zoom out</button><button id="fit">Fit</button></nav>
+<script type="module">
+import Phaser from 'phaser';
+import { BootScene } from '/src/game/scenes/BootScene.ts';
+import { BattleScene } from '/src/game/scenes/BattleScene.ts';
+import { EMPTY_SCENE } from '/src/game/bridge.ts';
+const id = new URLSearchParams(location.search).get('match');
+const [match, map] = await Promise.all([
+  fetch(`/api/v1/matches/${id}/`).then(r=>r.json()),
+  fetch(`/api/v1/matches/${id}/map/`).then(r=>r.json())
+]);
+const game = new Phaser.Game({type:Phaser.AUTO,width:innerWidth,height:innerHeight,
+  scene:[BootScene,BattleScene],input:{activePointers:3},audio:{noAudio:true},render:{roundPixels:false}});
+game.events.on('battle-ready', scene => {
+  const team = match.teams[0];
+  const slot = map.nodes.find(n=>n.node_type==='tower_slot' && n.team_index===1).node_id;
+  const state={...EMPTY_SCENE,teams:match.teams,mapData:map,myTeamId:team.id,validTowerSlots:[slot],
+    entities:[{id:'test-tower',team_id:team.id,unit_code:'mg_tower',entity_kind:'TOWER',
+      current_node_id:slot,status:'ACTIVE',current_hp:100,max_hp:100,current_shield:0,level:1}]};
+  const selected = [];
+  scene.callbacks={onNodeClick:id=>selected.push(id),onBaseClick:id=>selected.push(id),
+    onEntityClick:id=>selected.push(id),onPlaybackChange:()=>{}};
+  scene.updateState(state);
+  window.fixture={game,scene,state,selected};
+  document.querySelector('#in').onclick=()=>scene.zoomIn();
+  document.querySelector('#out').onclick=()=>scene.zoomOut();
+  document.querySelector('#fit').onclick=()=>scene.fit();
+});
+</script></html>

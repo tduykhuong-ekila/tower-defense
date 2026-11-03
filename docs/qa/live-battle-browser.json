@@ -1,0 +1,228 @@
+{
+  "checks": [
+    "two prep deployments spawn 100/100 HP with separate authoritative approach positions",
+    "actual Battle UI constructs a tower; opponent sees it without reload",
+    "Battle deployment debits once, joins the convoy next tick, and existing units/timer keep advancing",
+    "new Battle tower fires automatically with unchanged damage 15; target max HP remains 100",
+    "pause freezes at authoritative centerline; next major preparation and reconnect retain all survivors/tower",
+    "question reward still grants exactly +20 once"
+  ],
+  "errors": [],
+  "combat": [
+    {
+      "type": "UNIT_SPAWNED",
+      "entity_id": "67a7475a-03da-40b5-a693-6f3bfb6f80db",
+      "node_id": "node_spawn_t1",
+      "round_number": 1
+    },
+    {
+      "type": "TEAM_SCORE_UPDATED",
+      "team_id": "c9b75143-de59-4c5c-b2e9-cc9ad6dfbb58",
+      "score": 122,
+      "round_number": 1
+    },
+    {
+      "type": "TEAM_SCORE_UPDATED",
+      "team_id": "293ee711-4f25-4a0d-88be-a3ff17165d67",
+      "score": 125,
+      "round_number": 1
+    },
+    {
+      "type": "UNIT_SPAWNED",
+      "entity_id": "67a7475a-03da-40b5-a693-6f3bfb6f80db",
+      "node_id": "node_spawn_t1",
+      "round_number": 1
+    },
+    {
+      "type": "TEAM_SCORE_UPDATED",
+      "team_id": "c9b75143-de59-4c5c-b2e9-cc9ad6dfbb58",
+      "score": 122,
+      "round_number": 1
+    },
+    {
+      "type": "TEAM_SCORE_UPDATED",
+      "team_id": "293ee711-4f25-4a0d-88be-a3ff17165d67",
+      "score": 125,
+      "round_number": 1
+    },
+    {
+      "type": "UNIT_SPAWNED",
+      "entity_id": "643a324a-b6bb-476a-90a9-24812a452daa",
+      "node_id": "node_spawn_t1",
+      "round_number": 1
+    },
+    {
+      "type": "TEAM_SCORE_UPDATED",
+      "team_id": "293ee711-4f25-4a0d-88be-a3ff17165d67",
+      "score": 127,
+      "round_number": 1
+    },
+    {
+      "type": "UNIT_SPAWNED",
+      "entity_id": "643a324a-b6bb-476a-90a9-24812a452daa",
+      "node_id": "node_spawn_t1",
+      "round_number": 1
+    },
+    {
+      "type": "TEAM_SCORE_UPDATED",
+      "team_id": "293ee711-4f25-4a0d-88be-a3ff17165d67",
+      "score": 127,
+      "round_number": 1
+    },
+    {
+      "type": "TEAM_SCORE_UPDATED",
+      "team_id": "c9b75143-de59-4c5c-b2e9-cc9ad6dfbb58",
+      "score": 120,
+      "round_number": 1
+    },
+    {
+      "type": "TEAM_SCORE_UPDATED",
+      "team_id": "c9b75143-de59-4c5c-b2e9-cc9ad6dfbb58",
+      "score": 120,
+      "round_number": 1
+    },
+    {
+      "type": "UNIT_SPAWNED",
+      "entity_id": "bb763356-63bb-44af-be9f-f9e5d7075804",
+      "node_id": "node_spawn_t1",
+      "round_number": 1
+    },
+    {
+      "type": "UNIT_SPAWNED",
+      "entity_id": "bb763356-63bb-44af-be9f-f9e5d7075804",
+      "node_id": "node_spawn_t1",
+      "round_number": 1
+    },
+    {
+      "type": "TOWER_ATTACKED",
+      "attacker_id": "c5c8dfc9-1044-424d-bfd6-d5ff6aece9a2",
+      "tower_id": "c5c8dfc9-1044-424d-bfd6-d5ff6aece9a2",
+      "attacker_team_id": "293ee711-4f25-4a0d-88be-a3ff17165d67",
+      "target_entity_id": "67a7475a-03da-40b5-a693-6f3bfb6f80db",
+      "target_team_id": "c9b75143-de59-4c5c-b2e9-cc9ad6dfbb58",
+      "damage": 15,
+      "hp_damage": 15,
+      "shield_absorbed": 0,
+      "target_hp_remaining": 85,
+      "target_shield_remaining": 0,
+      "round_number": 1
+    },
+    {
+      "type": "TOWER_ATTACKED",
+      "attacker_id": "c5c8dfc9-1044-424d-bfd6-d5ff6aece9a2",
+      "tower_id": "c5c8dfc9-1044-424d-bfd6-d5ff6aece9a2",
+      "attacker_team_id": "293ee711-4f25-4a0d-88be-a3ff17165d67",
+      "target_entity_id": "67a7475a-03da-40b5-a693-6f3bfb6f80db",
+      "target_team_id": "c9b75143-de59-4c5c-b2e9-cc9ad6dfbb58",
+      "damage": 15,
+      "hp_damage": 15,
+      "shield_absorbed": 0,
+      "target_hp_remaining": 85,
+      "target_shield_remaining": 0,
+      "round_number": 1
+    }
+  ],
+  "formationSamples": [
+    [
+      102.46326174966735,
+      51.11824119942522
+    ],
+    [
+      102.46326174966735,
+      50.25453959692591
+    ],
+    [
+      102.46326174966737,
+      53.229071825702015
+    ],
+    [
+      102.46326174966737,
+      59.44081634602148
+    ],
+    [
+      102.4632617496674,
+      68.05917757006792
+    ],
+    [
+      102.4632617496674,
+      78.25575220295725
+    ],
+    [
+      102.46326174966742,
+      91.46845563810206
+    ],
+    [
+      102.4632617496674,
+      102.91018378350365
+    ],
+    [
+      102.4632617496675,
+      104.68214181862517
+    ],
+    [
+      102.4632617496675,
+      104.6821418186252
+    ],
+    [
+      102.4632617496675,
+      104.6821418186252
+    ],
+    [
+      102.4632617496675,
+      104.18251034538854
+    ],
+    [
+      102.4632617496675,
+      104.6821418186252
+    ],
+    [
+      102.46326174966744,
+      102.83192341004379
+    ],
+    [
+      102.46326174966735,
+      104.68214181862533
+    ],
+    [
+      102.46326174966735,
+      102.83973027047118
+    ],
+    [
+      102.46326174966735,
+      104.68214181862533
+    ],
+    [
+      102.46326174966735,
+      104.68214181862533
+    ],
+    [
+      102.46326174966735,
+      104.68214181862533
+    ],
+    [
+      102.46326174966735,
+      101.88730086686155
+    ]
+  ],
+  "status": "PASS",
+  "finalUnits": [
+    {
+      "id": "bb763356-63bb-44af-be9f-f9e5d7075804",
+      "hp": 100,
+      "max_hp": 100,
+      "route_distance": 279.83319547946263
+    },
+    {
+      "id": "643a324a-b6bb-476a-90a9-24812a452daa",
+      "hp": 100,
+      "max_hp": 100,
+      "route_distance": 363.1684013728867
+    },
+    {
+      "id": "67a7475a-03da-40b5-a693-6f3bfb6f80db",
+      "hp": 85,
+      "max_hp": 100,
+      "route_distance": 446.974694618187
+    }
+  ]
+}

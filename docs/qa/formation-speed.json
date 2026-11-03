@@ -1,0 +1,75 @@
+{
+  "speed": [
+    {
+      "unit": "infantry",
+      "distance_world": 595.9662594909163,
+      "old": {
+        "world_units_s": 63.853527802598165,
+        "travel_seconds": 9.34
+      },
+      "new": {
+        "world_units_s": 127.70705560519633,
+        "travel_seconds": 4.68
+      },
+      "travel_ratio": 0.50107,
+      "max_hp": 100,
+      "catalog_damage": 10
+    },
+    {
+      "unit": "tank",
+      "distance_world": 595.9662594909163,
+      "old": {
+        "world_units_s": 63.853527802598165,
+        "travel_seconds": 9.34
+      },
+      "new": {
+        "world_units_s": 127.70705560519633,
+        "travel_seconds": 4.68
+      },
+      "travel_ratio": 0.50107,
+      "max_hp": 100,
+      "catalog_damage": 25
+    },
+    {
+      "unit": "artillery",
+      "distance_world": 595.9662594909163,
+      "old": {
+        "world_units_s": 63.853527802598165,
+        "travel_seconds": 9.34
+      },
+      "new": {
+        "world_units_s": 127.70705560519633,
+        "travel_seconds": 4.68
+      },
+      "travel_ratio": 0.50107,
+      "max_hp": 100,
+      "catalog_damage": 40
+    }
+  ],
+  "spacing": [
+    {
+      "units": [
+        "infantry",
+        "infantry"
+      ],
+      "spawn_arc_spacing_world": 31.4117701848348,
+      "projected_center_distance_px": 39.82803964107784
+    },
+    {
+      "units": [
+        "tank",
+        "infantry"
+      ],
+      "spawn_arc_spacing_world": 40.20566018422444,
+      "projected_center_distance_px": 50.97810846668198
+    },
+    {
+      "units": [
+        "tank",
+        "tank"
+      ],
+      "spawn_arc_spacing_world": 48.99954605102539,
+      "projected_center_distance_px": 62.12817205243801
+    }
+  ]
+}

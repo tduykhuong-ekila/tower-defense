@@ -1,0 +1,169 @@
+{
+  "status": "PASS",
+  "audit": false,
+  "scenarios": [
+    {
+      "teams": 4,
+      "checks": [
+        "lobby-to-battle socket reuse recovers opponent created while lazy page loads",
+        "A-first and B-first deployment and tower construction reach both sprites without reload",
+        "five individually visible troops share one rally entry; later deployments preserve earlier positions",
+        "Battle deployment retries create one entity; live build and retarget synchronize both ways",
+        "offline client restores missed entities and continues receiving subsequent opponent actions",
+        "missed/out-of-order tick repairs automatically without rollback or duplicate sprites",
+        "bidirectional deployments still work after next major round",
+        "five Infantry attack and destroy enemy tower; both clients receive identical hits, independent movement, HP and removal"
+      ],
+      "action_latency_ms": [
+        112,
+        162,
+        72,
+        45
+      ],
+      "before_recovery": {
+        "version": 59,
+        "entities": 12,
+        "divergent_entities": 0
+      },
+      "reconnect_ms": 43,
+      "after_recovery": {
+        "version": 72,
+        "entities": 15,
+        "divergent_entities": 0
+      },
+      "final": {
+        "version": 88,
+        "entities": 17,
+        "divergent_entities": 0
+      },
+      "client_a": {
+        "frames": 83,
+        "delivery_p95_ms": 98
+      },
+      "client_b": {
+        "frames": 80,
+        "delivery_p95_ms": 88
+      },
+      "combat": {
+        "tower_hits": 20,
+        "towers_destroyed": 1,
+        "simultaneous_movement_frames": 70,
+        "elapsed_ms": 19856,
+        "final": {
+          "version": 128,
+          "entities": 5,
+          "divergent_entities": 0
+        }
+      }
+    },
+    {
+      "teams": 8,
+      "checks": [
+        "lobby-to-battle socket reuse recovers opponent created while lazy page loads",
+        "A-first and B-first deployment and tower construction reach both sprites without reload",
+        "five individually visible troops share one rally entry; later deployments preserve earlier positions",
+        "Battle deployment retries create one entity; live build and retarget synchronize both ways",
+        "offline client restores missed entities and continues receiving subsequent opponent actions",
+        "missed/out-of-order tick repairs automatically without rollback or duplicate sprites",
+        "bidirectional deployments still work after next major round",
+        "five Infantry attack and destroy enemy tower; both clients receive identical hits, independent movement, HP and removal"
+      ],
+      "action_latency_ms": [
+        124,
+        58,
+        59,
+        39
+      ],
+      "before_recovery": {
+        "version": 72,
+        "entities": 12,
+        "divergent_entities": 0
+      },
+      "reconnect_ms": 36,
+      "after_recovery": {
+        "version": 84,
+        "entities": 15,
+        "divergent_entities": 0
+      },
+      "final": {
+        "version": 104,
+        "entities": 17,
+        "divergent_entities": 0
+      },
+      "client_a": {
+        "frames": 92,
+        "delivery_p95_ms": 162
+      },
+      "client_b": {
+        "frames": 89,
+        "delivery_p95_ms": 172
+      },
+      "combat": {
+        "tower_hits": 20,
+        "towers_destroyed": 1,
+        "simultaneous_movement_frames": 37,
+        "elapsed_ms": 15245,
+        "final": {
+          "version": 119,
+          "entities": 5,
+          "divergent_entities": 0
+        }
+      }
+    },
+    {
+      "teams": 20,
+      "checks": [
+        "lobby-to-battle socket reuse recovers opponent created while lazy page loads",
+        "A-first and B-first deployment and tower construction reach both sprites without reload",
+        "five individually visible troops share one rally entry; later deployments preserve earlier positions",
+        "Battle deployment retries create one entity; live build and retarget synchronize both ways",
+        "offline client restores missed entities and continues receiving subsequent opponent actions",
+        "missed/out-of-order tick repairs automatically without rollback or duplicate sprites",
+        "bidirectional deployments still work after next major round",
+        "five Infantry attack and destroy enemy tower; both clients receive identical hits, independent movement, HP and removal"
+      ],
+      "action_latency_ms": [
+        144,
+        125,
+        51,
+        71
+      ],
+      "before_recovery": {
+        "version": 108,
+        "entities": 12,
+        "divergent_entities": 0
+      },
+      "reconnect_ms": 54,
+      "after_recovery": {
+        "version": 121,
+        "entities": 15,
+        "divergent_entities": 0
+      },
+      "final": {
+        "version": 153,
+        "entities": 17,
+        "divergent_entities": 0
+      },
+      "client_a": {
+        "frames": 95,
+        "delivery_p95_ms": 176
+      },
+      "client_b": {
+        "frames": 93,
+        "delivery_p95_ms": 166
+      },
+      "combat": {
+        "tower_hits": 20,
+        "towers_destroyed": 1,
+        "simultaneous_movement_frames": 20,
+        "elapsed_ms": 13532,
+        "final": {
+          "version": 146,
+          "entities": 5,
+          "divergent_entities": 0
+        }
+      }
+    }
+  ],
+  "errors": []
+}

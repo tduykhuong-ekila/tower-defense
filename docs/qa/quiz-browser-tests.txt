@@ -1,0 +1,66 @@
+{
+  "quiz": {
+    "stableDuringCombat": true,
+    "sharedTimer": true,
+    "pausedMs": 117629,
+    "reconnectBudget": 117437,
+    "coinsBefore": 1000,
+    "coinsAfter": 1030,
+    "duplicateClaimSafe": true
+  },
+  "unlock": {
+    "selectedTankPreserved": true,
+    "opponentClaimDidNotClose": true,
+    "closeReopenPreserved": true
+  },
+  "tooltip": {
+    "desktop": true,
+    "touch": true,
+    "illustrated": true,
+    "insideViewport": true,
+    "authoritativeStats": [
+      {
+        "code": "tank",
+        "range": 1,
+        "hp": 100,
+        "speed": 4
+      },
+      {
+        "code": "artillery",
+        "range": 1.5,
+        "hp": 80,
+        "speed": 5
+      },
+      {
+        "code": "cannon_tower",
+        "range": 2,
+        "hp": 150,
+        "speed": 0
+      }
+    ]
+  },
+  "header": {
+    "desktopBefore": {
+      "x": 614,
+      "y": 0,
+      "width": 212,
+      "height": 140.28125
+    },
+    "desktopAfter": {
+      "x": 571.34375,
+      "y": 12,
+      "width": 297.3125,
+      "height": 53.34375
+    },
+    "mobile": {
+      "x": 143,
+      "y": 12,
+      "width": 145,
+      "height": 66.234375
+    }
+  },
+  "matchCompletion": {
+    "explicitMessage": true,
+    "submissionUnavailable": true
+  }
+}

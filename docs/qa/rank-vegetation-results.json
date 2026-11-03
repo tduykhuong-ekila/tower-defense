@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "maps": [
+    {
+      "teams": 2,
+      "hidden": 1,
+      "overlapsVisible": 0
+    },
+    {
+      "teams": 4,
+      "hidden": 1,
+      "overlapsVisible": 0
+    },
+    {
+      "teams": 8,
+      "hidden": 0,
+      "overlapsVisible": 0
+    },
+    {
+      "teams": 20,
+      "hidden": 0,
+      "overlapsVisible": 0
+    }
+  ]
+}

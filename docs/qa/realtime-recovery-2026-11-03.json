@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-03",
+  "focused_frontend": {"passed": 37, "failed": 0},
+  "focused_backend": {"passed": 8, "failed": 0},
+  "frontend_build": "PASS",
+  "last_broad_frontend_run": {
+    "passed": 180,
+    "failed": 4,
+    "total": 184,
+    "note": "Before the final HTTP-application-failure acceptance test was added; four artwork expectations fail outside the realtime changes."
+  },
+  "browser": {
+    "transport": "CUA browser, disposable SQLite backend, Vite frontend",
+    "scenarios": [
+      {
+        "teams": 4,
+        "clients": 2,
+        "checks": ["bidirectional deployment and tower builds", "WebSocket snapshots deliberately dropped", "HTTP recovery", "one injected reducer failure", "server/store/Phaser ID sets equal without reload"],
+        "after_http_recovery": {"version": 31, "entities": 4, "both_clients": "PASS"},
+        "after_reducer_recovery": {"version": 34, "entities": 5, "both_clients": "PASS"},
+        "page_errors": []
+      },
+      {
+        "teams": 20,
+        "clients": 2,
+        "checks": ["large initial baseline", "WebSocket snapshots deliberately dropped", "tower build and deployment", "HTTP recovery", "one injected reducer failure", "server/store/Phaser ID sets equal without reload"],
+        "after_http_recovery": {"version": 72, "entities": 2, "both_clients": "PASS"},
+        "after_reducer_recovery": {"version": 75, "entities": 3, "both_clients": "PASS"},
+        "page_errors": []
+      }
+    ],
+    "limits": "Preparation-phase browser checks; not a sustained combat load benchmark or verification of the user's ngrok connection.",
+    "screenshot": "realtime-recovery-2026-11-03.png"
+  }
+}

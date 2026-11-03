@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-21",
+  "sqlite": {
+    "passed": 209,
+    "skipped": 6,
+    "seconds": 27.8,
+    "skip_reason": "PostgreSQL row locks; checked separately"
+  },
+  "postgresql": {
+    "passed": 34,
+    "seconds": 7.96,
+    "database": "disposable PostgreSQL 17 UTF8"
+  },
+  "frontend": {
+    "passed": 54
+  },
+  "ruff": "PASS",
+  "migration_drift": "No changes detected",
+  "typescript_vite_build": "PASS; existing Phaser chunk warning",
+  "browser_gameplay": "PASS",
+  "browser_load_2_to_20_teams": "PASS",
+  "browser_30_unit_camera_and_pointer_inspection": "PASS"
+}
