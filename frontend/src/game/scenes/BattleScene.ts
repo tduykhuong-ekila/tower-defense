@@ -723,7 +723,7 @@ export class BattleScene extends Phaser.Scene {
       v.root.setDepth(y);
       v.sprite.setAlpha(e.status === "DISABLED" ? 0.4 : 1);
       if (!live && Math.hypot(v.root.x - x, v.root.y - y) > 2) {
-        this.tweens.killTweensOf(v.root);
+        this.stopRootAnimation(v);
         this.tweens.add({
           targets: v.root,
           x,
@@ -942,6 +942,16 @@ export class BattleScene extends Phaser.Scene {
       this.visuals.delete(id);
     }
   }
+  private stopRootAnimation(v: EntityVisual) {
+    // Keep destruction callbacks alive so they can release the visual/pool slot.
+    if (this.deaths.has(v.data.id)) return;
+    this.tweens.killTweensOf(v.root);
+    // Position/replay tweens share the root with the spawn fade. Cancelling
+    // that fade before its first frame otherwise leaves a living entity at
+    // alpha=0 forever, even after authoritative snapshots reconcile it.
+    if (v.data.status !== "DESTROYED")
+      v.root.setAlpha(1).setScale(1).setAngle(0);
+  }
   public playLiveEvents(events: CombatEvent[]) {
     for (const event of events.slice(0, 160)) {
       if (event.type === "ENTITY_DESTROYED" && event.entity_id) {
@@ -988,7 +998,7 @@ export class BattleScene extends Phaser.Scene {
         if (actor.data.unit_code === "infantry")
           actor.sprite.play(infantryRunAnimation(actor.data.level));
         if (!actor.drive) actor.sprite.setFlipX(n.worldX < actor.root.x);
-        this.tweens.killTweensOf(actor.root);
+        this.stopRootAnimation(actor);
         this.tweens.add({
           targets: actor.root,
           x: n.worldX,
@@ -1118,7 +1128,7 @@ export class BattleScene extends Phaser.Scene {
     // Recovery snapshots also call skipCombat. Only legacy replay owns root
     // tweens/animation stops; a live snapshot must preserve locomotion phase.
     if (!this.state.liveBattle) for (const v of this.visuals.values()) {
-      this.tweens.killTweensOf(v.root);
+      this.stopRootAnimation(v);
       v.sprite.stop();
       if (v.data.unit_code === "infantry") v.sprite.setTexture(infantryTexture(v.data.level)).setFrame(0);
     }
