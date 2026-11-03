@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import { naturalRoad, roadWidthScale } from "./roadShape";
+import { naturalRoad, roadShapeKey, roadWidthScale } from "./roadShape";
 import { paintStagingGround } from "./stagingGround";
 import { movementEdges, PALETTE, ServerMap, VisualNode, arenaWorld, battlefieldWorld } from "../map";
 
@@ -54,7 +54,7 @@ export function createTerrain(
   const roadWidths = data.placement_grid?.roadClearance?.paintedWidths || [57, 49, 43];
   const roadShapes = edges.map(edge => {
     const a = nodes.get(edge.from)!, b = nodes.get(edge.to)!;
-    const key = `${edge.from}:${edge.to}`;
+    const key = roadShapeKey(`${edge.from}:${edge.to}`, (data.arena?.version ?? 0) >= 7 && [6, 7].includes(data.num_teams));
     return {key, points: naturalRoad({x:a.worldX, y:a.worldY}, {x:b.worldX, y:b.worldY}, key, roadWidths[2])};
   });
   for (const [color, width] of [

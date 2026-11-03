@@ -70,6 +70,9 @@ class GameMap:
         if layout_version >= 7 and num_teams == 3:
             # Three radial teams need a little more room for balanced roads and build corridors.
             self.layout_scale = 4.2
+        if layout_version >= 7 and num_teams in (6, 7):
+            # Equal screen-space sectors need enough room for each build area.
+            self.layout_scale = 4.8
         self._distances_by_source: Dict[str, Dict[str, int]] = {}
         self.nodes: Dict[str, MapNode] = {}
         self.adjacency: Dict[str, Set[str]] = {}
@@ -79,8 +82,8 @@ class GameMap:
         self._tower_coverage: Dict[str, Set[str]] = {}
 
         self._build_topology()
-        if self.layout_version >= 7 and self.num_teams == 5:
-            self._balance_five_team_roads()
+        if self.layout_version >= 7 and self.num_teams in (5, 6, 7):
+            self._balance_projected_roads()
         if self.layout_version >= 7 and self.num_teams == 3:
             # Balance the screen-space roads and nearby building area across three teams.
             branch_scales = {2: 0.90, 3: 1.12}
@@ -96,12 +99,12 @@ class GameMap:
             BuildGeometry(self).place()
         self._precompute_graph()
 
-    def _balance_five_team_roads(self):
-        """Lay out five equal road sectors in the projected battlefield plane.
+    def _balance_projected_roads(self):
+        """Lay out equal road sectors in the projected battlefield plane.
 
-        A regular pentagon in map coordinates becomes a flattened pentagon after
+        A regular polygon in map coordinates becomes a flattened polygon after
         projection, stretching some teams' sand roads much more than others.
-        Build the pentagon in artwork coordinates and invert the projection so
+        Build the polygon in artwork coordinates and invert the projection so
         rendering, road clearance, rally areas and navigation share its geometry.
         The vertical projection scale keeps the roads inside the existing arena.
         """

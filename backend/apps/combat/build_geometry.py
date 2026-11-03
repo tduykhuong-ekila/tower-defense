@@ -8,7 +8,7 @@ include SVG strokes/padding and a small touch clearance, not just anchor radii.
 import math
 
 from apps.combat.navigation import project, unproject
-from apps.combat.road_shape import natural_road
+from apps.combat.road_shape import natural_road, road_shape_key
 
 BASE_BOUNDS = (-75, -125, 75, 45)
 TOWER_BOUNDS = (-54, -90, 54, 25)
@@ -45,7 +45,7 @@ def road_segments(graph):
             if u >= v or not graph.nodes[u].is_passable or not graph.nodes[v].is_passable:
                 continue
             a, b = (project((graph.nodes[n].x, graph.nodes[n].y)) for n in (u, v))
-            points = natural_road(a, b, f"{u}:{v}", sand_width)
+            points = natural_road(a, b, road_shape_key(graph, f"{u}:{v}"), sand_width)
             result.extend([(a, b), *zip(points, points[1:])])
     return result
 

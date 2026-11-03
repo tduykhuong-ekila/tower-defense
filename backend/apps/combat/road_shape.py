@@ -4,6 +4,14 @@ The walking centerline remains the shortest route entirely inside the sand.
 Organic bends use only spare width outside the 12px troop anchor allowance.
 """
 import math
+import re
+
+
+def road_shape_key(graph, key):
+    """Give corresponding balanced roads identical bends and shoulders."""
+    if graph.layout_version >= 7 and graph.num_teams in (6, 7):
+        return re.sub(r"_t\d+", "_team", key)
+    return key
 
 
 def natural_road(a, b, key, sand_width):

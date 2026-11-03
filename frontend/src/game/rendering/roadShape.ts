@@ -1,5 +1,9 @@
 export interface RoadPoint { x: number; y: number }
 
+export function roadShapeKey(key: string, equalSectors: boolean): string {
+  return equalSectors ? key.replace(/_t\d+/g, '_team') : key;
+}
+
 /** A continuous sand corridor contains the shortest straight walking line.
  * Bends use only the spare road width, leaving the 12px troop offset plus 3px
  * inside yellow sand. Stable edge IDs make the same map look identical on reload.

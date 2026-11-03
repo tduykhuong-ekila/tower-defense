@@ -249,6 +249,9 @@ class PlacementGrid:
         # Keep the three-team river out of the green team's outer roadside build corridor.
         self.river_offset_x = -250 if graph.layout_version >= 7 and graph.num_teams == 3 else 0
         self.geometry_revision = 17 if graph.layout_version >= 7 and graph.num_teams == 5 else 11
+        self.equal_sectors = graph.layout_version >= 7 and graph.num_teams in (6, 7)
+        if self.equal_sectors:
+            self.geometry_revision = 19 if graph.num_teams == 6 else 18
         self.placement_movement_envelope = (
             PLACEMENT_MOVEMENT_ENVELOPE
             if graph.layout_version >= 6 else MOVEMENT_ENVELOPE
@@ -282,7 +285,7 @@ class PlacementGrid:
             _river_path_away_from_parallel_roads(graph, self.width, self.height, self.river_offset_x)
             if graph.layout_version >= 7 and graph.num_teams == 3 else None
         )
-        if graph.layout_version >= 7 and graph.num_teams == 5:
+        if graph.layout_version >= 7 and graph.num_teams in (5, 6, 7):
             self.river_path = _five_team_territory_free_river(graph, self.width, self.height)
         self.river_cells = set()
         if self.river_path:
@@ -343,6 +346,8 @@ class PlacementGrid:
                 owner, reason = self.classify(row, col)
                 self.owners.append(owner)
                 self.reasons.append(reason)
+        if self.equal_sectors:
+            self._balance_building_areas()
         self.runs = []
         for row in range(self.rows):
             col = 0
@@ -352,6 +357,85 @@ class PlacementGrid:
                     col += 1
                 if owner:
                     self.runs.append([row, start, col, owner])
+
+    def _balance_building_areas(self):
+        """Equalize usable land, tower footprints and shield footprints.
+
+        A square grid, upright bases and parking clearances cannot have exact radial
+        rotation symmetry. Trim only otherwise safe cells at the outer edges;
+        never reopen a road, water, base or rally exclusion to meet a quota.
+        """
+        offsets = [dr * self.cols + dc for dr in range(3) for dc in range(3)]
+        areas = []
+        for team in range(1, self.graph.num_teams + 1):
+            cells = {i for i, owner in enumerate(self.owners) if owner == team}
+            anchors = {
+                row * self.cols + col
+                for row in range(self.rows - 2) for col in range(self.cols - 2)
+                if all(row * self.cols + col + offset in cells for offset in offsets)
+            }
+            shields = set()
+            for anchor in anchors:
+                row, col = divmod(anchor, self.cols)
+                point = self.anchor(row, col, FOOTPRINTS["shield_generator"])
+                local = unproject((point[0] - self.offset[0], point[1] - self.offset[1]))
+                if shield_position_allowed(self.graph, team, local):
+                    shields.add(anchor)
+            support = {cell: set() for cell in cells}
+            for anchor in anchors:
+                for offset in offsets:
+                    support[anchor + offset].add(anchor)
+            areas.append((cells, anchors, shields, support))
+
+        def rank(cell):
+            row, col = divmod(cell, self.cols)
+            x = (col + .5) * CELL_SIZE - self.offset[0]
+            y = (row + .5) * CELL_SIZE - self.offset[1]
+            return x * x + y * y, cell
+
+        def remove(cell, area):
+            cells, anchors, shields, support = area
+            cells.remove(cell)
+            self.owners[cell], self.reasons[cell] = 0, "TERRITORY"
+            for anchor in tuple(support[cell]):
+                anchors.remove(anchor)
+                shields.discard(anchor)
+                for offset in offsets:
+                    support[anchor + offset].remove(anchor)
+
+        # Preserve the same shield opportunities while balancing ordinary towers.
+        shield_target = min(len(area[2]) for area in areas)
+        for area in areas:
+            cells, anchors, shields, support = area
+            while len(shields) > shield_target:
+                candidates = [cell for cell in cells
+                              if 0 < len(support[cell] & shields) <= len(shields) - shield_target]
+                if not candidates:
+                    raise RuntimeError(f"Cannot balance {self.graph.num_teams}-team shield footprints")
+                remove(max(candidates, key=rank), area)
+
+        tower_target = min(len(area[1]) for area in areas)
+        for area in areas:
+            cells, anchors, shields, support = area
+            while len(anchors) > tower_target:
+                candidates = [cell for cell in cells
+                              if not support[cell] & shields
+                              and 0 < len(support[cell]) <= len(anchors) - tower_target]
+                if not candidates:
+                    raise RuntimeError(f"Cannot balance {self.graph.num_teams}-team tower footprints")
+                remove(max(candidates, key=rank), area)
+
+        cell_target = min(len(area[0]) for area in areas)
+        for area in areas:
+            cells, anchors, shields, support = area
+            # These fringe cells support no complete footprint, so trimming them
+            # leaves both construction quotas unchanged.
+            candidates = sorted((cell for cell in cells if not support[cell]), key=rank, reverse=True)
+            excess = len(cells) - cell_target
+            if len(candidates) < excess:
+                raise RuntimeError(f"Cannot balance {self.graph.num_teams}-team building land")
+            for cell in candidates[:excess]:
+                remove(cell, area)
 
     def classify(self, row, col):
         left, top = col * CELL_SIZE - self.offset[0], row * CELL_SIZE - self.offset[1]
@@ -364,7 +448,14 @@ class PlacementGrid:
         ]
         owners = []
         for point in corners:
-            x, y = unproject(point)
+            if self.equal_sectors:
+                # Match the circular roads in artwork space, rather than dividing
+                # an ellipse into sectors of unequal visible area.
+                angle = -math.pi * 3 / 4
+                x = (point[0] * math.cos(angle) + point[1] * math.sin(angle)) / .86
+                y = (-point[0] * math.sin(angle) + point[1] * math.cos(angle)) / .86
+            else:
+                x, y = unproject(point)
             radius = math.hypot(x, y)
             if not 140 * self.graph.layout_scale <= radius <= 420 * self.graph.layout_scale:
                 return 0, "TERRITORY"

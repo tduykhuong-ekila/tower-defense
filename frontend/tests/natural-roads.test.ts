@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { naturalRoad, roadWidthScale } from "../src/game/rendering/roadShape";
+import { naturalRoad, roadShapeKey, roadWidthScale } from "../src/game/rendering/roadShape";
 
 for (const width of [43, 70]) {
   test(`${width}px sand bends naturally while containing the shortest troop corridor`, () => {
@@ -35,4 +35,20 @@ test("short and degenerate roads stay finite", () => {
   for (const b of [{x:0,y:0},{x:1,y:1}])
     for (const point of naturalRoad({x:0,y:0},b,"edge",43))
       assert.ok(Number.isFinite(point.x)&&Number.isFinite(point.y));
+});
+
+for (const count of [6, 7]) test(`${count}-team roads share the same painted shape and widths in every direction`, () => {
+  const lengths: number[] = [];
+  const keys = Array.from({length: count}, (_, i) =>
+    roadShapeKey(`node_base_t${i + 1}:node_lane_t${i + 1}_1`, true));
+  assert.equal(new Set(keys).size, 1);
+  for (let i = 0; i < count; i++) {
+    const angle = i * Math.PI * 2 / count;
+    const points = naturalRoad({x: 0, y: 0}, {x: 330.24 * Math.cos(angle), y: 330.24 * Math.sin(angle)}, keys[i], 70);
+    lengths.push(points.slice(1).reduce((sum, p, j) => sum + Math.hypot(p.x - points[j].x, p.y - points[j].y), 0));
+    for (let j = 0; j < 33; j++) assert.equal(roadWidthScale(j, keys[i]), roadWidthScale(j, keys[0]));
+  }
+  assert.ok(lengths.every(length => Math.abs(length - lengths[0]) < 1e-9));
+  const legacy = 'node_base_t7:node_lane_t7_1';
+  assert.equal(roadShapeKey(legacy, false), legacy);
 });
