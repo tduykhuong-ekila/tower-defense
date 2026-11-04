@@ -846,6 +846,7 @@ export function BattlePage() {
       const q = await api.submitAnswer(matchId, question.id, answer);
       setQuestion(previous => previous?.id === q.id && (previous.timer?.version ?? 0) > (q.timer?.version ?? 0) ? previous : q);
       if (q.reward_options) setReward(q.reward_options);
+      if (q.is_correct === true) notify("Trả lời đúng!", "success");
       return q;
     } finally {
       answerLock.current = false;
