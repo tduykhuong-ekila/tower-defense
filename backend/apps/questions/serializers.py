@@ -30,6 +30,18 @@ class QuestionResolvedSerializer(serializers.ModelSerializer):
     Includes explanation and reference answers for review.
     """
 
+    correct_answer = serializers.SerializerMethodField()
+
+    def get_correct_answer(self, obj):
+        answer = str(obj.answer_key).strip()
+        if obj.type == "MULTIPLE_CHOICE":
+            for index, option in enumerate(obj.options or []):
+                key = str(option.get("key", "")) if isinstance(option, dict) else chr(65 + index)
+                text = str(option.get("text", "")) if isinstance(option, dict) else str(option)
+                if answer.casefold() in (key.strip().casefold(), text.strip().casefold()):
+                    return f"{key}. {text}"
+        return answer
+
     class Meta:
         model = Question
         fields = [
@@ -41,6 +53,7 @@ class QuestionResolvedSerializer(serializers.ModelSerializer):
             "options",
             "time_limit_seconds",
             "explanation",
+            "correct_answer",
         ]
 
 

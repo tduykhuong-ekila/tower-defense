@@ -550,6 +550,12 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({
                         : `Đội của bạn đã trả lời đúng! Hãy chọn nhận ${questionState.reward_options?.coin_amount ?? 30} Coin hoặc Mở khóa một Đơn vị/Công sự mới.`
                       : "Đội của bạn không nhận được phần thưởng cho câu hỏi này. Trận đấu vẫn tiếp tục."}
                   </div>
+                  {!is_correct && question.correct_answer && (
+                    <div style={{ marginTop: "12px", fontSize: "0.95rem", lineHeight: 1.5, overflowWrap: "anywhere", whiteSpace: "pre-wrap" }}>
+                      <strong style={{ color: "var(--accent-cyan)" }}>Đáp án đúng: </strong>
+                      {question.correct_answer}
+                    </div>
+                  )}
                   {question.explanation && (
                     <div
                       style={{

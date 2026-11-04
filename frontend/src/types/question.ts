@@ -35,6 +35,7 @@ export interface Question {
   options?: Array<QuestionOption | string>;
   time_limit_seconds: number;
   explanation?: string;
+  correct_answer?: string;
 }
 
 export interface TeamQuestion {
