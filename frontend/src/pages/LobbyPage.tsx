@@ -21,8 +21,10 @@ import {
 import {
   api,
   getActiveMember,
+  getHostToken,
   isHostMode,
   setActiveMember,
+  setHostToken,
 } from '../services/api';
 import { Match, ParticipantRole, Team, TeamMember } from '../types/match';
 import { wsClient } from '../services/websocket';
@@ -151,6 +153,10 @@ export const LobbyPage: React.FC = () => {
 
     const unsubEvents = wsClient.onEvent((envelope: ServerEnvelope) => {
       const { event_type, payload } = envelope;
+      if (event_type === 'MATCH_STATE_SNAPSHOT' && payload.viewer?.is_host && isHostMode()) {
+        const token = getHostToken(match.id);
+        if (token) setHostToken(token, payload.match);
+      }
 
       // Handle match start / phase change immediately
       if (event_type === 'MATCH_STARTED' || event_type === 'MATCH_PHASE_CHANGED') {

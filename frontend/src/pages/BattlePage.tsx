@@ -14,7 +14,7 @@ import { EntityInfoCard, inspectEntity } from "../components/game/EntityInfoCard
 import { ENTITY_NAMES as NAMES } from "../game/entityArtwork";
 import { EntityIllustration } from "../components/game/EntityIllustration";
 import { useCallback, useEffect, useMemo, useRef, useState, SetStateAction } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   ArrowLeft,
   BookOpen,
@@ -35,6 +35,7 @@ import {
   Settings,
   Shield,
   SkipForward,
+  Square,
   Swords,
   Volume2,
   VolumeX,
@@ -56,7 +57,7 @@ import { playFeedback } from "../game/sound";
 import { planningSeconds } from "../game/roundClock";
 import { actionAvailability, AvailabilityContext, purchaseAvailability, maximumDeployment } from "../game/actionAvailability";
 import { GameplayModal, visibleGameplayModal } from "../game/gameplayModal";
-import { api, getActiveMember, getAuthToken } from "../services/api";
+import { api, getActiveMember, getAuthToken, getHostToken, setHostToken } from "../services/api";
 import { wsClient } from "../services/websocket";
 import { useMatchStore } from "../stores/matchStore";
 import { Match } from "../types/match";
@@ -87,6 +88,7 @@ function formatClock(seconds: number) {
 }
 
 export function BattlePage() {
+  const navigate = useNavigate();
   const { matchId: routeId } = useParams();
   const [matchId, setMatchId] = useState<string | null>(
     routeId || sessionStorage.getItem("tower_active_match_id"),
@@ -117,6 +119,7 @@ export function BattlePage() {
   const [retreatOpen, setRetreatOpen] = useState(false);
   const [retreatSnapshot, setRetreatSnapshot] = useState<string[]>([]);
   const [pending, setPending] = useState(false);
+  const [endingMatch, setEndingMatch] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [drawer, setDrawer] = useState<Drawer>(null);
   const [sound, setSound] = useState(false);
@@ -488,6 +491,8 @@ export function BattlePage() {
         notify("Trận đấu đã kết thúc. Đóng cửa sổ để xem kết quả.");
       }
       if (envelope.event_type === "MATCH_STATE_SNAPSHOT") {
+        const hostToken = next.isHost ? getHostToken(matchId) : null;
+        if (hostToken && next.match) setHostToken(hostToken, next.match);
         phaser.current?.skipCombat();
         setPlaying(false);
         setQuestion(next.currentQuestion);
@@ -1455,6 +1460,34 @@ export function BattlePage() {
                     <Swords size={18} />
                     Bắt đầu vòng tiếp theo
                   </button>
+                  {match && match.status !== "FINISHED" && phase !== "RESULTS" && (
+                    <button
+                      className="drawer-team"
+                      disabled={endingMatch}
+                      onClick={async () => {
+                        if (endingMatch || !window.confirm(
+                          "Kết thúc trận đấu ngay bây giờ? Điểm hiện tại sẽ được chốt và trận đấu không thể tiếp tục.",
+                        )) return;
+                        setEndingMatch(true);
+                        try {
+                          const ended = await api.endMatch(matchId);
+                          setDetails(ended);
+                          wsClient.requestSync();
+                          navigate(`/results/${matchId}`);
+                        } catch (e) {
+                          notify(
+                            e instanceof Error ? e.message : "Kết thúc trận đấu thất bại.",
+                            "error",
+                          );
+                        } finally {
+                          setEndingMatch(false);
+                        }
+                      }}
+                    >
+                      <Square size={18} />
+                      {endingMatch ? "Đang kết thúc trận đấu…" : "Kết thúc trận đấu"}
+                    </button>
+                  )}
                   <Link className="drawer-team" to="/host">
                     <Settings size={18} />
                     Bảng điều khiển Host

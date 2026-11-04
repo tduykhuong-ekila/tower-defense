@@ -38,6 +38,7 @@ from apps.questions.views import (
     QuestionDetailView,
     QuestionListCreateView,
 )
+from apps.realtime.browser_security import BrowserInspectionReportView
 from apps.rewards.views import MatchRewardClaimView, MatchRewardOptionsView
 from apps.units.views import (
     MatchArmyCommandView,
@@ -56,6 +57,7 @@ from apps.units.views import (
 )
 
 urlpatterns = [
+    path("matches/<uuid:match_id>/security/inspection/", BrowserInspectionReportView.as_view(), name="browser_inspection_report"),
     path("matches/<uuid:match_id>/actions/army/", MatchArmyCommandView.as_view(), name="match_army_command"),
     path("matches/<uuid:match_id>/upgrades/", MatchTeamUpgradeView.as_view(), name="match_team_upgrade"),
     path("question-banks/upload/", QuestionBankUploadView.as_view(), name="question_bank_upload"),

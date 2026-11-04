@@ -10,6 +10,7 @@ import {
 import { TeamQuestion } from "../types/question";
 import { QuestionBankPreview } from "../types/questionBank";
 import { RewardClaim, RewardOptions } from "../types/reward";
+import { acceptBrowserSessionEvent, getBrowserSessionId } from "../security/browserSession";
 import { GameAction, GameEntity, TeamState, UnitType } from "../types/unit";
 import {
   BalancePreview,
@@ -22,7 +23,24 @@ const API_BASE = "/api/v1";
 
 const PARTICIPANT_TOKEN_KEY = "tower_participant_token";
 const HOST_TOKEN_KEY = "tower_host_token";
+const HOST_SESSIONS_KEY = "tower_host_sessions";
 const ACTIVE_MEMBER_KEY = "tower_active_member";
+let lastMatchId: string | undefined;
+export const getActiveApiMatchId = () => lastMatchId;
+
+type SavedHostSession = Pick<Match, "id" | "name" | "room_code"> & { token: string };
+
+export function getSavedHostSessions(): SavedHostSession[] {
+  try {
+    const value: unknown = JSON.parse(localStorage.getItem(HOST_SESSIONS_KEY) || "[]");
+    return Array.isArray(value) ? value.filter((entry): entry is SavedHostSession =>
+      entry && typeof entry.id === "string" && typeof entry.name === "string" &&
+      typeof entry.room_code === "string" && typeof entry.token === "string",
+    ) : [];
+  } catch {
+    return [];
+  }
+}
 
 export function getParticipantToken(): string | null {
   return sessionStorage.getItem(PARTICIPANT_TOKEN_KEY);
@@ -51,16 +69,45 @@ export function clearParticipantToken(): void {
   sessionStorage.removeItem(ACTIVE_MEMBER_KEY);
 }
 
-export function getHostToken(): string | null {
-  return sessionStorage.getItem(HOST_TOKEN_KEY);
+export function getHostToken(matchId?: string): string | null {
+  const targetId = matchId || (typeof window !== "undefined"
+    ? window.location.pathname?.match(/^\/(?:battle|lobby|results)\/([^/]+)/)?.[1]
+    : undefined);
+  if (targetId) {
+    const saved = getSavedHostSessions().find((entry) => entry.id === targetId);
+    if (saved) return saved.token;
+  }
+  const token = sessionStorage.getItem(HOST_TOKEN_KEY);
+  try {
+    // Migrate existing open host tabs, and recover after a tab/browser closes.
+    if (token) localStorage.setItem(HOST_TOKEN_KEY, token);
+    return token || localStorage.getItem(HOST_TOKEN_KEY);
+  } catch {
+    return token;
+  }
 }
 
-export function setHostToken(token: string): void {
+export function setHostToken(token: string, match?: Pick<Match, "id" | "name" | "room_code">): void {
   sessionStorage.setItem(HOST_TOKEN_KEY, token);
+  try {
+    localStorage.setItem(HOST_TOKEN_KEY, token);
+    if (match) {
+      const sessions = getSavedHostSessions().filter((entry) => entry.id !== match.id);
+      localStorage.setItem(HOST_SESSIONS_KEY, JSON.stringify([
+        { id: match.id, name: match.name, room_code: match.room_code, token }, ...sessions,
+      ]));
+    }
+  } catch {
+    // The current tab still works if browser storage is unavailable.
+  }
 }
 
 export function clearHostToken(): void {
   sessionStorage.removeItem(HOST_TOKEN_KEY);
+  try {
+    localStorage.removeItem(HOST_TOKEN_KEY);
+    localStorage.removeItem(HOST_SESSIONS_KEY);
+  } catch { /* Storage may be disabled. */ }
 }
 
 export function getActiveMember(): TeamMember | null {
@@ -81,13 +128,16 @@ export async function apiRequest<T>(
   endpoint: string,
   options: RequestInit = {},
 ): Promise<T> {
-  const hostToken = isHostMode() ? getHostToken() : null;
+  const matchId = endpoint.match(/^\/matches\/([^/]+)\//)?.[1];
+  if (matchId && /^[0-9a-f-]{36}$/i.test(matchId)) lastMatchId = matchId;
+  const hostToken = isHostMode() ? getHostToken(matchId) : null;
   const participantToken = getParticipantToken();
 
   const headers: Record<string, string> = {
     ...(options.body instanceof FormData ? {} : { "Content-Type": "application/json" }),
     ...(options.headers as Record<string, string>),
   };
+  headers["X-Browser-Session"] = getBrowserSessionId();
 
   if (hostToken) {
     headers["X-Host-Token"] = hostToken;
@@ -108,6 +158,7 @@ export async function apiRequest<T>(
 
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}));
+    acceptBrowserSessionEvent(errorData.event);
     const message =
       errorData.error ||
       errorData.detail ||

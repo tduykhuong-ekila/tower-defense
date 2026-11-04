@@ -1,0 +1,35 @@
+.browser-blocked {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  box-sizing: border-box;
+  background: #101b16;
+  color: #f5f1de;
+  font-family: system-ui, sans-serif;
+}
+.browser-blocked-card {
+  width: min(100%, 480px);
+  text-align: center;
+  padding: 32px 24px;
+  box-sizing: border-box;
+  border: 1px solid #63704c;
+  border-radius: 20px;
+  background: #1d2b21;
+}
+.browser-blocked-icon { font-size: 42px; }
+.browser-blocked-card h1 { margin: 16px 0; font-size: 30px; }
+.browser-blocked-card p { line-height: 1.6; color: #d5d8c7; }
+.browser-blocked-card button {
+  margin-top: 12px;
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 24px;
+  background: #e8c36a;
+  color: #192219;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.browser-blocked-card button:focus-visible { outline: 3px solid white; outline-offset: 4px; }

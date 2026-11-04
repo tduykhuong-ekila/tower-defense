@@ -136,6 +136,10 @@ class TokenAuthMiddleware:
                 scope["team_id"] = auth_result.get("team_id")
                 scope["role"] = auth_result.get("role")
                 scope["match_instance"] = auth_result.get("match")
+                from apps.realtime.browser_security import parse_session_id
+
+                session_values = parse_qs(query_string).get("browser_session", [])
+                scope["browser_session_id"] = parse_session_id(session_values[0]) if session_values else None
             else:
                 scope["authenticated"] = False
                 scope["auth"] = {"authenticated": False, "error": "Invalid match route"}

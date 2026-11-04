@@ -10,6 +10,11 @@ from django.core.exceptions import ValidationError
 from apps.matches.models import Match, MatchEvent
 from apps.matches.services import MatchService
 from apps.questions.services import QuestionService
+from apps.realtime.browser_security import (
+    blocked_envelope,
+    browser_session_group,
+    is_browser_session_blocked,
+)
 from apps.realtime.events import ClientEventType, ServerEventType, format_event_envelope
 from apps.realtime.services import RealtimeService, scope_live_event
 from apps.rewards.services import RewardService
@@ -64,6 +69,20 @@ class MatchConsumer(AsyncJsonWebsocketConsumer):
         self.team_member = self.scope.get("team_member")
         self.team_id = self.scope.get("team_id")
         self.role = self.scope.get("role")
+        self.browser_session_id = self.scope.get("browser_session_id")
+        self.credential_hash = (self.scope["match_instance"].host_token_hash
+                                if self.is_host else self.team_member.token_hash)
+        self.browser_group = browser_session_group(
+            self.match_id, self.credential_hash, self.browser_session_id,
+        ) if self.browser_session_id else None
+
+        # Subscribe before checking the durable block to avoid a report/connect race.
+        if self.browser_group:
+            await self.channel_layer.group_add(self.browser_group, self.channel_name)
+        await self.accept()
+        if await self.browser_is_blocked():
+            await self.browser_session_blocked({"data": blocked_envelope(self.match_id)})
+            return
 
         # Groups (§2.1): match.{id}, match.{id}.team.{team_id}, match.{id}.host
         self.match_group = f"match.{self.match_id}"
@@ -80,13 +99,13 @@ class MatchConsumer(AsyncJsonWebsocketConsumer):
         if self.host_group:
             await self.channel_layer.group_add(self.host_group, self.channel_name)
 
-        await self.accept()
-
         # Send initial snapshot upon connection (§25)
         snapshot = await self.get_snapshot()
         await self.send_json(snapshot)
 
     async def disconnect(self, code):
+        if getattr(self, "browser_group", None):
+            await self.channel_layer.group_discard(self.browser_group, self.channel_name)
         if hasattr(self, "match_group"):
             await self.channel_layer.group_discard(self.match_group, self.channel_name)
         if getattr(self, "team_group", None):
@@ -96,10 +115,22 @@ class MatchConsumer(AsyncJsonWebsocketConsumer):
 
     async def match_event(self, event):
         """Handler for events broadcasted through channel_layer."""
+        if getattr(self, "browser_blocked", False):
+            await self.browser_session_blocked({"data": blocked_envelope(self.match_id)})
+            return
         envelope = event.get("data")
         if envelope is None:
             envelope = await self.get_event(event["event_id"])
         await self.send_json(scope_live_event(envelope, self.team_id, self.is_host))
+
+    @database_sync_to_async
+    def browser_is_blocked(self):
+        return is_browser_session_blocked(self.match_id, self.credential_hash, self.browser_session_id)
+
+    async def browser_session_blocked(self, event):
+        self.browser_blocked = True
+        await self.send_json(event["data"])
+        await self.close(code=4003)
 
     @database_sync_to_async
     def get_event(self, event_id):
@@ -109,6 +140,9 @@ class MatchConsumer(AsyncJsonWebsocketConsumer):
                                      event_id=event.id, server_timestamp=event.created_at)
 
     async def receive_json(self, content, **kwargs):
+        if getattr(self, "browser_blocked", False) or await self.browser_is_blocked():
+            await self.browser_session_blocked({"data": blocked_envelope(self.match_id)})
+            return
         event_type = content.get("event_type") or content.get("type")
         payload = content.get("payload", {})
         idempotency_key = payload.get("idempotency_key")

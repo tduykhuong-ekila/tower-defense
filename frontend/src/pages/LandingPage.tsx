@@ -13,7 +13,7 @@ import {
   Users,
   X,
 } from 'lucide-react';
-import { api, setHostToken } from '../services/api';
+import { api, getSavedHostSessions, setHostToken } from '../services/api';
 import { Match } from '../types/match';
 import { MaximumTeamsSelect, useRoomConstraints } from '../components/MaximumTeamsSelect';
 import { QuestionBankUpload } from '../components/QuestionBankUpload';
@@ -26,6 +26,7 @@ export const LandingPage: React.FC = () => {
   const [backendStatus, setBackendStatus] = useState<string>('đang kiểm tra...');
   const [isHealthy, setIsHealthy] = useState<boolean>(false);
   const [activeMatches, setActiveMatches] = useState<Match[]>([]);
+  const [hostMatches, setHostMatches] = useState<Match[]>([]);
   const [roomCodeInput, setRoomCodeInput] = useState<string>('');
 
   // Modals
@@ -49,6 +50,13 @@ export const LandingPage: React.FC = () => {
   const createLock = useRef(false);
 
   useEffect(() => {
+    let mounted = true;
+    Promise.allSettled(getSavedHostSessions().map((session) => api.getMatch(session.id)))
+      .then((results) => {
+        if (mounted) setHostMatches(results.flatMap((result) =>
+          result.status === 'fulfilled' ? [result.value] : [],
+        ));
+      });
     api.getHealth()
       .then((res) => {
         setBackendStatus(res.status === 'healthy' ? 'hoạt động' : res.status);
@@ -66,6 +74,7 @@ export const LandingPage: React.FC = () => {
       .catch(() => {
         setActiveMatches([]);
       });
+    return () => { mounted = false; };
   }, []);
 
   const handleQuickJoin = (e: React.FormEvent) => {
@@ -100,7 +109,7 @@ export const LandingPage: React.FC = () => {
       });
 
       if (match.host_token) {
-        setHostToken(match.host_token);
+        setHostToken(match.host_token, match);
       }
       setShowCreateModal(false);
       navigate(`/lobby/${match.id}?host=1`);
@@ -186,6 +195,32 @@ export const LandingPage: React.FC = () => {
           <div className="landing-map-seal"><Shield size={22} /><span>THỦ<br />THÀNH</span></div>
         </div>
       </section>
+
+      {hostMatches.length > 0 && (
+        <section className="landing-rooms" aria-label="Phòng của bạn">
+          <div className="landing-section-heading">
+            <div><span className="landing-section-kicker">QUYỀN HOST ĐÃ LƯU</span><h2><Shield size={20} /> Phòng của bạn</h2></div>
+            <span>Vào lại bằng trình duyệt này sau khi đóng tab</span>
+          </div>
+          <div className="landing-room-grid">
+            {hostMatches.map((match) => (
+              <div key={match.id} className="landing-room-card">
+                <div className="landing-room-crest"><Shield size={19} /></div>
+                <div className="landing-room-info">
+                  <strong>{match.name}</strong>
+                  <span><b>#{match.room_code}</b><i /><em>{({ LOBBY: 'Phòng chờ', ACTIVE: 'Đang đấu', PAUSED: 'Tạm dừng', FINISHED: 'Đã kết thúc' })[match.status]}</em></span>
+                </div>
+                <button className="landing-room-join" onClick={() => navigate(
+                  match.status === 'FINISHED' ? `/results/${match.id}`
+                    : `/${match.status === 'LOBBY' ? 'lobby' : 'battle'}/${match.id}?host=1`,
+                )}>
+                  {match.status === 'FINISHED' ? 'Xem kết quả' : 'Vào lại làm Host'}
+                </button>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Active Lobby Rooms (if any) */}
       {activeMatches.length > 0 && (

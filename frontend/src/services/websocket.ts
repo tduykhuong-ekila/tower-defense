@@ -2,6 +2,7 @@ import { apiRequest, getAuthToken } from "./api";
 import { ConnectionStatus, ServerEnvelope } from "../types/realtime";
 import { EnvelopeChunks } from "./envelopeChunks";
 import { useMatchStore } from "../stores/matchStore";
+import { acceptBrowserSessionEvent, getBrowserSessionId } from "../security/browserSession";
 
 export type MessageHandler = (data: any, envelope: ServerEnvelope) => void;
 export type SnapshotLoader = (matchId: string, signal: AbortSignal) => Promise<ServerEnvelope>;
@@ -76,7 +77,7 @@ export class WebSocketClient {
     this.reconnectTimer = null;
     this.setStatus(this.reconnectAttempts ? "reconnecting" : "disconnected");
     const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
-    const url = `${protocol}//${window.location.host}/ws/matches/${matchId}/?token=${encodeURIComponent(getAuthToken() || "")}`;
+    const url = `${protocol}//${window.location.host}/ws/matches/${matchId}/?token=${encodeURIComponent(getAuthToken() || "")}&browser_session=${getBrowserSessionId()}`;
     let socket: WebSocket;
     try { socket = new WebSocket(url); this.ws = socket; this.waitForSnapshot(); }
     catch (err) { console.error("[WebSocket] Failed to instantiate:", err); this.attemptReconnect(); return; }
@@ -103,6 +104,9 @@ export class WebSocketClient {
       try {
         let envelope: ServerEnvelope = JSON.parse(event.data);
         if (envelope.match_id && envelope.match_id !== this.matchId) return;
+        // A security control message must bypass snapshot waits, stale sequence
+        // filtering and the match reducer. No queued actions may survive it.
+        if (acceptBrowserSessionEvent(envelope)) { this.disconnect(); return; }
         this.lastReceivedAt = Date.now();
         if (envelope.event_type === "JSON_CHUNK") {
           const assembled = this.chunks.push(envelope.payload);

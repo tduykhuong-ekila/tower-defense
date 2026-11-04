@@ -18,7 +18,7 @@ import {
   Castle,
 } from 'lucide-react';
 import { MatchResultsApiResponse, MatchAward, MatchResultRecord } from '../types/combat';
-import { api } from '../services/api';
+import { api, setHostToken } from '../services/api';
 import './ResultsPage.css';
 
 export const ResultsPage: React.FC = () => {
@@ -166,6 +166,7 @@ export const ResultsPage: React.FC = () => {
     setRematchLoading(true);
     try {
       const res = await api.rematch(matchId);
+      setHostToken(res.host_token, res.match);
       alert(`Đã khởi tạo trận tái đấu mới thành công! Mã phòng mới: #${res.new_room_code}`);
       navigate(`/lobby/${res.new_match_id}?host=1`);
     } catch (err: unknown) {

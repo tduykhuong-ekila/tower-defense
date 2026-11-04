@@ -22,7 +22,7 @@ import {
   Radio,
   FileText,
 } from 'lucide-react';
-import { api } from '../services/api';
+import { api, getHostToken, getSavedHostSessions, setHostToken } from '../services/api';
 import { Match } from '../types/match';
 import { HostTelemetry, HostTeamTelemetry, MatchPreset, BalancePreview } from '../types/combat';
 import { CombatDebugViewer } from '../components/game/CombatDebugViewer';
@@ -86,7 +86,8 @@ export const HostDashboardPage: React.FC = () => {
       const list = await api.listMatches();
       setMatches(list);
       if (list.length > 0 && !selectedMatch) {
-        setSelectedMatch(list[0]);
+        const saved = getSavedHostSessions();
+        setSelectedMatch(saved.map((session) => list.find((match) => match.id === session.id)).find(Boolean) || list[0]);
       } else if (selectedMatch) {
         const updated = list.find((m) => m.id === selectedMatch.id);
         if (updated) setSelectedMatch(updated);
@@ -101,6 +102,8 @@ export const HostDashboardPage: React.FC = () => {
     if (!selectedMatch) return;
     try {
       const data = await api.getHostTelemetry(selectedMatch.id);
+      const token = getHostToken(selectedMatch.id);
+      if (token) setHostToken(token, selectedMatch);
       setTelemetry(data);
     } catch {
       // Telemetry might fail if match deleted
