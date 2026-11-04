@@ -185,7 +185,7 @@ export const api = {
   getRoomConstraints: () => apiRequest<RoomConstraints>("/matches/constraints/"),
 
   // Matches
-  createMatch: (data: { name: string; configuration?: Partial<Omit<MatchConfig, "min_teams" | "min_players_per_team">>; question_bank_id?: string; question_bank_token?: string; creation_token?: string }) =>
+  createMatch: (data: { name: string; admin_password: string; configuration?: Partial<Omit<MatchConfig, "min_teams" | "min_players_per_team">>; question_bank_id?: string; question_bank_token?: string; creation_token?: string }) =>
     apiRequest<CreateMatchResponse>("/matches/", {
       method: "POST",
       body: JSON.stringify(data),

@@ -35,6 +35,7 @@ export const LandingPage: React.FC = () => {
 
   // Create match form
   const [createName, setCreateName] = useState<string>('Đại Chiến Đấu Trường');
+  const [adminPassword, setAdminPassword] = useState('');
   const { constraints, error: constraintsError } = useRoomConstraints();
   const [maxTeams, setMaxTeams] = useState<number>();
   const [totalRounds, setTotalRounds] = useState<2 | 3>(3);
@@ -94,6 +95,7 @@ export const LandingPage: React.FC = () => {
     try {
       const match = await api.createMatch({
         name: createName,
+        admin_password: adminPassword,
         creation_token: creationToken.current,
         ...(questionBank ? { question_bank_id: questionBank.id, question_bank_token: questionBank.token } : {}),
         configuration: {
@@ -112,6 +114,7 @@ export const LandingPage: React.FC = () => {
         setHostToken(match.host_token, match);
       }
       setShowCreateModal(false);
+      setAdminPassword('');
       navigate(`/lobby/${match.id}?host=1`);
     } catch (err: unknown) {
       setCreateError(err instanceof Error ? err.message : 'Tạo phòng thất bại');
@@ -133,7 +136,7 @@ export const LandingPage: React.FC = () => {
 
           <div className="landing-actions">
             <button
-              onClick={() => { setQuestionBank(null); setBankReady(true); creationToken.current = crypto.randomUUID(); setCreateError(null); setShowCreateModal(true); }}
+              onClick={() => { setAdminPassword(''); setQuestionBank(null); setBankReady(true); creationToken.current = crypto.randomUUID(); setCreateError(null); setShowCreateModal(true); }}
               className="btn-primary landing-create-button"
             >
               <Plus size={18} /> Dựng phòng tuyến
@@ -320,6 +323,7 @@ export const LandingPage: React.FC = () => {
 
             {createError && (
               <div
+                role="alert"
                 style={{
                   background: 'rgba(244, 63, 94, 0.15)',
                   border: '1px solid rgba(244, 63, 94, 0.3)',
@@ -335,6 +339,21 @@ export const LandingPage: React.FC = () => {
             )}
 
             <form onSubmit={handleCreateMatch}>
+              <div style={{ marginBottom: '16px' }}>
+                <label htmlFor="create-admin-password" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '6px' }}>
+                  MẬT KHẨU QUẢN TRỊ VIÊN
+                </label>
+                <input
+                  id="create-admin-password"
+                  type="password"
+                  required
+                  autoComplete="off"
+                  value={adminPassword}
+                  onChange={(e) => setAdminPassword(e.target.value)}
+                  placeholder="Nhập mật khẩu để tạo phòng đấu"
+                  style={{ width: '100%', padding: '10px 14px', background: 'rgba(0, 0, 0, 0.3)', border: '1px solid var(--border-subtle)', borderRadius: '8px', color: '#fff' }}
+                />
+              </div>
               <div style={{ marginBottom: '16px' }}>
                 <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '6px' }}>
                   TÊN TRẬN ĐẤU

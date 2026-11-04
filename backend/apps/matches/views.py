@@ -1,6 +1,8 @@
+from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import IntegrityError
 from django.shortcuts import get_object_or_404
+from django.utils.crypto import constant_time_compare
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -48,6 +50,14 @@ class MatchListCreateView(APIView):
     """
 
     def post(self, request):
+        password = request.data.get("admin_password")
+        if not isinstance(password, str) or not settings.ROOM_CREATION_PASSWORD or not constant_time_compare(
+            password, settings.ROOM_CREATION_PASSWORD
+        ):
+            return Response(
+                {"error": "Mật khẩu quản trị viên không đúng."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
         serializer = CreateMatchRequestSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 

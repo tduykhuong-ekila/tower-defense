@@ -180,7 +180,7 @@ def test_failed_import_rolls_back_bank_and_questions():
 def test_atomic_room_creation_retry_and_association(max_teams):
     bank = upload().data
     client = APIClient()
-    body = {"name": "Uploaded room", "question_bank_id": bank["id"], "question_bank_token": TOKEN, "configuration": {"max_teams": max_teams}}
+    body = {"admin_password": "Admin123@", "name": "Uploaded room", "question_bank_id": bank["id"], "question_bank_token": TOKEN, "configuration": {"max_teams": max_teams}}
     result = client.post("/api/v1/matches/", body, format="json")
     again = client.post("/api/v1/matches/", body, format="json")
     assert result.status_code == again.status_code == 201
@@ -217,7 +217,7 @@ def test_invalid_foreign_expired_staging_and_creation_rollback():
 
 def test_room_creation_without_upload_remains_compatible_and_idempotent():
     client = APIClient()
-    body = {"name": "Legacy room", "creation_token": TOKEN}
+    body = {"admin_password": "Admin123@", "name": "Legacy room", "creation_token": TOKEN}
     first = client.post("/api/v1/matches/", body, format="json")
     second = client.post("/api/v1/matches/", body, format="json")
     assert first.status_code == 201 and first.data["id"] == second.data["id"]

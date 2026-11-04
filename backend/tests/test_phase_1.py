@@ -17,7 +17,7 @@ def test_create_match_api(api_client):
     """Host can create match, receiving room code and host token."""
     response = api_client.post(
         "/api/v1/matches/",
-        {"name": "Championship 2026", "configuration": {"min_teams": 4}},
+        {"admin_password": "Admin123@", "name": "Championship 2026", "configuration": {"min_teams": 4}},
         format="json",
     )
     assert response.status_code == 201

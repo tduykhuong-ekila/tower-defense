@@ -19,6 +19,7 @@ if env_file.exists():
     environ.Env.read_env(env_file)
 
 SECRET_KEY = env("SECRET_KEY")
+ROOM_CREATION_PASSWORD = env("ROOM_CREATION_PASSWORD", default="Admin123@")
 DEBUG = env("DEBUG")
 ALLOWED_HOSTS = env("ALLOWED_HOSTS")
 

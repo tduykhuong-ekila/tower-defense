@@ -15,7 +15,7 @@ from apps.teams.models import MemberRole, TeamMember
 @pytest.mark.parametrize('maximum', [None, 2, 4, 20])
 def test_create_with_only_maximum_capacity(maximum):
     config = {} if maximum is None else {'max_teams': maximum}
-    response = APIClient().post('/api/v1/matches/', {'name': 'Capacity', 'configuration': config}, format='json')
+    response = APIClient().post('/api/v1/matches/', {'admin_password': 'Admin123@', 'name': 'Capacity', 'configuration': config}, format='json')
     assert response.status_code == 201
     saved = response.json()['configuration']
     assert saved['max_teams'] == (DEFAULT_MAX_TEAMS if maximum is None else maximum)
@@ -27,7 +27,7 @@ def test_create_with_only_maximum_capacity(maximum):
 @pytest.mark.django_db
 @pytest.mark.parametrize('maximum', [0, 1, 21, -1, 4.5, 'invalid'])
 def test_invalid_capacity_rejected(maximum):
-    response = APIClient().post('/api/v1/matches/', {'configuration': {'max_teams': maximum}}, format='json')
+    response = APIClient().post('/api/v1/matches/', {'admin_password': 'Admin123@', 'configuration': {'max_teams': maximum}}, format='json')
     assert response.status_code == 400
 
 
